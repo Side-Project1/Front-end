@@ -3,7 +3,7 @@ import * as S from "./Header.style";
 const Header = () => {
   return (
     <S.Wrapper>
-      <S.Title>Header</S.Title>
+      <S.Title>Muse Market</S.Title>
     </S.Wrapper>
   );
 };
