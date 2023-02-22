@@ -16,7 +16,7 @@ const Login = () => {
         </S.LeftContainer>
         <S.RightContainer>
           <S.Box>
-            <S.EmailDescription></S.EmailDescription>
+            <S.EmailDescription>자동 로그인</S.EmailDescription>
             <S.EmailBox></S.EmailBox>
             <S.PasswordBox></S.PasswordBox>
             <S.PasswordDescription>

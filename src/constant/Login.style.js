@@ -62,7 +62,12 @@ export const Box = styled.div`
 `;
 
 export const EmailDescription = styled.div`
-  background-color: #a7bffd;
+  color: #213660;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
+  text-align: end;
+  margin-bottom: 9px;
 `;
 
 export const EmailBox = styled.input`
