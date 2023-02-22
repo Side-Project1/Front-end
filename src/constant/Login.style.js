@@ -71,22 +71,24 @@ export const EmailDescription = styled.div`
 `;
 
 export const EmailBox = styled.input`
-  width: 383px;
+  width: 358px;
   height: 59px;
   background-color: #e0e9ff;
   border-radius: 18px;
   border-style: none;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 27px;
+  padding-left: 25px;
 `;
 
 export const PasswordBox = styled.input`
-  width: 383px;
+  width: 358px;
   height: 59px;
   background-color: #e0e9ff;
   border-radius: 18px;
   border-style: none;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
+  padding-left: 25px;
 `;
 
 export const PasswordDescription = styled.div`
@@ -106,7 +108,24 @@ export const LoginButton = styled.button`
   cursor: pointer;
 `;
 
-export const SocialLoginButton = styled.button``;
+export const SocialLoginBox = styled.div``;
+
+export const SocialLoginText = styled.div`
+  margin-top: 46px;
+  margin-bottom: 32px;
+  color: #636262;
+`;
+
+export const SocialLoginButton = styled.button`
+  background: #c8d7ff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    inset 0px 4px 10px rgba(0, 0, 0, 0.02);
+  border-radius: 30px;
+  width: 154px;
+  height: 53px;
+  border-style: none;
+  cursor: pointer;
+`;
 
 export const BottomBox = styled.div`
   display: flex;

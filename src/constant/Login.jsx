@@ -1,6 +1,10 @@
+import { useState } from "react";
 import * as S from "./Login.style";
 
 const Login = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
   return (
     <S.Wrapper>
       <S.SubWrapper>
@@ -17,14 +21,17 @@ const Login = () => {
         <S.RightContainer>
           <S.Box>
             <S.EmailDescription>자동 로그인</S.EmailDescription>
-            <S.EmailBox></S.EmailBox>
-            <S.PasswordBox></S.PasswordBox>
+            <S.EmailBox placeholder="이메일"></S.EmailBox>
+            <S.PasswordBox placeholder="비밀번호"></S.PasswordBox>
             <S.PasswordDescription>
               아이디 / 비밀번호 찾기
             </S.PasswordDescription>
           </S.Box>
           <S.LoginButton>로그인</S.LoginButton>
-          {/* <S.SocialLoginButton></S.SocialLoginButton> */}
+          <S.SocialLoginBox>
+            <S.SocialLoginText>다른 계정으로 로그인 하기</S.SocialLoginText>
+            <S.SocialLoginButton>소셜 계정 로그인</S.SocialLoginButton>
+          </S.SocialLoginBox>
         </S.RightContainer>
       </S.SubWrapper>
       <S.BottomBox>
