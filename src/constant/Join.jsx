@@ -3,6 +3,11 @@ import * as S from "./Join.style";
 const Join = () => {
   return (
     <S.Wrapper>
+      <S.Title>
+        JOIN
+        <br />
+        MEMBERSHIP
+      </S.Title>
       <S.SubWrapper>
         <S.LeftSection>
           <S.TopButton>개인 정보 입력</S.TopButton>
@@ -25,8 +30,10 @@ const Join = () => {
             </S.FormBox>
             <S.FormBox>
               <S.FormTitle>*비밀 번호</S.FormTitle>
-              <S.Password></S.Password>
-              <S.Password></S.Password>
+              <S.PasswordBox>
+                <S.Password></S.Password>
+                <S.Password placeholder="*비밀 번호 확인"></S.Password>
+              </S.PasswordBox>
             </S.FormBox>
             <S.FormBox>
               <S.FormTitle>*연 락 처</S.FormTitle>
