@@ -60,6 +60,7 @@ export const BottomButton = styled.button`
   border-radius: 110px;
   border-style: none;
   cursor: pointer;
+  margin-bottom: 321px;
 
   &:active {
     background: #032363;
@@ -178,9 +179,15 @@ export const Birth = styled.input`
   border-style: none;
 `;
 
-export const SexButton = styled.div``;
+export const SexButton = styled.div`
+  display: flex;
+  justify-content: end;
+  column-gap: 20px;
+`;
 
 export const MaleButton = styled.button`
+  width: 85px;
+  height: 32px;
   color: #032363;
   background: #dce6ff;
   opacity: 0.9;
@@ -195,6 +202,8 @@ export const MaleButton = styled.button`
 `;
 
 export const FemaleButton = styled.button`
+  width: 85px;
+  height: 32px;
   color: #032363;
   background: #dce6ff;
   opacity: 0.9;
