@@ -1,6 +1,7 @@
 import * as S from "./Join.style";
 import { useForm } from "react-hook-form";
 import { API_URL } from "../config/constant";
+import { POST_SIGN_UP } from "./api/apiUrl";
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
@@ -60,20 +61,21 @@ const Join = () => {
           <S.NextButton
             onClick={() => {
               axios({
-                url: `${API_URL}/auth/signup`,
+                url: `${API_URL}${POST_SIGN_UP}`,
                 method: "post",
                 data: {
                   user_id: "dnd2dn1232",
                   password: "dnd2dnd2@@@3",
                   user_name: "웅123",
                   phone: "010-8921-8709",
-                  email: "dn2@naver.com",
+                  email: "tndusddd2@naver.com",
                   birthday: "98016",
                   gender: "남자",
                 },
               })
                 .then((response) => {
                   console.log("성공입니다");
+                  console.log(response.data);
                 })
                 .catch((error) => {
                   console.log("에러가 발생했습니다");
