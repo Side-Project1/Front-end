@@ -60,15 +60,15 @@ const Join = () => {
           <S.NextButton
             onClick={() => {
               axios({
-                url: `${API_URL}/auth/signup`,
+                url: "http://13.124.28.152:8080/auth/signup",
                 method: "post",
                 data: {
-                  user_id: "dnd2dnd2",
-                  password: "dnd2dnd2@",
-                  user_name: "웅",
+                  user_id: "dnd2dnd1231232",
+                  password: "dnd2dnd2@@@3",
+                  user_name: "웅123",
                   phone: "010-8921-8709",
-                  email: "dnd22@naver.com",
-                  birthday: "980716",
+                  email: "dnd232@naver.com",
+                  birthday: "98016",
                   gender: "남자",
                 },
               })
@@ -77,6 +77,8 @@ const Join = () => {
                 })
                 .catch((error) => {
                   console.log("에러가 발생했습니다");
+                  console.log(error.response);
+                  console.log(error.response.data);
                 });
             }}
           >
@@ -92,6 +94,7 @@ const Join = () => {
             <S.FormBox>
               <S.FormTitle>*성 함</S.FormTitle>
               <S.Name
+                id="user_name"
                 {...register("user_name", { required: true })}
                 placeholder="user_name"
               ></S.Name>
@@ -99,6 +102,7 @@ const Join = () => {
             <S.FormBox>
               <S.FormTitle>*아 이 디</S.FormTitle>
               <S.Id
+                id="user_id"
                 {...register("user_id", { required: true })}
                 placeholder="user_id"
               ></S.Id>
@@ -107,6 +111,7 @@ const Join = () => {
               <S.FormTitle>*비밀 번호</S.FormTitle>
               <S.PasswordBox>
                 <S.Password
+                  id="password"
                   {...register("password", { required: true })}
                   placeholder="password"
                 ></S.Password>
@@ -116,6 +121,7 @@ const Join = () => {
             <S.FormBox>
               <S.FormTitle>*연 락 처</S.FormTitle>
               <S.Number
+                id="phone"
                 {...register("phone", { required: true })}
                 placeholder="phone"
               ></S.Number>
@@ -123,6 +129,7 @@ const Join = () => {
             <S.FormBox>
               <S.FormTitle>*이 메 일</S.FormTitle>
               <S.Email
+                id="email"
                 {...register("email", { required: true })}
                 placeholder="email"
               ></S.Email>
@@ -130,6 +137,7 @@ const Join = () => {
             <S.FormBox>
               <S.FormTitle>*생년 월일</S.FormTitle>
               <S.Birth
+                id="birthday"
                 {...register("birthday", { required: true })}
                 placeholder="birthday"
               ></S.Birth>
@@ -137,6 +145,7 @@ const Join = () => {
             <S.FormBox>
               <S.FormTitle>*성별</S.FormTitle>
               <S.Birth
+                id="gender"
                 {...register("gender", { required: true })}
                 placeholder="gender"
               ></S.Birth>
