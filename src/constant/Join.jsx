@@ -60,14 +60,14 @@ const Join = () => {
           <S.NextButton
             onClick={() => {
               axios({
-                url: "http://13.124.28.152:8080/auth/signup",
+                url: `${API_URL}/auth/signup`,
                 method: "post",
                 data: {
-                  user_id: "dnd2dnd1231232",
+                  user_id: "dnd2dn1232",
                   password: "dnd2dnd2@@@3",
                   user_name: "웅123",
                   phone: "010-8921-8709",
-                  email: "dnd232@naver.com",
+                  email: "dn2@naver.com",
                   birthday: "98016",
                   gender: "남자",
                 },
