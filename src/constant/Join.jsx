@@ -64,17 +64,17 @@ const Join = () => {
                 url: `${API_URL}${POST_SIGN_UP}`,
                 method: "post",
                 data: {
-                  user_id: "dnd2dn1232",
-                  password: "dnd2dnd2@@@3",
+                  user_id: "tndustndus",
+                  password: "tndus123!",
                   user_name: "웅123",
                   phone: "010-8921-8709",
-                  email: "tndusddd2@naver.com",
+                  email: "tndusdlqslek@naver.com",
                   birthday: "98016",
                   gender: "남자",
                 },
               })
                 .then((response) => {
-                  console.log("성공입니다");
+                  console.log("회원가입에 성공헀습니다.");
                   console.log(response.data);
                 })
                 .catch((error) => {

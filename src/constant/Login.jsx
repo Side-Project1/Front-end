@@ -1,5 +1,8 @@
-import { useState } from "react";
 import * as S from "./Login.style";
+import { useState } from "react";
+import axios from "axios";
+import { API_URL } from "../config/constant";
+import { POST_LOGIN } from "./api/apiUrl";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -27,7 +30,29 @@ const Login = () => {
               아이디 / 비밀번호 찾기
             </S.PasswordDescription>
           </S.Box>
-          <S.LoginButton>로그인</S.LoginButton>
+          <S.LoginButton
+            onClick={() => {
+              axios({
+                url: `${API_URL}${POST_LOGIN}`,
+                method: "post",
+                data: {
+                  password: "tndus123!",
+                  user_id: "tndustndus",
+                },
+              })
+                .then((response) => {
+                  console.log("로그인에 성공했습니다.");
+                  console.log(response.data);
+                })
+                .catch((error) => {
+                  console.log("에러가 발생했습니다");
+                  console.log(error.response);
+                  console.log(error.response.data);
+                });
+            }}
+          >
+            로그인
+          </S.LoginButton>
           <S.SocialLoginBox>
             <S.SocialLoginText>다른 계정으로 로그인 하기</S.SocialLoginText>
             <S.SocialLoginButton>소셜 계정 로그인</S.SocialLoginButton>
