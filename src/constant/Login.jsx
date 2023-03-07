@@ -2,7 +2,7 @@ import * as S from "./Login.style";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config/constant";
-import { POST_LOGIN } from "./api/apiUrl";
+import { POST_LOGIN, POST_SEND_EMAIL } from "./api/apiUrl";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -32,6 +32,7 @@ const Login = () => {
           </S.Box>
           <S.LoginButton
             onClick={() => {
+              /*로그인*/
               axios({
                 url: `${API_URL}${POST_LOGIN}`,
                 method: "post",
@@ -43,6 +44,28 @@ const Login = () => {
                 .then((response) => {
                   console.log("로그인에 성공했습니다.");
                   console.log(response.data);
+
+                  // token 추출.저장
+                  const token = response.data.token;
+                  localStorage.setItem("token", token);
+                  axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+
+                  /*인증 이메일 전송*/
+                  axios({
+                    url: `${API_URL}${POST_SEND_EMAIL}`,
+                    method: "post",
+                    data: {
+                      receiver: "tndusdlqslek@naver.com",
+                    },
+                  })
+                    .then((response) => {
+                      console.log("이메일을 전송에 성공했습니다.");
+                      console.log(response);
+                    })
+                    .catch((error) => {
+                      console.log("이메일 전송에 실패했습니다.");
+                      console.error(error);
+                    });
                 })
                 .catch((error) => {
                   console.log("에러가 발생했습니다");
