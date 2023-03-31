@@ -19,7 +19,7 @@ export const Section = styled.div`
   flex-direction: row;
   width: 213px;
   gap: 40px;
-  margin-bottom: 87px;
+  margin-bottom: 51px;
   margin-left: 26px;
   padding: 9px 0px 9px 28px;
   cursor: pointer;
