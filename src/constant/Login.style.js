@@ -1,40 +1,45 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background-color: #a7bffd;
-  padding-top: 280px;
+  background: left bottom url("/image/ArtNJob_Boy.png");
+  background-size: 937px 673px;
+  background-color: #fcfbe9;
+  background-repeat: no-repeat;
 `;
 
 export const SubWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  padding: 0px 80px;
+  background: #383838;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 47px 81px 60px;
 `;
 
-export const LeftContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-`;
+export const LeftContainer = styled.div``;
 
 export const TitleBox = styled.div`
+  margin-top: 65px;
   width: 555px;
   height: 198px;
-  margin-bottom: 19px;
 `;
 
-export const TopTitle = styled.div`
-  color: #3965d8;
-  font-weight: 800;
-  font-size: 50px;
-  line-height: 150%;
+export const TopTitle = styled.img`
+  display: flex;
+  justify-content: flex-start;
+  width: 210px;
+  height: 66px;
 `;
 
 export const BottomTitle = styled.div`
-  color: #284182;
-  font-weight: 800;
-  font-size: 50px;
-  line-height: 150%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-align: start;
 `;
 
 export const SubTitle = styled.div`
@@ -53,12 +58,29 @@ export const SubDescription = styled.div`
   line-height: 160%;
 `;
 
-export const RightContainer = styled.div``;
+export const RightContainer = styled.div`
+  font-size: 32px;
+  line-height: 100%;
+  color: #181818;
+`;
 
 export const Box = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  margin-bottom: 93px;
+  width: 639px;
+  height: 865px;
+  background: #ffffff;
+  border-radius: 42px;
+  width: 415px;
+  padding: 0px 111px;
+`;
+
+export const Description = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 60px;
 `;
 
 export const EmailDescription = styled.div`
@@ -70,68 +92,94 @@ export const EmailDescription = styled.div`
   margin-bottom: 9px;
 `;
 
-export const EmailBox = styled.input`
-  width: 358px;
-  height: 59px;
-  background-color: #e0e9ff;
-  border-radius: 18px;
-  border-style: none;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 27px;
-  padding-left: 25px;
+export const LoginTitle = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  margin-bottom: 16px;
+  margin-bottom: 16px;
+  display: flex;
 `;
 
-export const PasswordBox = styled.input`
-  width: 358px;
-  height: 59px;
-  background-color: #e0e9ff;
-  border-radius: 18px;
-  border-style: none;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-  padding-left: 25px;
+export const TopBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 415px;
+  margin-bottom: 15px;
+`;
+
+export const EmailBox = styled.input`
+  height: 54px;
+  background: #ffffff;
+  border: 1px solid rgba(170, 170, 170, 0.47);
+  border-radius: 21px;
 `;
 
 export const PasswordDescription = styled.div`
-  color: #032363;
-  text-align: end;
-  margin-top: 16px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: #808080;
 `;
 
 export const LoginButton = styled.button`
-  width: 383px;
-  height: 59px;
-  background: #032363;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 18px;
+  background: #a2df3c;
+  border-radius: 21px;
+  width: 415px;
+  height: 54px;
   border-style: none;
-  color: white;
   cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: #2f2f2f;
 `;
 
-export const SocialLoginBox = styled.div``;
+export const LoginDescription = styled.div`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: #808080;
+`;
+
+export const SocialLoginBox = styled.div`
+  width: 415px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+`;
 
 export const SocialLoginText = styled.div`
-  margin-top: 46px;
-  margin-bottom: 32px;
-  color: #636262;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 160%;
+  letter-spacing: -0.02em;
+  color: #808080;
+  margin-bottom: 13px;
 `;
 
 export const SocialLoginButton = styled.button`
-  background: #c8d7ff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    inset 0px 4px 10px rgba(0, 0, 0, 0.02);
-  border-radius: 30px;
-  width: 154px;
-  height: 53px;
+  background: #ffee3a;
+  border-radius: 21px;
+  width: 415px;
+  height: 54px;
   border-style: none;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
   cursor: pointer;
 `;
-
-export const BottomBox = styled.div`
-  display: flex;
-  padding-top: 104px;
-  column-gap: 30px;
-  justify-content: center;
-`;
-
-export const BottomSection = styled.img``;
