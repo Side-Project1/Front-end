@@ -12,7 +12,7 @@ export const SubWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   background: #383838;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 47px 81px 60px;
 `;
 
