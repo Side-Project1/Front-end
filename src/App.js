@@ -5,6 +5,7 @@ import Login from "./constant/Login";
 import Profile from "./constant/MyPage/Profile";
 import Menu from "./constant/MyPage/Menu";
 import Join_First from "./constant/Join_First";
+import Join_Second from "./constant/Join_Second";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Login />
         <Join_First />
+        <Join_Second />
         <Menu />
         <Profile />
      
