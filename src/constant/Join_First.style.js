@@ -126,6 +126,11 @@ export const Birth = styled.input`
   padding-left: 44px;
 `;
 
+export const EmailForm = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
 export const Email = styled.input`
   width: 255px;
   height: 54px;
@@ -144,6 +149,19 @@ export const Password = styled.input`
   padding-left: 44px;
 `;
 
+export const EmailButton = styled.button`
+  width: 106px;
+  height: 54px;
+  background: #f58425;
+  border: none;
+  border-radius: 9px;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 160%;
+  color: #ffffff;
+  cursor: pointer;
+`;
+
 export const NextButton = styled.button`
   width: 415px;
   height: 54px;
@@ -155,4 +173,5 @@ export const NextButton = styled.button`
   line-height: 160%;
   color: #2f2f2f;
   margin-top: 27px;
+  cursor: pointer;
 `;

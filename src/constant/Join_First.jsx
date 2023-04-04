@@ -33,16 +33,19 @@ const Join_First = () => {
                 <S.Gender placeholder="성별"></S.Gender>
               </S.Form>
             </S.TopSection>
-
             <S.FormTitle>닉네임</S.FormTitle>
             <S.UserId placeholder="닉네임을 입력해주세요"></S.UserId>
             <S.FormTitle>생년월일</S.FormTitle>
             <S.Birth placeholder="8자리 ex)19990102"></S.Birth>
             <S.FormTitle>이메일</S.FormTitle>
-            <S.Email placeholder="이메일 주소 입력"></S.Email>
-            {/* <S.EmailButton></S.EmailButton> */}
-            <S.Email placeholder="인증번호 입력"></S.Email>
-            {/* <S.EmailButton></S.EmailButton> */}
+            <S.EmailForm>
+              <S.Email placeholder="이메일 주소 입력"></S.Email>
+              <S.EmailButton>인증번호</S.EmailButton>
+            </S.EmailForm>
+            <S.EmailForm>
+              <S.Email placeholder="인증번호 입력"></S.Email>
+              <S.EmailButton>확인</S.EmailButton>
+            </S.EmailForm>
             <S.FormTitle>비밀번호</S.FormTitle>
             <S.Password placeholder="비밀번호를 입력해 주세요(8자리 이상)"></S.Password>
             <S.Password placeholder="비밀번호를 다시 입력해 주세요 "></S.Password>
