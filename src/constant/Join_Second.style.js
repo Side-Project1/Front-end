@@ -87,6 +87,14 @@ export const UserId = styled.input`
   padding-left: 44px;
 `;
 
+export const Agreement = styled.div`
+  width: 415px;
+  height: 186px;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 21px;
+`;
+
 export const EmailForm = styled.div`
   display: flex;
   gap: 10px;

@@ -30,6 +30,7 @@ const Join_Second = () => {
             </S.EmailForm>
             <S.FormTitle>가입경로 (선택)</S.FormTitle>
             <S.UserId placeholder="가입경로를 선택해 주세요."></S.UserId>
+            <S.Agreement></S.Agreement>
             <S.NextButton
               onClick={() => {
                 axios({
