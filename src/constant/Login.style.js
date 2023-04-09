@@ -116,6 +116,7 @@ export const EmailBox = styled.input`
   background: #ffffff;
   border: 1px solid rgba(170, 170, 170, 0.47);
   border-radius: 21px;
+  padding-left: 44px;
 `;
 
 export const PasswordDescription = styled.div`
