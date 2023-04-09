@@ -2,7 +2,8 @@ import * as S from "./Login.style";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config/constant";
-import { POST_LOGIN, POST_SEND_EMAIL } from "./api/apiUrl";
+import { POST_LOGIN } from "./api/apiUrl";
+// import { Checkbox, FormControlLabel } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -49,6 +50,7 @@ const Login = () => {
               </S.LoginButton>
             </S.TopBox>
             <S.Description>
+              {/* <S.CheckBoxContainer></S.CheckBoxContainer> */}
               <S.LoginDescription>로그인 유지</S.LoginDescription>
               <S.PasswordDescription>
                 아이디 / 비밀번호 찾기

@@ -145,6 +145,8 @@ export const LoginButton = styled.button`
   color: #2f2f2f;
 `;
 
+// export const CheckBoxContainer = styled.div``;
+
 export const LoginDescription = styled.div`
   font-family: "Inter";
   font-style: normal;
