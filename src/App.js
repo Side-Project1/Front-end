@@ -6,6 +6,8 @@ import Profile from "./constant/MyPage/Profile";
 import Menu from "./constant/MyPage/Menu";
 import Scrap from "./constant/MyPage/Scrap";
 import Comment from "./constant/MyPage/Comment";
+import Join_First from "./constant/Join_First";
+import Join_Second from "./constant/Join_Second";
 
 function App() {
   return (
@@ -15,8 +17,11 @@ function App() {
         <Scrap />
         <Header />
         <Login />
+        <Join_First />
+        <Join_Second />
         <Menu />
         <Profile />
+     
       </div>
     </BrowserRouter>
   );

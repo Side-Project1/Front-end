@@ -49,11 +49,6 @@ const Join = () => {
   return (
     // <form onSubmit={handleSubmit(onSubmit)}>
     <S.Wrapper>
-      <S.Title>
-        JOIN
-        <br />
-        MEMBERSHIP
-      </S.Title>
       <S.SubWrapper>
         <S.LeftSection>
           <S.TopButton>개인 정보 입력</S.TopButton>
@@ -158,6 +153,15 @@ const Join = () => {
             </S.SexButton> */}
           </S.FormContainer>
         </S.RightSection>
+        <S.LeftContainer>
+          <S.TitleBox>
+            <S.TopTitle src="/image/ArtNJob_Logo_White.svg" />
+            <S.BottomTitle>아트앤잡 로그인 또는 계정 만들기</S.BottomTitle>
+          </S.TitleBox>
+        </S.LeftContainer>
+        <S.RightContainer>
+          <S.Box></S.Box>
+        </S.RightContainer>
       </S.SubWrapper>
     </S.Wrapper>
     // </form>
