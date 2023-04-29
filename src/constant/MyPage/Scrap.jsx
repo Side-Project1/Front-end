@@ -16,6 +16,13 @@ const Scrap = () => {
             <S.Delete>/ 삭제</S.Delete>
             <S.AllItem>전체 공고</S.AllItem>
           </S.TopBox>
+          <S.TopBar></S.TopBar>
+          <S.ListHeader>
+            <S.HeaderNumber>총 4건</S.HeaderNumber>
+            <S.HeaderTitle>공고 제목</S.HeaderTitle>
+            <S.HeaderDate>최종 수정일</S.HeaderDate>
+            <S.HeaderEndDate>공고 마감일</S.HeaderEndDate>
+          </S.ListHeader>
           <S.Bar></S.Bar>
 
           <S.BottomBox>

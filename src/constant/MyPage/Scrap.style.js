@@ -95,12 +95,19 @@ export const Bar = styled.div`
   background: #edecdd;
 `;
 
+export const TopBar = styled.div`
+  width: 801px;
+  height: 3px;
+  background: #cab600;
+`;
+
 export const TitleValue = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 3px;
   width: 271px;
   margin-right: 106px;
+  margin-left: 10px;
 `;
 export const CheckBox = styled.div`
   width: 13px;
@@ -148,6 +155,7 @@ export const RecruitButton = styled.button`
   width: 97px;
   height: 33px;
   margin-right: 49px;
+  cursor: pointer;
 `;
 export const Date = styled.div`
   display: flex;
@@ -179,4 +187,46 @@ export const DeadLine = styled.div`
   text-align: center;
   color: #000000;
   opacity: 0.6;
+`;
+
+export const ListHeader = styled.div`
+  display: flex;
+  text-align: start;
+  height: 45px;
+  align-items: center;
+`;
+
+export const HeaderNumber = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 28px;
+  color: #000000;
+  opacity: 0.6;
+`;
+
+export const HeaderTitle = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 28px;
+  color: #000000;
+  opacity: 0.6;
+  margin-left: 10px;
+`;
+
+export const HeaderDate = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 28px;
+  color: #000000;
+  opacity: 0.6;
+  margin-left: 325px;
+`;
+
+export const HeaderEndDate = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 28px;
+  color: #000000;
+  opacity: 0.6;
+  margin-left: 220px;
 `;
