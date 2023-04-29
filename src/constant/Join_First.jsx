@@ -2,13 +2,11 @@ import * as S from "./Join_First.style";
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { API_URL } from "../config/constant";
-import { POST_SIGN_UP, POST_SEND_EMAIL } from "./api/apiUrl";
-import { useSignUp } from "./api/signUp";
+import { POST_SIGN_UP, POST_SEND_EMAIL } from "../api/apiUrl";
 import { GENDER_LIST } from "./DropDownList";
+import { API_URL } from "../config/constant";
 
 const Join_First = () => {
-  const { mutateAsync } = useSignUp;
   const [currentGenderValue, setCurrentGenderValue] = useState("성별");
   const [showGenderOptions, setShowGenderOptions] = useState(false);
 
@@ -26,23 +24,7 @@ const Join_First = () => {
     handleSubmit,
   } = useForm();
 
-  const onSubmit = (data, e) => {
-    mutateAsync(data)
-      .then((res) => {})
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        reset({
-          name: "",
-          userid: "",
-          birth: "",
-          email: "",
-          password: "",
-          number: "",
-        });
-      });
-  };
+  const onSubmit = (data, e) => {};
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

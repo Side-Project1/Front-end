@@ -1,6 +1,6 @@
 import * as S from "./Join_Second.style";
 import { API_URL } from "../config/constant";
-import { POST_SIGN_UP } from "./api/apiUrl";
+import { POST_SIGN_UP } from "../api/apiUrl";
 import React from "react";
 import axios from "axios";
 
