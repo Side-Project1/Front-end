@@ -2,7 +2,7 @@ import * as S from "./Login.style";
 import { useState } from "react";
 import axios from "axios";
 import { API_URL } from "../config/constant";
-import { POST_LOGIN } from "./api/apiUrl";
+import { POST_LOGIN } from "../api/apiUrl";
 // import { Checkbox, FormControlLabel } from "@mui/material";
 
 const Login = () => {
