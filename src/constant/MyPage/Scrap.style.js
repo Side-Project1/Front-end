@@ -7,6 +7,7 @@ export const Container = styled.div`
   margin-left: 342px;
   flex-direction: column;
   margin-bottom: 91px;
+  margin-top: 57px;
 `;
 
 export const TopSection = styled.div``;
@@ -24,17 +25,27 @@ export const SubTitle = styled.div`
   font-size: 16px;
   line-height: 28px;
   color: #000000;
+  text-align: start;
+  margin-top: 30px;
 `;
 
 export const BottomSection = styled.div``;
 
 export const TopBox = styled.div`
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   max-width: 800px;
+  margin-top: 120px;
 `;
 
-export const AllSelect = styled.div``;
+export const AllSelect = styled.div`
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgba(0, 0, 0, 0.31);
+  border-radius: 50px;
+  margin-right: 10px;
+`;
 
 export const Delete = styled.div`
   font-weight: 500;
@@ -58,6 +69,7 @@ export const AllItem = styled.div`
   border-radius: 20px;
   width: 117px;
   height: 33px;
+  margin-left: 618px;
 `;
 
 export const BottomBox = styled.div`
