@@ -210,7 +210,8 @@ export const HeaderTitle = styled.div`
   line-height: 28px;
   color: #000000;
   opacity: 0.6;
-  margin-left: 10px;
+  margin-left: 15px;
+  width: 375px;
 `;
 
 export const HeaderDate = styled.div`
@@ -219,7 +220,7 @@ export const HeaderDate = styled.div`
   line-height: 28px;
   color: #000000;
   opacity: 0.6;
-  margin-left: 325px;
+  margin-left: 3px;
 `;
 
 export const HeaderEndDate = styled.div`
@@ -228,5 +229,20 @@ export const HeaderEndDate = styled.div`
   line-height: 28px;
   color: #000000;
   opacity: 0.6;
-  margin-left: 220px;
+  margin-left: 215px;
+`;
+
+export const ViewBox = styled.div`
+  display: flex;
+  margin-left: 90px;
+`;
+
+export const LikeNumber = styled.div`
+  margin-right: 30px;
+`;
+
+export const CopyNumber = styled.div``;
+
+export const Icon = styled.img`
+  margin-right: 3px;
 `;
