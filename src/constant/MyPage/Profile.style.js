@@ -146,6 +146,17 @@ export const InputBoxText = styled.div`
   align-self: center;
 `;
 
+export const BoxText = styled.div`
+  width: 100px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: rgba(100, 100, 100, 0.8);
+`;
+
 export const PhoneNumberInput = styled.input`
   width: 150px;
   height: 40px;
@@ -156,7 +167,7 @@ export const PhoneNumberInput = styled.input`
 `;
 
 export const LastNameInputBox = styled.input`
-  width: 91px;
+  width: 90px;
   height: 40px;
   background: #fcfbe9;
   border: 1px solid rgba(240, 180, 39, 0.5);
@@ -165,7 +176,7 @@ export const LastNameInputBox = styled.input`
 `;
 
 export const FirstNameInputBox = styled.input`
-  width: 116px;
+  width: 110px;
   height: 40px;
   background: #fcfbe9;
   border: 1px solid rgba(240, 180, 39, 0.5);
@@ -195,4 +206,17 @@ export const Box = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
+  /* padding: 0px 70px;
+  justify-content: space-between; */
+`;
+
+export const EmailBoxText = styled.div`
+  width: 180px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.02em;
+  color: rgba(100, 100, 100, 0.8);
 `;

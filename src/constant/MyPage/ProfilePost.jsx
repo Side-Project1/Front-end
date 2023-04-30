@@ -2,7 +2,7 @@ import Menu from "./Menu";
 import { MY_PAGE_MENU } from "./MyPage";
 import * as S from "./Profile.style";
 
-const Profile = () => {
+const ProfilePost = () => {
   return (
     <S.Wrapper>
       <S.Container>
@@ -10,9 +10,9 @@ const Profile = () => {
           <S.Title>나의 프로필 관리</S.Title>
           <S.SubtitleIcon></S.SubtitleIcon>
           <S.SubTitle>
-            자신의 개인정보를 수정할 수 있는 페이지 입니다
+            자신의 개인정보를 확인할 수 있는 페이지 입니다
           </S.SubTitle>
-          <S.RequiredNotice>저장하기</S.RequiredNotice>
+          <S.RequiredNotice>수정하기</S.RequiredNotice>
         </S.TopSection>
         <S.BottomSection>
           <S.PhotoBox>
@@ -32,7 +32,7 @@ const Profile = () => {
             </S.TextBox>
             <S.Box>
               <S.InputBoxText>휴대번호</S.InputBoxText>
-              <S.PhoneNumberInput placeholder="000-0000-0000"></S.PhoneNumberInput>
+              <S.BoxText>000-0000-0000</S.BoxText>
             </S.Box>
           </S.PhoneNumberBox>
           <S.AccountBox>
@@ -42,16 +42,15 @@ const Profile = () => {
             </S.TextBox>
             <S.Box>
               <S.InputBoxText>이름</S.InputBoxText>
-              <S.LastNameInputBox placeholder="성"></S.LastNameInputBox>
-              <S.FirstNameInputBox placeholder="이름"></S.FirstNameInputBox>
+              <S.EmailBoxText>성이름</S.EmailBoxText>
             </S.Box>
             <S.Box>
               <S.InputBoxText>이메일</S.InputBoxText>
-              <S.EmailInputBox placeholder="ss972972@naver.com"></S.EmailInputBox>
+              <S.EmailBoxText>ss972972@naver.com</S.EmailBoxText>
             </S.Box>
             <S.Box>
               <S.InputBoxText>아이디</S.InputBoxText>
-              <S.EmailInputBox placeholder="ss97272"></S.EmailInputBox>
+              <S.EmailBoxText>ss97272</S.EmailBoxText>
             </S.Box>
           </S.AccountBox>
           <S.PasswordBox>
@@ -61,15 +60,11 @@ const Profile = () => {
             </S.TextBox>
             <S.Box>
               <S.InputBoxText>현재 비밀번호</S.InputBoxText>
-              <S.PasswordInputBox></S.PasswordInputBox>
+              <S.BoxText>************</S.BoxText>
             </S.Box>
             <S.Box>
-              <S.InputBoxText>새 비밀번호</S.InputBoxText>
-              <S.PasswordInputBox></S.PasswordInputBox>
-            </S.Box>
-            <S.Box>
-              <S.InputBoxText>새 비밀번호 확인</S.InputBoxText>
-              <S.PasswordInputBox></S.PasswordInputBox>
+              <S.InputBoxText>비밀번호 확인</S.InputBoxText>
+              <S.BoxText>************</S.BoxText>
             </S.Box>
           </S.PasswordBox>
         </S.BottomSection>
@@ -78,4 +73,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfilePost;

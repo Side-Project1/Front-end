@@ -8,11 +8,13 @@ import Scrap from "./constant/MyPage/Scrap";
 import Comment from "./constant/MyPage/Comment";
 import Join_First from "./constant/Join_First";
 import Join_Second from "./constant/Join_Second";
+import ProfilePost from "./constant/MyPage/ProfilePost";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <ProfilePost />
         <Comment />
         <Scrap />
         <Header />
@@ -21,7 +23,6 @@ function App() {
         <Join_Second />
         <Menu />
         <Profile />
-     
       </div>
     </BrowserRouter>
   );
