@@ -18,6 +18,9 @@ export const STUDY_FORM_CATEGORY = [
 
 export const STUDY_PEOPLE = [
   {
+    title: "제한 없음",
+  },
+  {
     title: "1명",
   },
   {

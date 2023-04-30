@@ -4,12 +4,16 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   background-color: #f3f3f3;
+  padding-top: 60px;
+  padding-bottom: 120px;
 `;
 
 export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 100px 20px;
+  width: 1062px;
+  height: 1363px;
+  padding: 40px 42px;
   background-color: #fff;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
@@ -28,9 +32,11 @@ export const Text = styled.div`
   line-height: 36px;
   color: #000000;
   align-self: start;
+  margin-bottom: 58px;
 `;
 
 export const Title = styled.div`
+  margin-bottom: 8px;
   align-self: start;
   margin-top: 12px;
   font-weight: 400;
@@ -40,11 +46,14 @@ export const Title = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 800px;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  margin-bottom: 16px;
+  display: flex;
+  align-self: start;
+  width: 538px;
+  height: 39px;
+  background: #ffffff;
+  border: 1px solid rgba(170, 170, 170, 0.5);
+  border-radius: 4px;
 `;
 
 export const DateInput = styled.input`
@@ -57,12 +66,11 @@ export const DateInput = styled.input`
 `;
 
 export const InputText = styled.input`
-  width: 800px;
-  min-height: 500px;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  width: 980px;
+  height: 639px;
+  background: #ffffff;
+  border: 1px solid rgba(170, 170, 170, 0.5);
+  border-radius: 4px;
 `;
 
 export const InputIntroduction = styled.input`
@@ -75,12 +83,13 @@ export const InputIntroduction = styled.input`
 `;
 
 export const Select = styled.select`
+  margin-bottom: 24px;
   align-self: start;
-  width: 200px;
-  margin: 10px 0;
+  width: 538px;
+  height: 39px;
+  border: 1px solid rgba(170, 170, 170, 0.5);
+  border-radius: 4px;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
   appearance: none;
   background-color: #fff;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"><path d="M7 10l5 5 5-5z"/></svg>');
