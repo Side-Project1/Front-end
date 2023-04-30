@@ -10,7 +10,6 @@ const MainStudy = () => {
           <MainStudyCard />
           <MainStudyCard />
           <MainStudyCard />
-          <MainStudyCard />
         </S.Section>
         <S.GoStudyButton>스터디 모집하러 가기</S.GoStudyButton>
       </S.Container>

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div``;
+// export const SubWrapper = styled.div``;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 490px;
-  width: 100%;
   background: rgba(255, 193, 49, 0.84);
 `;
 
