@@ -9,11 +9,13 @@ import Comment from "./constant/MyPage/Comment";
 import Join_First from "./constant/Join_First";
 import Join_Second from "./constant/Join_Second";
 import ProfilePost from "./constant/MyPage/ProfilePost";
+import MainInfo from "./constant/MainPage/MainInfo";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <MainInfo />
         <ProfilePost />
         <Comment />
         <Scrap />
