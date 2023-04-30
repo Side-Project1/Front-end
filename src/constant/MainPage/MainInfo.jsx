@@ -21,6 +21,7 @@ const MainInfo = () => {
         <S.BottomSection>
           <S.SerchBox>
             <S.Search placeholder="검색어를 입력하세요."></S.Search>
+            <S.SearchIcon src="/image/icon/searchIcon.svg" />
             <S.SubText>
               {MAIN_TAG_LIST.map((data) => (
                 <S.SearchSubText key={data.title}>{data.title}</S.SearchSubText>

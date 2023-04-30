@@ -83,7 +83,16 @@ export const BottomSection = styled.div`
 `;
 export const SerchBox = styled.div``;
 
+export const SearchIcon = styled.img`
+  position: absolute;
+  /* left: 1000px; */
+  right: 450px;
+  margin-top: 15px;
+  cursor: pointer;
+`;
+
 export const Search = styled.input`
+  position: relative;
   width: 753px;
   height: 59px;
   background: #fcfcfc;
@@ -92,6 +101,7 @@ export const Search = styled.input`
   border-radius: 15px;
   padding-left: 24px;
 `;
+
 export const SearchSubText = styled.div`
   font-weight: 500;
   font-size: 18px;
