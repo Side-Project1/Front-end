@@ -30,6 +30,8 @@ export const SubTitle = styled.div`
 `;
 
 export const BottomSection = styled.div`
+  display: flex;
+  gap: 72px;
   align-self: center;
 `;
 
@@ -46,6 +48,61 @@ export const Card = styled.div`
   border: 1px solid #c5c5c5;
   box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-50px);
+    transition: all 0.3s linear;
+  }
+`;
+
+export const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const IconBox = styled.div`
+  display: flex;
+  gap: 6px;
+  margin-bottom: 11px;
+  /* flex-direction: row; */
+`;
+export const GoodTag = styled.div`
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 176.52%;
+  align-items: center;
+  letter-spacing: -0.03em;
+  color: #333333;
+  background: #ffffff;
+  border: 2px solid rgba(240, 180, 39, 0.6);
+  border-radius: 9px;
+  padding: 2px 10px;
+`;
+
+export const BadTag = styled.div`
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 176.52%;
+  align-items: center;
+  letter-spacing: -0.03em;
+  color: #333333;
+  background: #ffffff;
+  border: 2px solid rgba(238, 110, 3, 0.6);
+  border-radius: 9px;
+  padding: 2px 10px;
+`;
+
+export const TagBox = styled.div`
+  display: flex;
+  padding: 0px 50px;
+  flex-flow: wrap;
+  gap: 5px;
+`;
+
+export const Gap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 `;
 
 export const Icon = styled.img``;
@@ -79,6 +136,7 @@ export const Text = styled.div`
 export const Writer = styled.div`
   display: flex;
   gap: 18px;
+  margin-top: 14px;
 `;
 
 export const WriterImg = styled.img`
@@ -91,8 +149,4 @@ export const WriterImg = styled.img`
 
 export const WriterName = styled.div`
   align-self: center;
-`;
-
-export const Box = styled.div`
-  display: flex;
 `;
