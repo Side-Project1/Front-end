@@ -6,11 +6,17 @@ const MainInfo = () => {
     <S.Wrapper>
       <S.Container>
         <S.TopSection>
-          <S.InfoTitle>문화 예술 채용을 편리하게 -</S.InfoTitle>
-          <S.InfoImg src="/image/ArtNJob_Boy.png" />
-          <S.SlideBox>
-            <S.Slide></S.Slide>
-          </S.SlideBox>
+          <S.TopBox>
+            <S.TitleBox>
+              <S.InfoTitle>문화 예술 채용을 편리하게 -</S.InfoTitle>
+              <S.InfoImg src="/image/ArtNJob_Boy.png" />
+            </S.TitleBox>
+            <S.SlideBox>
+              <S.Vector src="/image/icon/prevVector.svg" />
+              <S.Slide></S.Slide>
+              <S.Vector src="/image/icon/nextVector.svg" />
+            </S.SlideBox>
+          </S.TopBox>
         </S.TopSection>
         <S.BottomSection>
           <S.SerchBox>

@@ -2,18 +2,48 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div``;
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const TopSection = styled.div`
   display: flex;
-  position: relative;
-
+  /* position: relative; */
   margin-bottom: 65px;
   height: 542px;
-  background: rgba(254, 207, 186, 0.41);
+  background: #ffe5d8;
+  justify-content: center;
+
+  /* padding-bottom: 13px; */
 `;
 
-export const SlideBox = styled.div``;
+export const TitleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TopBox = styled.div`
+  display: flex;
+  max-width: 1200px;
+`;
+
+export const SlideBox = styled.div`
+  display: flex;
+`;
+
+export const Vector = styled.img`
+  width: 13px;
+  height: 10px;
+  place-self: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12),
+    inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  padding: 12px 10px 11px 10px;
+  cursor: pointer;
+  margin: 0px 5px;
+`;
 
 export const Slide = styled.div`
   width: 688px;
@@ -21,15 +51,15 @@ export const Slide = styled.div`
   background: rgba(255, 255, 255, 0.66);
   border-radius: 22px;
   margin-top: 18px;
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 658px;
+  left: 658px; */
 `;
 
 export const InfoTitle = styled.div`
   text-align: start;
   margin-top: 74px;
-  margin-left: 200px;
+  margin-left: 50px;
   font-weight: 500;
   font-size: 33px;
   line-height: 149%;
@@ -42,8 +72,8 @@ export const InfoImg = styled.img`
   align-self: end;
   height: 383px;
   width: 532px;
-  position: absolute;
-  left: 200px;
+  /* position: absolute;
+  left: 200px; */
 `;
 
 export const BottomSection = styled.div`
