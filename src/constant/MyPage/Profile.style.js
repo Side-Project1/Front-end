@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
+  /* margin: auto; */
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 342px;
-  margin-bottom: 50px;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* margin-left: 342px;
+  margin-bottom: 50px; */
 `;
 
 export const MenuSection = styled.div``;
@@ -62,11 +66,15 @@ export const Icon = styled.img`
   margin-left: 25px;
 `;
 
+export const ImageIcon = styled.img`
+  margin-right: 26px;
+`;
+
 export const ImageBox = styled.div`
   display: flex;
-  justify-content: end;
-  margin-right: 18px;
-  gap: 6px;
+  align-items: end;
+  padding: 0px 20px;
+  height: 100px;
 `;
 
 export const Text = styled.div`
@@ -95,6 +103,8 @@ export const ImageDelete = styled.button`
   opacity: 0.8;
   border-radius: 20px;
   border: 1px solid #d3be00;
+  margin-right: 5px;
+  cursor: pointer;
 `;
 
 export const ImageButton = styled.button`
@@ -104,6 +114,7 @@ export const ImageButton = styled.button`
   opacity: 0.8;
   border: 1px solid #d3be00;
   border-radius: 20px;
+  cursor: pointer;
 `;
 
 export const PhotoBox = styled.div`
