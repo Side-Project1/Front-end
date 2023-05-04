@@ -60,7 +60,7 @@ const Job = () => {
     view2: false,
     view3: false
   });
-
+  const [sortByNewest, setSortByNewest] = useState(false);
   const toggleView = (view) => {
     setViews({ ...views, [view]: !views[view] });
   };
@@ -103,7 +103,9 @@ const Job = () => {
       <RegisterWrap>
         <div>전체 100건</div>
         <RegisterWrapper>
-          < RegiststerDiv>최근 등록순</RegiststerDiv>
+          < RegiststerDiv onClick={()=>{
+             setSortByNewest(!sortByNewest);
+          }}>최근 등록순</RegiststerDiv>
           <RegisterButton onClick={()=>{navigate('/Form')}}>
             글쓰기
           </RegisterButton >

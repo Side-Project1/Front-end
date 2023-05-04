@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StudyWrapper = styled.div`
   width: 1176px;
-  border: 1px solid black;
+
   margin: 0 auto;
   padding: 39px 23px 12px 12px;
 `
@@ -161,7 +161,7 @@ gap: 3px;
 
 
 export const RegiststerDataDiv = styled.div`
-
+cursor: pointer;
 `
 
 export const RegisterTextButton = styled.button`

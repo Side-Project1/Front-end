@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const CategoryWrapper = styled.div`
   width: 1176px;
-  border: 1px solid black;
   margin: 0 auto;
   padding: 39px 23px 12px 12px;
 `
@@ -94,7 +93,7 @@ margin-left:845px;
 `
 
 export const RegiststerDiv = styled.div`
-
+cursor: pointer;
 `
 
 export const RegisterButton = styled.button`

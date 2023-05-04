@@ -1,10 +1,55 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { CategoryContents, CategoryContentsElement, CategoryWrapper, RegisterButton, RegisterWrap, RegisterWrapper, RegiststerDiv, SearchingBar, SearchingBarWrap, SemiCategory, SemiCategoryWrapper, SemiWrapper } from '../styles/jobstyle';
+import { CardContainer, CategoryContents, CategoryContentsElement, CategoryWrapper, RegisterButton, RegisterWrap, RegisterWrapper, RegiststerDiv, SearchingBar, SearchingBarWrap, SemiCategory, SemiCategoryWrapper, SemiWrapper } from '../styles/jobstyle';
 import TriangleIcon from '../styles/TriangleIcon';
 import Dropdown from '../components/Dropdown ';
+import CompanyCard from '../components/CompanyCard';
+import PromotionCard from '../components/PromotionCard';
+
+
 
 const Promotion= ()=> {
+  const data = [
+    {
+      "category": "영상",
+      "content": "string",
+      "dead_line": "2023-04-16",
+      "email": "string",
+      "en_dt": "2023-04-16",
+      "person_num": 0,
+      "phone": "string",
+      "place": "서울 구로구",
+      "preferential": "string",
+      "qualifications_needed": "경력 1~10년",
+      "recruitment": "string",
+      "salary": "string",
+      "st_dt": "2023-04-16",
+      "title": "네트워크 엔지니어 채용",
+      "wet": "디오넷",
+      "work_content": "string",
+      "wst": "string"
+    },
+    {
+      "category": "음악",
+      "content": "string",
+      "dead_line": "2023-04-16",
+      "email": "string",
+      "en_dt": "2023-04-16",
+      "person_num": 0,
+      "phone": "string",
+      "place": "서울 강남구",
+      "preferential": "string",
+      "qualifications_needed": "경력 무관",
+      "recruitment": "string",
+      "salary": "string",
+      "st_dt": "2023-04-16",
+      "title": "음악 교습소 직원 모집",
+      "wet": "바흐 음악교실",
+      "work_content": "string",
+      "wst": "string"
+    }
+  ]
+  
   const navigate = useNavigate();
   const [views, setViews] = useState(
     {
@@ -61,6 +106,16 @@ const Promotion= ()=> {
           </RegisterButton >
         </RegisterWrapper>
       </RegisterWrap>
+      <CardContainer>
+
+{
+  data.map(
+    (v)=>
+      <PromotionCard data={v}/>
+  )
+}
+
+</CardContainer>
     </CategoryWrapper>
     )
 }

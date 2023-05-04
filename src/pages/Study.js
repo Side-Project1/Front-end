@@ -10,7 +10,7 @@ import eyeIcon from '../assets/images/eyeIcon.png'
 import chatBubble from '../assets/images/chatBubble.png'
 import moreSee from '../assets/images/moreSee.png'
 const Study = () => {
- 
+  const [sortByNewest, setSortByNewest] = useState(false);
     const navigate = useNavigate();
   const [views, setViews] = useState(
     {
@@ -18,7 +18,7 @@ const Study = () => {
     view2: false,
     view3: false
   });
-
+  
   const [recruitType,setRecruitType] = useState(true);
 
   const categoryContents = ['전체', '음악', '디자인 미술', '체육 무용', '기타'];
@@ -40,7 +40,9 @@ const Study = () => {
       </StudyContents>
       <RegisterWrap>
         <RegisterStudyWrapper>
-          < RegiststerDataDiv>최근등록순</RegiststerDataDiv>
+          < RegiststerDataDiv onClick={()=>{
+             setSortByNewest(!sortByNewest);
+          }}>최근등록순</RegiststerDataDiv>
           < RegiststerDataDiv>지역</RegiststerDataDiv>
           <SemiWrapper2>
         <SearchingBarWrap>
