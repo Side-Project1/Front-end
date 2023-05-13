@@ -4,11 +4,13 @@ import { RegisterButton } from '../styles/formSrtyle';
 import TriangleIcon from '../styles/TriangleIcon';
 import Dropdown from '../components/Dropdown ';
 import { useNavigate } from 'react-router-dom';
-import { StudyContents, StudyContentsElement, StudyWrapper, RegisterStudyWrapper, RegisterTextButton, RegiststerDataDiv, SemiWrapper2, StudyContentsUI, StudyRecruit, StudyRecruitIcon, StudyRecruitIconPeople, StudyRecruitTextContentsWrap, StudyRecruitTextContentsWrapIcon, StudyRecruitTextContentsDiv, StudyRecruitText, StudyIcon } from '../styles/StudyStyle';
+import { StudyContents, StudyContentsElement, StudyWrapper, RegisterStudyWrapper, RegisterTextButton, RegiststerDataDiv, SemiWrapper2, StudyContentsUI, StudyRecruit, StudyRecruitIcon, StudyRecruitIconPeople, StudyRecruitTextContentsWrap, StudyRecruitTextContentsWrapIcon, StudyRecruitTextContentsDiv, StudyRecruitText, StudyIcon, StudyLogoImg, StudyTitle, StudyTitleWrapper } from '../styles/StudyStyle';
 import People from '../assets/images/people.png'
 import eyeIcon from '../assets/images/eyeIcon.png'
 import chatBubble from '../assets/images/chatBubble.png'
 import moreSee from '../assets/images/moreSee.png'
+import boy from '../assets/images/artnjobboy.png'
+import { ScrapUIWrapper, Scrapbutton } from '../styles/StudyDetailPageStyle';
 const Study = () => {
   const [sortByNewest, setSortByNewest] = useState(false);
     const navigate = useNavigate();
@@ -20,7 +22,7 @@ const Study = () => {
   });
   
   const [recruitType,setRecruitType] = useState(true);
-
+  const [scrap, setScrap] = useState(false)
   const categoryContents = ['전체', '음악', '디자인 미술', '체육 무용', '기타'];
   const [selectedCategory, setSelectedCategory] = useState('전체');
 
@@ -31,6 +33,10 @@ const Study = () => {
   return (
       <>
     <StudyWrapper>
+      <StudyTitleWrapper>
+      <StudyLogoImg src={boy}/>
+      <StudyTitle>STUDY</StudyTitle>
+      </StudyTitleWrapper>
       <StudyContents>
         {categoryContents.map((category) => (
           <StudyContentsElement key={category} 
@@ -54,9 +60,9 @@ const Study = () => {
       </SemiWrapper2>
         </RegisterStudyWrapper>
       </RegisterWrap>
-      <StudyContentsUI onClick={()=>{navigate('/StudyDetailPage')}}> 
-        <StudyRecruitIcon>
-          <StudyRecruit>
+      <StudyContentsUI  > 
+        <StudyRecruitIcon onClick={()=>{navigate('/StudyDetailPage')}}>
+          <StudyRecruit >
           {
             recruitType === true? <span>모집중</span> : <span>모집완료</span>
           }
@@ -67,7 +73,7 @@ const Study = () => {
             <span>1/2명</span>
           </StudyRecruitIconPeople>
         </StudyRecruitIcon>
-        <StudyRecruitTextContentsWrap>
+        <StudyRecruitTextContentsWrap onClick={()=>{navigate('/StudyDetailPage')}}>
          <div style={{fontWeight: "600", fontSize:"26px", marginTop:"10px"}}>스터디 구합니다</div>
           <StudyRecruitText>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam laboris nisi ut aliquip consequat de...
@@ -87,12 +93,18 @@ const Study = () => {
             <img src={chatBubble}></img>
             <span>2</span>
           </div>
-          <div style={{marginLeft:"20px", cursor:"pointer"}}>
-            <img src={moreSee}></img>
-          </div>
+          <ScrapUIWrapper onClick={()=>{
+            setScrap(!scrap)
+          }} style={{marginLeft:"20px", cursor:"pointer"}}>
+            <img src={moreSee}/> 
+          </ScrapUIWrapper>
+          {
+        scrap === true ? <Scrapbutton>스크랩</Scrapbutton> : null
+             }
         </StudyIcon>
       </StudyContentsUI>
       </StudyWrapper>
+     
       </>
     
  )

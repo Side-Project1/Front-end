@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+export const StudyTitleWrapper = styled.div`
+display: flex;
+`
+export const StudyLogoImg = styled.img`
+
+`
+export const StudyTitle = styled.h2`
+font-family: 'Istok Web';
+font-style: normal;
+font-weight: 700;
+font-size: 68px;
+color: #FFC742;
+`
+
 
 export const StudyWrapper = styled.div`
   width: 1176px;
@@ -143,6 +157,7 @@ gap: 20px;
 justify-content: center;
 align-items: center;
 margin-left: 50px;
+flex-shrink: 0;
 
 `
 
