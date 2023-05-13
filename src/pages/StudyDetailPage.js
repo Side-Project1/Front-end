@@ -1,32 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox, TextField } from "@mui/material";
 import axios from "axios";
 import StudyTextCard from "../components/TextCard";
 import ReplyCard from "../components/ReplyCard";
-import ProfileIcon from "../assets/images/ProfileStateicon.png";
+import ProfileIcon from "@/assets/images/ProfileStateicon.png";
 import {
-  StudyDetailCommentWriteWrap,
   StudyDetailCommentWrap2,
   StudyDetailPageWrap,
   StudyDetailWrapper,
-  StudyProfileIcon,
-  StudyProfileNameWrap,
-  StudyProfileNameWrap2,
-  StudyProfileTextWapper,
-  StudySubmitButton,
-  StudySubmitWrapper,
-  StudyTextAreaWrapper,
-  StudyTextContentsWrapper3,
-  StudyWriterWrapper,
-  TextReplyWrapper,
-  CheckboxWrapper,
-  ProfileFlexWrapper,
-  ReplyButton,
-  StudyReplyIconStyle,
-  ReplyWrapper,
-} from "../styles/StudyDetailPageStyle";
+
+} from "@/styles/StudyDetailPageStyle";
+import CommentWrite from "@/components/feature/CommentWrite";
 import { useParams } from "react-router-dom";
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import CommentItem from "../components/feature/CommentItem";
+
 const data = {
   category: "영상",
   content: "string",
@@ -47,6 +34,9 @@ const data = {
   work_content: "string",
   wst: "string",
 };
+// const commentsList = [
+//   { id: 1, comments: [], body: '' }
+// ]
 
 const StudyDetailPage = () => {
   const [recruitType, setRecruitType] = useState(true);
@@ -55,6 +45,10 @@ const StudyDetailPage = () => {
   const [replyBtn, setReplyBtn] = useState(Array(comments.length).fill(false));
   const [reComments, setReComments] = useState([]);
   const { id } = useParams();
+
+  // useEffect(() => {
+  //   setComments(commentsList)
+  // }, [])
 
   return (
     <StudyDetailPageWrap>
@@ -65,116 +59,27 @@ const StudyDetailPage = () => {
           ProfileIcon={ProfileIcon}
           id={id}
         />
-
         {comments?.map((el, i) => (
           <StudyDetailCommentWrap2 key={i}>
-            <div>
-              <StudyProfileNameWrap2>
-                <ProfileFlexWrapper>
-                  <StudyProfileIcon src={ProfileIcon} />
-                  <StudyWriterWrapper>
-                    <span>글쓴이</span>
-                    <span>8:20</span>
-                  </StudyWriterWrapper>
-                </ProfileFlexWrapper>
-              </StudyProfileNameWrap2>
-              <TextReplyWrapper>{el}</TextReplyWrapper>
-              <ReplyButton
-                onClick={() => {
-                  let copy = [...replyBtn]; //replybtn state에 복사본을 만들어준다
-                  copy[i] = !copy[i]; // 각 댓글마다 답글 버튼의 상태를 저장하기
-                  setReplyBtn(copy); // setState에 copy를 넣어서 수정해준다
-                }}
-              >
-                댓글
-              </ReplyButton>
-              {replyBtn[i] && (
-                <ReplyWrapper>
-                  <StudyTextContentsWrapper3>
-                    <StudyProfileTextWapper>
-                      <StudyReplyIconStyle src={ProfileIcon} />
-                      <StudyProfileNameWrap>
-                        <span>닉네임</span>
-                      </StudyProfileNameWrap>
-                    </StudyProfileTextWapper>
-                    <StudyTextAreaWrapper>
-                      <TextField
-                        onChange={(e) => {
-                          setTextWrite(e.target.value);
-                        }}
-                        id="standard-textarea"
-                        placeholder="댓글을 작성해주세요"
-                        multiline
-                        variant="standard"
-                        style={{ width: "1000px" }}
-                      />
-                    </StudyTextAreaWrapper>
-                    <StudySubmitWrapper>
-                      <CheckboxWrapper>
-                        <Checkbox
-                          {...label}
-                          defaultChecked
-                          sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
-                        />
-                        <span>비밀댓글</span>
-                      </CheckboxWrapper>
-                      <div></div>
-                      <StudySubmitButton
-                        onClick={() => {
-                          setReComments([...reComments, textWrite]);
-                          setTextWrite("");
-                        }}
-                      >
-                        댓글작성
-                      </StudySubmitButton>
-                    </StudySubmitWrapper>
-                  </StudyTextContentsWrapper3>
-                </ReplyWrapper>
-              )}
-            </div>
+            <CommentItem
+              el={el}
+              setReplyBtn={setReplyBtn}
+              replyBtn={replyBtn}
+              i={i}
+              setTextWrite={setTextWrite}
+              textWrite={textWrite}
+              reComments={reComments}
+              setReComments={setReComments}
+            />
           </StudyDetailCommentWrap2>
         ))}
-        <StudyDetailCommentWriteWrap>
-          <StudyTextContentsWrapper3>
-            <StudyProfileTextWapper>
-              <StudyProfileIcon src={ProfileIcon} />
-              <StudyProfileNameWrap>
-                <span>닉네임</span>
-              </StudyProfileNameWrap>
-            </StudyProfileTextWapper>
-            <StudyTextAreaWrapper>
-              <TextField
-                onChange={(e) => setTextWrite(e.target.value)}
-                value={textWrite}
-                id="standard-textarea"
-                placeholder="댓글을 작성해주세요"
-                multiline
-                variant="standard"
-                style={{ width: "1000px" }}
-              />
-            </StudyTextAreaWrapper>
-            <StudySubmitWrapper>
-              <CheckboxWrapper>
-                <Checkbox
-                  inputProps={{ "aria-label": "Checkbox demo" }}
-                  defaultChecked
-                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
-                />
-                <span>비밀댓글</span>
-              </CheckboxWrapper>
-              <StudySubmitButton
-                onClick={() => {
-                  if (textWrite.trim()) {
-                    setComments([...comments, textWrite.trim()]);
-                  }
-                  setTextWrite("");
-                }}
-              >
-                댓글작성
-              </StudySubmitButton>
-            </StudySubmitWrapper>
-          </StudyTextContentsWrapper3>
-        </StudyDetailCommentWriteWrap>
+        <CommentWrite
+          comments={comments}
+          onComments={setComments}
+          replyBtn={replyBtn}
+          setReplyBtn={setReplyBtn}
+          textWrite={textWrite}
+        />
       </StudyDetailWrapper>
     </StudyDetailPageWrap>
   );

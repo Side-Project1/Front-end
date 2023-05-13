@@ -16,13 +16,6 @@ export const Scrapbutton = styled.button`
   color: #ee6e03;
   font-size: 15px;
 `;
-export const StudyProfileNameWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-export const StudyProfileIcon = styled.img`
-
-`;
 
 export const StudyDetailPageWrap = styled.div`
   width: 1200px;
@@ -57,11 +50,34 @@ export const StudyTextContentsWrapper = styled.div`
   margin-top: 15px;
 `;
 
+export const StudyProfileTextWapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 7px;
+`;
 
+export const StudyTextAreaWrapper = styled.div`
+  margin: 0 auto;
+`;
 
+export const ReplyWrapper = styled.div`
+  width: 1062px;
+  margin: 116px auto;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 9px;
+`;
+export const StudyProfileIcon = styled.img`
 
-
-
+`;
+export const StudyTextContentsWrapper3 = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  flex-direction: column;
+  margin-left: 33px;
+  padding-top: 23px;
+`;
 export const StudyContentsWrapper = styled.div`
   margin: 30px 70px;
   margin-bottom: 5px;
@@ -76,20 +92,14 @@ export const StudyElementsWrapper = styled.div`
   display: flex;
   gap: 3px;
 `;
-
-
-
-export const ProfileFlexWrapper = styled.div`
+export const StudyReplyIconStyle = styled.img`
   display: flex;
-  flex-direction: row;
-  margin-left: 31px;
-  margin-top: 16px;
-  gap: 8px;
-  align-items: center;
+  height: 56px;
 `;
 
 
-export const StudyProfileNameWrap2 = styled.div`
+
+export const StudyProfileNameWrap = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -131,5 +141,37 @@ export const StudyDetailCommentWriteWrap = styled.div`
   border: 1px solid #d0d0d0;
   border-radius: 9px;
 `;
+export const CheckboxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const ReplyButton = styled.button`
+  background: rgba(238, 110, 3, 0.12);
+  border: 2px solid rgba(238, 110, 3, 0.65);
+  border-radius: 47px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  color: #ee6e03;
+  padding: 5px 21px;
+  margin-left: 85px;
+`;
 
-
+export const StudySubmitWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+`;
+export const StudySubmitButton = styled.button`
+  background: #ee6e03;
+  border-radius: 47px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 6px 29px;
+  color: #fff;
+  border-style: none;
+  margin-right: 26px;
+`;
