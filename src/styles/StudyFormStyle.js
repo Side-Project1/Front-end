@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StudyFormWholeWrap = styled.div`
   width: 100%;
-  background: #F6F6F6;
+  background: #f6f6f6;
 `;
 
 export const StudyFormWrapper = styled.div`
@@ -12,14 +12,14 @@ export const StudyFormWrapper = styled.div`
   margin: 0 auto;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
 `;
 
 export const StudyFormFont = styled.h2`
   font-size: 30px;
   font-weight: 600;
-  font-family: 'Inter';
+  font-family: "Inter";
   margin-bottom: 48px;
 `;
 
@@ -38,20 +38,20 @@ export const StudyTitleTextWrap = styled.div`
 `;
 
 export const LineStudy = styled.div`
-  border: 3px solid #E9E9E9;
+  border: 3px solid #e9e9e9;
   width: 100%;
   max-width: 982px;
   margin: 75px auto;
 `;
 
-export const StudyTextForm= styled(Textarea)({
+export const StudyTextForm = styled(Textarea)({
   width: "100%",
   height: "639px",
   borderRadius: "4px",
-  marginBottom:"51px"
+  marginBottom: "51px",
 });
 
-export const StudyTextFormWrap= styled.div`
+export const StudyTextFormWrap = styled.div`
   margin-left: 48px;
   padding-top: 48px;
   width: 100%;

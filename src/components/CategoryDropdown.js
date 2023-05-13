@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const CategoryDropdown = ({ categories, onSelect }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -17,10 +17,9 @@ const CategoryDropdown = ({ categories, onSelect }) => {
   };
 
   return (
-    
     <DropdownWrapper>
       <DropdownButton onClick={handleDropdownClick}>
-        {selectedCategory ? selectedCategory.name : '카테고리'}
+        {selectedCategory ? selectedCategory.name : "카테고리"}
       </DropdownButton>
       {isOpen && (
         <DropdownList>
@@ -37,8 +36,6 @@ const CategoryDropdown = ({ categories, onSelect }) => {
     </DropdownWrapper>
   );
 };
-
-
 
 const DropdownWrapper = styled.div`
   position: relative;

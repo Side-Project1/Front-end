@@ -19,7 +19,10 @@ const Dropdown = () => {
     <CategoryDropdownWrap>
       <CategoryList>
         {CATEGORIES.map((category) => (
-          <CategoryItem key={category.id} onClick={() => handleCategoryClick(category)}>
+          <CategoryItem
+            key={category.id}
+            onClick={() => handleCategoryClick(category)}
+          >
             {category.name}
           </CategoryItem>
         ))}
@@ -27,10 +30,13 @@ const Dropdown = () => {
       {showSubcategories && selectedCategory && (
         <SubcategoryList>
           {selectedCategory.subcategories.map((subcategory) => (
-            <SubcategoryItem key={subcategory.subCategoryId} onClick={handleSubcategoryClick}>
+            <SubcategoryItem
+              key={subcategory.subCategoryId}
+              onClick={handleSubcategoryClick}
+            >
               <input type="checkbox" />
               {subcategory.name}
-            </SubcategoryItem> 
+            </SubcategoryItem>
           ))}
         </SubcategoryList>
       )}
@@ -98,17 +104,17 @@ export const SubcategoryList = styled.ul`
   z-index: 1;
 `;
 export const SubcategoryItem = styled.li`
-display: flex;
-align-items: center;
-height: 48px;
-padding: 0 16px;
-cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 16px;
+  cursor: pointer;
 
-& > input[type="checkbox"] {
-margin-right: 8px;
-}
+  & > input[type="checkbox"] {
+    margin-right: 8px;
+  }
 
-&:hover {
-background-color: #f5f5f5;
-}
+  &:hover {
+    background-color: #f5f5f5;
+  }
 `;

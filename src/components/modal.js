@@ -1,8 +1,5 @@
-
-
-const modal = () =>{
+const modal = () => {
   <div>
     <div></div>
-  </div>
-    
-}
+  </div>;
+};
