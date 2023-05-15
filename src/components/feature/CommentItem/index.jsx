@@ -25,7 +25,15 @@ const copyStateChange = (list , i) => {
   return copy;
 }
 
-const CommentItem = ({el,setReplyBtn,replyBtn,i,setTextWrite, textWrite,setReComments,reComments}) => {
+const CommentItem = ({
+  el,
+  setReplyBtn,
+  replyBtn,
+  i,
+  setTextWrite,
+   textWrite,
+   setReComments,
+   reComments}) => {
 
   
   return (

@@ -3,9 +3,7 @@ import {
   BorderKeyword,
   InputWrapKeyword,
   KeyWordInputflex,
-  ProfileTitle,
   PromotioTextForm,
-  PromotionFormWrap,
   PromotionInput1,
   PromotionInput2,
   PromotionInput3,
@@ -13,63 +11,25 @@ import {
   PromotionInputWrapper,
   PromotionTextWrap,
 } from "../styles/promotionFormstyle";
-import {
-  CircleWrap,
-  PromotionProfileElement,
-  PromotionProfilewrap,
-  PromotionRegistAside,
-  PromotionRegisterButton,
-  PromotionRegisterButtonWrap,
-  UserNameText,
-} from "../styles/Promotionstyle";
-import mail from "../assets/images/Mail.png";
-import Profile from "../assets/images/profileicon.png";
-import Phone from "../assets/images/Phone.png";
-import location from "../assets/images/LocationIcon.png";
-import website from "../assets/images/webSite.png";
+import { DetailFormWrap, H2Title, TitleProfileWrap } from "../styles/promotionDetailstyle";
+import { useParams } from "react-router-dom";
+import PromotionDetailAsidePresenter from "../components/feature/PromotionDetailUI";
+import IntroduceText from "../components/feature/PromotionDetailUI/PromotionDivUI";
+
+
 const PromotionDetailPage = () => {
+
+  const { id } = useParams();
+
+
   const [plus, setPlus] = useState([]);
   const [write, setWrite] = useState("");
   return (
-    <PromotionFormWrap>
-      <PromotionProfilewrap>
-        <ProfileTitle>홍보게시판</ProfileTitle>
-      </PromotionProfilewrap>
-      <PromotionRegistAside>
-        <CircleWrap>
-          <img src={Profile}></img>
-        </CircleWrap>
-        <UserNameText>홍길동</UserNameText>
-        <PromotionProfilewrap>
-          <PromotionProfileElement>
-            <span>
-              <img src={mail} />
-            </span>
-            <span>asd1234@naver.com</span>
-          </PromotionProfileElement>
-          <PromotionProfileElement>
-            <span>
-              <img src={Phone} />
-            </span>
-            <span>010-0000-0000</span>
-          </PromotionProfileElement>
-          <PromotionProfileElement>
-            <span>
-              <img src={location}></img>
-            </span>
-            <span>서울특별시</span>
-          </PromotionProfileElement>
-          <PromotionProfileElement>
-            <span>
-              <img src={website}></img>
-            </span>
-            <span>www.naver.com</span>
-          </PromotionProfileElement>
-        </PromotionProfilewrap>
-        <PromotionRegisterButtonWrap>
-          <PromotionRegisterButton>등록하기</PromotionRegisterButton>
-        </PromotionRegisterButtonWrap>
-      </PromotionRegistAside>
+    <DetailFormWrap>
+      <TitleProfileWrap>
+        <H2Title>상세페이지</H2Title>
+      </TitleProfileWrap>
+      <PromotionDetailAsidePresenter />
       <PromotionTextWrap>
         <PromotioTextForm>
           <PromotionInputWrapper>
@@ -106,33 +66,16 @@ const PromotionDetailPage = () => {
                       <BorderKeyword>
                         <span>{plus[i]}</span>
                       </BorderKeyword>
-                      <button
-                        onClick={() => {
-                          let copy = [...plus];
-                          copy.splice(i, 1);
-                          setPlus(copy);
-                        }}
-                      >
-                        x
-                      </button>
                     </>
                   );
                 })}
               </div>
             </InputWrapKeyword>
           </PromotionInputWrapper>
-          <PromotionInputWrapper>
-            <span>자기소개</span>
-            <PromotionInput2
-              id="filled-textarea"
-              label="한줄 소개"
-              placeholder="자신을 어필 할 수 있는 소개를 해주세요!"
-              multiline="true"
-            />
-          </PromotionInputWrapper>
+          <IntroduceText />
         </PromotioTextForm>
       </PromotionTextWrap>
-    </PromotionFormWrap>
+    </DetailFormWrap>
   );
 };
 

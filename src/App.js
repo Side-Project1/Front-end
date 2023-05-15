@@ -14,6 +14,7 @@ import StudyForm from "./pages/StudyForm";
 import Promotion from "./pages/Promotion";
 import PromotionForm from "./pages/PromotionForm";
 import StudyDetailPage from "./pages/StudyDetailPage";
+import PromotionDetailPage from "./pages/PromotionDetailPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -48,7 +49,9 @@ function App() {
           <Route path="/Studyform" element={<StudyForm />} />
           <Route path="/Promotion" element={<Promotion />} />
           <Route path="/promotionform" element={<PromotionForm />} />
+          <Route path="/promotiondetailPage" element={<PromotionDetailPage />} />
           <Route path="/StudyDetailPage/:id" element={<StudyDetailPage />} />
+
         </Routes>
       </Router>
     </>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-
-export const PromotionRegistAside = styled.aside`
+export const DetailRegistAside = styled.aside`
   position: sticky;
   width: 361px;
   height: auto;
@@ -15,14 +14,7 @@ export const PromotionRegistAside = styled.aside`
   flex-direction: column;
   justify-content: center;
 `;
-export const UserNameText = styled.h3`
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  text-align: center;
-`;
-export const CircleWrap = styled.div`
+export const DetailCircleWrap = styled.div`
   border-radius: 100%;
   width: 150px;
   margin: 34px 102px;
@@ -33,23 +25,34 @@ export const CircleWrap = styled.div`
     margin: 14px 11px;
   }
 `;
-export const PromotionProfilewrap = styled.div`
+
+export const DetailAsidebarwrap = styled.div`
   margin: 0 auto;
   gap: 3px;
   display: flex;
   flex-direction: column;
   padding-top: 20px;
 `;
-export const PromotionProfileElement = styled.div`
+
+export const UserNameDetail = styled.h3`
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+`;
+
+export const FlexGap3px = styled.div`
   display: flex;
   gap: 3px;
 `;
 
-export const PromotionRegisterButtonWrap = styled.div`
+export const FlexCenter = styled.div`
   display: flex;
   justify-content: center;
 `;
-export const PromotionRegisterButton = styled.button`
+
+export const DetailButton = styled.button`
   background: #ee6e03;
   border-radius: 5px;
   border: none;
@@ -60,10 +63,4 @@ export const PromotionRegisterButton = styled.button`
   font-weight: 700;
   font-size: 16px;
   color: #ffffff;
-`;
-export const ProfileCardImg = styled.img`
-  width: 150px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  margin-top: 24px;
 `;
