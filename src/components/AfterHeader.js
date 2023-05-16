@@ -26,7 +26,7 @@ function AfterHeader(props) {
         <NavLi current onClick={() => navigate("/")}>
           홈
         </NavLi>
-        <NavLi onClick={() => navigate("/job")}>구인/구직</NavLi>
+        <NavLi onClick={() => navigate("/Promotion")}>홍보</NavLi>
         <NavLi onClick={() => navigate("/study")}>스터디</NavLi>
         <NavLi onClick={() => navigate("/community")}>커뮤니티</NavLi>
         <NavLi onClick={() => navigate("/myPage")}>마이 페이지</NavLi>

@@ -12,14 +12,10 @@ import {
   RegiststerDiv,
   SearchingBar,
   SearchingBarWrap,
-  SemiCategory,
-  SemiCategoryWrapper,
   SemiWrapper,
 } from "../styles/jobstyle";
-import TriangleIcon from "../styles/TriangleIcon";
-import Dropdown from "../components/Dropdown ";
-import CompanyCard from "../components/CompanyCard";
 import PromotionCard from "../components/PromotionCard";
+import CategoryDropDownUI from "../components/common/CategoryDropdown";
 
 const Promotion = () => {
   const data = [
@@ -74,7 +70,7 @@ const Promotion = () => {
     setViews({ ...views, [view]: !views[view] });
   };
 
-  const categoryContents = ["전체", "음악", "디자인 미술", "체육 무용", "기타"];
+  const categoryContents = ["홍보", "구인", "기타"];
   const [selectedCategory, setSelectedCategory] = useState("전체");
 
   const onCategoryClick = (category) => {
@@ -100,20 +96,7 @@ const Promotion = () => {
         ))}
       </CategoryContents>
       <SemiWrapper>
-        <SemiCategoryWrapper>
-          <SemiCategory onClick={() => toggleView("view1")}>
-            카테고리 <TriangleIcon />
-            {views.view1 && <Dropdown />}
-          </SemiCategory>
-          <SemiCategory onClick={() => toggleView("view2")}>
-            경력 <TriangleIcon />
-            {views.view2 && <Dropdown />}
-          </SemiCategory>
-          <SemiCategory onClick={() => toggleView("view3")}>
-            지역 <TriangleIcon />
-            {views.view3 && <Dropdown />}
-          </SemiCategory>
-        </SemiCategoryWrapper>
+        <CategoryDropDownUI toggleView={toggleView} views={views} />
         <SearchingBarWrap>
           <SearchingBar placeholder="제목 + 본문검색" />
         </SearchingBarWrap>
@@ -134,6 +117,7 @@ const Promotion = () => {
       <CardContainer>
         {data.map((v) => (
           <PromotionCard data={v} />
+
         ))}
       </CardContainer>
     </CategoryWrapper>

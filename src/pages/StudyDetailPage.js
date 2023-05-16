@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Checkbox, TextField } from "@mui/material";
-import axios from "axios";
 import StudyTextCard from "../components/TextCard";
-import ReplyCard from "../components/ReplyCard";
 import ProfileIcon from "@/assets/images/ProfileStateicon.png";
 import {
   StudyDetailCommentWrap2,
@@ -40,7 +37,7 @@ const data = {
 
 const StudyDetailPage = () => {
   const [recruitType, setRecruitType] = useState(true);
-  const [textWrite, setTextWrite] = useState("");
+  const [textWrite, setTextWrite] = useState(" ");
   const [comments, setComments] = useState([]);
   const [replyBtn, setReplyBtn] = useState(Array(comments.length).fill(false));
   const [reComments, setReComments] = useState([]);

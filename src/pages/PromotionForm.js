@@ -10,25 +10,15 @@ import {
   PromotionInput2,
   PromotionInput3,
   PromotionInput3Button,
-  PromotionInput3ButtonWrap,
   PromotionInputWrapper,
   PromotionProfileWrap,
   PromotionTextWrap,
 } from "../styles/promotionFormstyle";
+
 import {
-  CircleWrap,
-  PromotionProfileElement,
-  PromotionProfilewrap,
-  PromotionRegistAside,
   PromotionRegisterButton,
   PromotionRegisterButtonWrap,
-  UserNameText,
 } from "../styles/Promotionstyle";
-import mail from "../assets/images/Mail.png";
-import Profile from "../assets/images/profileicon.png";
-import Phone from "../assets/images/Phone.png";
-import location from "../assets/images/LocationIcon.png";
-import website from "../assets/images/webSite.png";
 
 const PromotionForm = () => {
   const [plus, setPlus] = useState([]);
@@ -38,41 +28,6 @@ const PromotionForm = () => {
       <PromotionProfileWrap>
         <ProfileTitle>홍보게시판</ProfileTitle>
       </PromotionProfileWrap>
-      <PromotionRegistAside>
-        <CircleWrap>
-          <img src={Profile}></img>
-        </CircleWrap>
-        <UserNameText>홍길동</UserNameText>
-        <PromotionProfilewrap>
-          <PromotionProfileElement>
-            <span>
-              <img src={mail} />
-            </span>
-            <span>asd1234@naver.com</span>
-          </PromotionProfileElement>
-          <PromotionProfileElement>
-            <span>
-              <img src={Phone} />
-            </span>
-            <span>010-0000-0000</span>
-          </PromotionProfileElement>
-          <PromotionProfileElement>
-            <span>
-              <img src={location}></img>
-            </span>
-            <span>서울특별시</span>
-          </PromotionProfileElement>
-          <PromotionProfileElement>
-            <span>
-              <img src={website}></img>
-            </span>
-            <span>www.naver.com</span>
-          </PromotionProfileElement>
-        </PromotionProfilewrap>
-        <PromotionRegisterButtonWrap>
-          <PromotionRegisterButton>등록하기</PromotionRegisterButton>
-        </PromotionRegisterButtonWrap>
-      </PromotionRegistAside>
       <PromotionTextWrap>
         <PromotioTextForm>
           <PromotionInputWrapper>
@@ -133,6 +88,10 @@ const PromotionForm = () => {
               multiline="true"
             />
           </PromotionInputWrapper>
+          <PromotionRegisterButtonWrap>
+            <PromotionRegisterButton>등록</PromotionRegisterButton>
+            <PromotionRegisterButton>취소</PromotionRegisterButton>
+          </PromotionRegisterButtonWrap>
         </PromotioTextForm>
       </PromotionTextWrap>
     </PromotionFormWrap>

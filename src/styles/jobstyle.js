@@ -56,10 +56,6 @@ export const SemiCategory = styled.ul`
   color: rgba(100, 100, 100, 1);
 `;
 
-export const SemiCategoryWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 export const SearchingBarWrap = styled.div`
   margin-left: 349px;

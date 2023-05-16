@@ -49,9 +49,8 @@ function App() {
           <Route path="/Studyform" element={<StudyForm />} />
           <Route path="/Promotion" element={<Promotion />} />
           <Route path="/promotionform" element={<PromotionForm />} />
-          <Route path="/promotiondetailPage" element={<PromotionDetailPage />} />
+          <Route path="/promotiondetailPage/:id" element={<PromotionDetailPage />} />
           <Route path="/StudyDetailPage/:id" element={<StudyDetailPage />} />
-
         </Routes>
       </Router>
     </>

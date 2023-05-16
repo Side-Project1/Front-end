@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import {
   RegisterWrap,
-  RegisterWrapper,
-  RegiststerDiv,
   SearchingBar,
   SearchingBarWrap,
-  SemiCategory,
-  SemiCategoryWrapper,
-  SemiWrapper,
 } from "../styles/jobstyle";
-import { RegisterButton } from "../styles/formSrtyle";
-import TriangleIcon from "../styles/TriangleIcon";
-import Dropdown from "../components/Dropdown ";
 import { useNavigate } from "react-router-dom";
 import {
   StudyContents,
@@ -43,11 +35,6 @@ import { ScrapUIWrapper, Scrapbutton } from "../styles/StudyDetailPageStyle";
 const Study = () => {
   const [sortByNewest, setSortByNewest] = useState(false);
   const navigate = useNavigate();
-  const [views, setViews] = useState({
-    view1: false,
-    view2: false,
-    view3: false,
-  });
 
   const [recruitType, setRecruitType] = useState(true);
   const [scrap, setScrap] = useState(false);

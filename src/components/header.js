@@ -38,10 +38,10 @@ const MainHeader = (props) => {
         </NavLi>
         <NavLi
           onClick={() => {
-            navigate("/job");
+            navigate("/Promotion");
           }}
         >
-          구인/구직
+          홍보
         </NavLi>
         <NavLi
           onClick={() => {
