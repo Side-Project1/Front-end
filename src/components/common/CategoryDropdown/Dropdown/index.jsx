@@ -7,6 +7,7 @@ import CATEGORIES from "../../../categories";
 const Dropdown = () => {
   const [showSubcategories, setShowSubcategories] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [data, setdata] = useState(CATEGORIES);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -20,7 +21,7 @@ const Dropdown = () => {
   return (
     <CategoryDropdownWrap>
       <CategoryList>
-        {CATEGORIES.map((category) => (
+        {data.map((category) => (
           <CategoryItem
             key={category.id}
             onClick={() => handleCategoryClick(category)}

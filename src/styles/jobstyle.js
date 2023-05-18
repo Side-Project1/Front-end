@@ -30,11 +30,7 @@ export const CategoryContentsElement = styled.li`
   );
   transition: 3s;
 `;
-export const SemiWrapper = styled.div`
-  width: 100%;
 
-  display: flex;
-`;
 
 export const SemiCategory = styled.ul`
   width: 144px;

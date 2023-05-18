@@ -8,39 +8,35 @@ import {
 } from "../styles/jobstyle";
 import Profile from "../assets/images/profileicon.png";
 import { ProfileCardImg } from "../styles/Promotionstyle";
-import { Stack } from "@mui/joy";
 import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const PromotionCard = (props) => {
-  const { data, ...restProps } = props;
+  const { data, setData, ...restProps } = props;
   console.log(data)
   const navigate = useNavigate();
-  //   const fetchData = useCallback(() => {
-  //     MemberApi.getName().then((res) => {
-  //       if (res.status === 200) {
-  // navigate(`/member/promemotion/${state.id}`,{state:res.data})
-  //       }
-  //     })
-  //     let result = MeberApi.getName()
-  //     if (result.status === 200) {
 
-  //     }
-  //   }, [])
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [fetchData])
+  useEffect(() => {
+    axios.get(`http://13.209.81.190:8080/api/v1/prom`)
+      .then(response => {
+        const responseData = response.data;
+        setData(responseData);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, []);
 
   return (
     <CardWrap>
       <ProfileCardImg src={Profile} />
-      <CompanyText>{data.wet}</CompanyText>
-      <CardTitle>{data.title}</CardTitle>
+      <CompanyText>{data?.sub_category}</CompanyText>
+      <CardTitle>{data?.title}</CardTitle>
       <CategoryWrap>
-        <CategoryBox>{data.category}</CategoryBox>
+        <CategoryBox>{data?.contents}</CategoryBox>
       </CategoryWrap>
       <CardDetailText>
-        {data.place} | {data.qualifications_needed}
+        {data?.user_id} | 부산
       </CardDetailText>
     </CardWrap>
   );

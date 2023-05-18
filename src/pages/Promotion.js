@@ -1,63 +1,30 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   CardContainer,
-  CategoryContents,
-  CategoryContentsElement,
   CategoryWrapper,
-  RegisterButton,
-  RegisterWrap,
-  RegisterWrapper,
-  RegiststerDiv,
-  SearchingBar,
-  SearchingBarWrap,
-  SemiWrapper,
 } from "../styles/jobstyle";
 import PromotionCard from "../components/PromotionCard";
-import CategoryDropDownUI from "../components/common/CategoryDropdown";
+import PromotionUI from "../components/feature/Promotion";
+import axios from "axios";
+
 
 const Promotion = () => {
-  const data = [
-    {
-      category: "영상",
-      content: "string",
-      dead_line: "2023-04-16",
-      email: "string",
-      en_dt: "2023-04-16",
-      person_num: 0,
-      phone: "string",
-      place: "서울 구로구",
-      preferential: "string",
-      qualifications_needed: "경력 1~10년",
-      recruitment: "string",
-      salary: "string",
-      st_dt: "2023-04-16",
-      title: "네트워크 엔지니어 채용",
-      wet: "디오넷",
-      work_content: "string",
-      wst: "string",
-    },
-    {
-      category: "음악",
-      content: "string",
-      dead_line: "2023-04-16",
-      email: "string",
-      en_dt: "2023-04-16",
-      person_num: 0,
-      phone: "string",
-      place: "서울 강남구",
-      preferential: "string",
-      qualifications_needed: "경력 무관",
-      recruitment: "string",
-      salary: "string",
-      st_dt: "2023-04-16",
-      title: "음악 교습소 직원 모집",
-      wet: "바흐 음악교실",
-      work_content: "string",
-      wst: "string",
-    },
-  ];
+
+  const [data, setData] = useState([]);
+
+
+  useEffect(() => {
+    axios.get(`http://13.209.81.190:8080/api/v1/prom`)
+      .then(response => {
+        const responseData = response.data;
+        setData(responseData);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }, []);
 
   const navigate = useNavigate();
   const [views, setViews] = useState({
@@ -70,7 +37,7 @@ const Promotion = () => {
     setViews({ ...views, [view]: !views[view] });
   };
 
-  const categoryContents = ["홍보", "구인", "기타"];
+  const categoryContents = ["전체", "홍보", "구인"];
   const [selectedCategory, setSelectedCategory] = useState("전체");
 
   const onCategoryClick = (category) => {
@@ -79,44 +46,19 @@ const Promotion = () => {
 
   return (
     <CategoryWrapper>
-      <CategoryContents>
-        {categoryContents.map((category) => (
-          <CategoryContentsElement
-            key={category}
-            onClick={() => onCategoryClick(category)}
-            style={{
-              background:
-                category === selectedCategory
-                  ? "linear-gradient(90deg, #FFC642 0%, rgba(255, 238, 199, 0.0260417) 251.08%)"
-                  : "transparent",
-            }}
-          >
-            {category}
-          </CategoryContentsElement>
-        ))}
-      </CategoryContents>
-      <SemiWrapper>
-        <CategoryDropDownUI toggleView={toggleView} views={views} />
-        <SearchingBarWrap>
-          <SearchingBar placeholder="제목 + 본문검색" />
-        </SearchingBarWrap>
-      </SemiWrapper>
-      <RegisterWrap>
-        <div>전체 100건</div>
-        <RegisterWrapper>
-          <RegiststerDiv>최근 등록순</RegiststerDiv>
-          <RegisterButton
-            onClick={() => {
-              navigate("/promotionform");
-            }}
-          >
-            글쓰기
-          </RegisterButton>
-        </RegisterWrapper>
-      </RegisterWrap>
+      <PromotionUI
+        categoryContents={categoryContents}
+        onCategoryClick={onCategoryClick}
+        selectedCategory={selectedCategory}
+        toggleView={toggleView}
+        setViews={setViews}
+        views={views}
+        navigate={navigate}
+      />
       <CardContainer>
-        {data.map((v) => (
-          <PromotionCard data={v} />
+        {data.map((v, i) => (
+
+          < PromotionCard data={v} key={i} />
 
         ))}
       </CardContainer>

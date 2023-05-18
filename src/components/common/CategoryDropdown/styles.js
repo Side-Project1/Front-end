@@ -23,4 +23,20 @@ export const CategoryDropdownWrap = styled.ul`
   font-weight: 600;
   font-size: 21px;
   color: rgba(100, 100, 100, 1);
+  flex-shrink: 1;
+  flex-wrap: nowrap;
+`;
+
+export const CategoryModalWrap = styled.div`
+  position:fixed;
+  border: 1px solid black;
+  width: 452px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column; 
+  opacity: ${({ open }) => open ? 1 : 0};
+  visibility: ${({ open }) => open ? "visible" : "hidden"};
+  transition: opacity 0.3s, visibility 0.3s ease;
+  z-index: 100;
 `;

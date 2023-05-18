@@ -7,6 +7,9 @@ export const CategoryDropdownWrap = styled.div`
   border-radius: 4px;
 `;
 
+
+
+
 export const CategoryList = styled.ul`
   list-style: none;
   padding: 0;

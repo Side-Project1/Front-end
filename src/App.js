@@ -41,10 +41,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/job" element={<Job />} />
+          {/* <Route path="/job" element={<Job />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/Membership" element={<Membership />} />
-          <Route path="/form" element={<Form />} />
+          {/* <Route path="/form" element={<Form />} /> */}
           <Route path="/Study" element={<Study />} />
           <Route path="/Studyform" element={<StudyForm />} />
           <Route path="/Promotion" element={<Promotion />} />

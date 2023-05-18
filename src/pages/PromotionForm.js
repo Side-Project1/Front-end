@@ -19,10 +19,33 @@ import {
   PromotionRegisterButton,
   PromotionRegisterButtonWrap,
 } from "../styles/Promotionstyle";
+import axios from "axios";
 
 const PromotionForm = () => {
   const [plus, setPlus] = useState([]);
   const [write, setWrite] = useState("");
+  const [title, setTitle] = useState("");
+  const [introduction, setIntroduction] = useState("");
+
+  const handleRegister = async () => {
+    const requestData = {
+      "contents": introduction,
+      "sub_category": [1],
+      "title": title,
+    }
+    await axios.post('http://13.209.81.190:8080/api/v1/prom', requestData,
+      { headers: { "Content-Type": "application/json" } },
+    )
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+  }
+
+
   return (
     <PromotionFormWrap>
       <PromotionProfileWrap>
@@ -32,7 +55,11 @@ const PromotionForm = () => {
         <PromotioTextForm>
           <PromotionInputWrapper>
             <span>제목</span>
-            <PromotionInput1 placeholder="제목을 입력해주세요" />
+            <PromotionInput1
+              placeholder="제목을 입력해주세요"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </PromotionInputWrapper>
           <PromotionInputWrapper>
             <span>키워드</span>
@@ -43,6 +70,7 @@ const PromotionForm = () => {
                     setWrite(e.target.value);
                   }}
                   placeholder="키워드를 입력해주세요"
+
                 />
                 <PromotionInput3Button
                   variant="outlined"
@@ -86,10 +114,12 @@ const PromotionForm = () => {
               label="한줄 소개"
               placeholder="자신을 어필 할 수 있는 소개를 해주세요!"
               multiline="true"
+              value={introduction}
+              onChange={(e) => setIntroduction(e.target.value)}
             />
           </PromotionInputWrapper>
           <PromotionRegisterButtonWrap>
-            <PromotionRegisterButton>등록</PromotionRegisterButton>
+            <PromotionRegisterButton onClick={handleRegister}>등록</PromotionRegisterButton>
             <PromotionRegisterButton>취소</PromotionRegisterButton>
           </PromotionRegisterButtonWrap>
         </PromotioTextForm>
