@@ -1,5 +1,6 @@
 import TriangleIcon from "../../../styles/TriangleIcon";
 import Dropdown from "./Dropdown";
+import EasyDropDownUI from "./MUIDropDown";
 import { CategoryDropdownWrap, SemiCategoryWrapper } from "./styles";
 
 
@@ -12,10 +13,7 @@ const CategoryDropDownUI = ({toggleView,views}) =>{
             카테고리 <TriangleIcon />
             {views.view1 && <Dropdown />}
           </CategoryDropdownWrap>
-          <CategoryDropdownWrap onClick={() => toggleView("view2")}>
-            경력 <TriangleIcon />
-            {views.view2 && <Dropdown />}
-          </CategoryDropdownWrap>
+          <EasyDropDownUI/>
           <CategoryDropdownWrap onClick={() => toggleView("view3")}>
             지역 <TriangleIcon />
             {views.view3 && <Dropdown />}

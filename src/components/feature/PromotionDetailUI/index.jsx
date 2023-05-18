@@ -6,8 +6,8 @@ import { H2Title, PromotionDetailContentWrapper, PromotionDetailWholeWrap, Title
 
 
 
-const PromotionDetailTextForm = ({plus,setPlus}) =>{
-
+const PromotionDetailTextForm = ({plus,setPlus,data,setDetailData}) =>{
+    console.log(data)
 
   return(
     <>
@@ -18,9 +18,9 @@ const PromotionDetailTextForm = ({plus,setPlus}) =>{
       <WidthHundredPerWrap>
         <PromotionDetailWholeWrap>
           <PromotionDetailContentWrapper>
-            <span>제목</span>
+            <span>{data.data.title}</span>
           </PromotionDetailContentWrapper>
-          <IntroduceText />
+          <IntroduceText contents={data.data.contents}/>
           <PromotionInputWrapper>
             <span>키워드</span>
             <PromotionDetailKeyword plus={plus} />

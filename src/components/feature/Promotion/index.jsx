@@ -22,6 +22,7 @@ return(
         selectedCategory={selectedCategory}
       />
       <SemiWrapper>
+      
         <CategoryDropDownUI toggleView={toggleView} setViews={setViews} views={views} />
         <SearchingBarWrap>
           <SearchingBar placeholder="제목 + 본문검색" />
@@ -42,8 +43,5 @@ return(
       </RegisterFlexWrap>
 </>
 )
-
-
 }
-
 export default PromotionUI

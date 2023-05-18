@@ -13,13 +13,24 @@ import axios from "axios";
 const Promotion = () => {
 
   const [data, setData] = useState([]);
+  const [textTitle, setTextTitle] = useState("")
+  const [contents, setContents] = useState("")
+  const [userId, setUserId] = useState("")
 
+  console.log(data)
 
   useEffect(() => {
     axios.get(`http://13.209.81.190:8080/api/v1/prom`)
       .then(response => {
+        const requestData = {
+          "title": textTitle,
+          "contents": contents,
+          "user_id": userId,
+          "sub_category": [1]
+        }
         const responseData = response.data;
-        setData(responseData);
+        setData(requestData);
+
       })
       .catch(error => {
         console.log(error)

@@ -21,8 +21,10 @@ import {
 } from "../styles/Promotionstyle";
 import axios from "axios";
 
+
 const PromotionForm = () => {
   const [plus, setPlus] = useState([]);
+  const [store, setStore] = useState([])
   const [write, setWrite] = useState("");
   const [title, setTitle] = useState("");
   const [introduction, setIntroduction] = useState("");
@@ -34,15 +36,23 @@ const PromotionForm = () => {
       "title": title,
     }
     await axios.post('http://13.209.81.190:8080/api/v1/prom', requestData,
-      { headers: { "Content-Type": "application/json" } },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "authorization": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI3NDI0ODAyMS01MTA3LTQwYzAtOWJkZC0yZDNjMmQxYTNmMmUiLCJpYXQiOjE2ODQ0MDQwNDQsImV4cCI6MTY4NDQwNTg0NH0.Vfv3yn4lnjiCQm2J-XOh-mGkBbT83vkADIm4o4iWRsKXB_XvC7cceC_Cg-2Sd6R9kFp70VRXvBJMFQmsZWsc4g"
+        }
+      },
     )
       .then(response => {
-        console.log(response)
+        const postData = response.data
+        setStore(postData)
+        console.log('성공입니다')
       })
       .catch(error => {
         console.log(error)
+        console.log('실패했습니다')
       })
-
+    console.log(store)
   }
 
 
@@ -57,7 +67,7 @@ const PromotionForm = () => {
             <span>제목</span>
             <PromotionInput1
               placeholder="제목을 입력해주세요"
-              value={title}
+              value={store.data.title}
               onChange={(e) => setTitle(e.target.value)}
             />
           </PromotionInputWrapper>

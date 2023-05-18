@@ -10,23 +10,11 @@ import Profile from "../assets/images/profileicon.png";
 import { ProfileCardImg } from "../styles/Promotionstyle";
 import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 const PromotionCard = (props) => {
-  const { data, setData, ...restProps } = props;
-  console.log(data)
+  const { data, ...restProps } = props;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get(`http://13.209.81.190:8080/api/v1/prom`)
-      .then(response => {
-        const responseData = response.data;
-        setData(responseData);
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, []);
-
+  console.log(data)
   return (
     <CardWrap>
       <ProfileCardImg src={Profile} />

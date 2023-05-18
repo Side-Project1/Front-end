@@ -1,7 +1,13 @@
 import React from "react";
+import { CommunityWrapper } from "../styles/CommunityStyle";
+import CommunityUI from "../components/feature/CommunityUI";
 
 function Community() {
-  return <div>Community</div>;
+  return (
+    <CommunityWrapper>
+      <CommunityUI />
+    </CommunityWrapper>
+  )
 }
 
 export default Community;
