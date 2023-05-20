@@ -27,6 +27,7 @@ const StudyForm = () => {
               <Option value="Music">음악</Option>
               <Option value="design">디자인</Option>
               <Option value="Art">미술</Option>
+              <Option value="KPOP">실용음악</Option>
             </Select>
           </StudyContentsWrap>
           <StudyContentsWrap>
@@ -39,6 +40,17 @@ const StudyForm = () => {
               <Option value="Daegu">대구</Option>
               <Option value="Daejeon">대전</Option>
               <Option value="Gwangju">광주</Option>
+              <Option value="Gangwon">강원</Option>
+              <Option value="kyungbook">경북</Option>
+              <Option value="Jeonbook">전북</Option>
+              <Option value="chungbook">충북</Option>
+              <Option value="sejong">세종</Option>
+              <Option value="ulsan">울산</Option>
+              <Option value="kyungnam">경남</Option>
+              <Option value="Jeonnam">전남</Option>
+              <Option value="chungNam">충남</Option>
+              <Option value="Jeju">제주</Option>
+              <Option value="overSea">해외</Option>
             </Select>
           </StudyContentsWrap>
           <StudyContentsWrap>

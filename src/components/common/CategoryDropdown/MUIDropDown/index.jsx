@@ -8,7 +8,7 @@ const EasyDropDownUI = () => {
 
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }}>
-      <InputLabel htmlFor="grouped-select">Grouping</InputLabel>
+      <InputLabel htmlFor="grouped-select">카테고리</InputLabel>
       <Select defaultValue="" id="grouped-select" label="Grouping">
         <MenuItem value="">
           <em>None</em>

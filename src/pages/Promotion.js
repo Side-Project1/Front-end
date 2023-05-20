@@ -22,15 +22,7 @@ const Promotion = () => {
   useEffect(() => {
     axios.get(`http://13.209.81.190:8080/api/v1/prom`)
       .then(response => {
-        const requestData = {
-          "title": textTitle,
-          "contents": contents,
-          "user_id": userId,
-          "sub_category": [1]
-        }
-        const responseData = response.data;
-        setData(requestData);
-
+        console.log(response)
       })
       .catch(error => {
         console.log(error)
@@ -68,9 +60,7 @@ const Promotion = () => {
       />
       <CardContainer>
         {data.map((v, i) => (
-
           < PromotionCard data={v} key={i} />
-
         ))}
       </CardContainer>
     </CategoryWrapper>

@@ -10,6 +10,7 @@ import {
 import CommentWrite from "@/components/feature/CommentWrite";
 import { useParams } from "react-router-dom";
 import CommentItem from "../components/feature/CommentItem";
+import axios from "axios";
 
 const data = {
   category: "영상",
@@ -42,10 +43,19 @@ const StudyDetailPage = () => {
   const [replyBtn, setReplyBtn] = useState(Array(comments.length).fill(false));
   const [reComments, setReComments] = useState([]);
   const { id } = useParams();
+  const [detailData, setDetailData] = useState([])
 
-  // useEffect(() => {
-  //   setComments(commentsList)
-  // }, [])
+  useEffect(() => {
+    axios.get(`http://13.209.81.190:8080/api/v1/study/${id}`)
+      .then(response => {
+        const responseData = response.data
+        setDetailData(responseData)
+        console.log('성공했습니다')
+      })
+      .catch(error => {
+        console.log(error, '실패하였습니다.')
+      })
+  }, [id])
 
   return (
     <StudyDetailPageWrap>

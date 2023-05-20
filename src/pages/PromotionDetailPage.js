@@ -11,18 +11,20 @@ const PromotionDetailPage = () => {
   const [plus, setPlus] = useState([]);
   const [detailData, setDetailData] = useState([]);
 
+
+
   useEffect(() => {
-    axios.get(`http://13.209.81.190:8080/api/v1/prom/1`)
+    axios.get(`http://13.209.81.190:8080/api/v1/prom/${id}`)
       .then(response => {
-        const responseDetailData = response.data
-        setDetailData(responseDetailData);
+        const responseData = response.data
+        setDetailData(responseData);
         console.log('성공했습니다')
 
       })
       .catch(error => {
-        console.log(error)
+        console.log(error, '실패하였습니다')
       })
-  }, [])
+  }, [id])
 
   return (
     <DetailFormWrap>
