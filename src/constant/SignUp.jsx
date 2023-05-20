@@ -1,4 +1,4 @@
-import * as S from "./SignUp";
+import * as S from "./SignUp.style";
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -35,11 +35,20 @@ const SignUp = () => {
   const {
     setValue,
     register,
-    formState: { errors },
     handleSubmit,
+    formState: { errors },
   } = useForm();
 
-  const onSubmit = (data, e) => {};
+  const onSubmit = (data) => {
+    axios
+      .post(`${API_URL}${POST_SIGN_UP}`, data)
+      .then((response) => {
+        console.log("회원가입 성공:", response.data);
+      })
+      .catch((error) => {
+        console.error("회원가입 실패:", error);
+      });
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -63,19 +72,22 @@ const SignUp = () => {
                   <S.Form>
                     <S.FormTitle>이름</S.FormTitle>
                     <S.Name
-                      name="user_id"
-                      isFocused={errors?.name}
-                      {...register("Name", { required: true })}
+                      {...register("user_name", { required: true })}
                       placeholder="이름"
                     ></S.Name>
+                    {errors.user_name && (
+                      <S.ErrorMsg>이름을 입력해주세요.</S.ErrorMsg>
+                    )}
                   </S.Form>
                   <S.Form>
                     <S.FormTitle>성별</S.FormTitle>
                     <S.Gender
-                      name="gender"
-                      {...register("성별")}
+                      {...register("gender", { required: true })}
                       placeholder="성별"
                     >
+                      {errors.user_name && (
+                        <S.ErrorMsg>성별을 선택해주세요.</S.ErrorMsg>
+                      )}
                       <S.Header onClick={handelSelectBoxClick}>
                         <S.Label>{currentGenderValue}</S.Label>
                         <S.DropDown src="/image/Dropdown.svg" />
@@ -100,22 +112,24 @@ const SignUp = () => {
                 </S.TopSection>
                 <S.FormTitle>닉네임</S.FormTitle>
                 <S.UserId
-                  isFocused={errors?.userid}
-                  {...register("UserId", { required: true })}
+                  {...register("user_id", { required: true })}
                   placeholder="닉네임을 입력해주세요"
                 ></S.UserId>
+                {errors.user_id && (
+                  <S.ErrorMsg>아이디를 입력해주세요.</S.ErrorMsg>
+                )}
                 <S.FormTitle>생년월일</S.FormTitle>
                 <S.Birth
-                  isFocused={errors?.birth}
-                  {...register("Birth", { required: true })}
+                  {...register("birthday", { required: true })}
                   placeholder="8자리 ex)19990102"
                 ></S.Birth>
+                {errors.birthday && (
+                  <S.ErrorMsg>생년월일을 입력해주세요.</S.ErrorMsg>
+                )}
                 <S.FormTitle>이메일</S.FormTitle>
                 <S.EmailForm>
                   <S.Email
-                    name="receiver"
-                    isFocused={errors?.email}
-                    {...register("Email", { required: true })}
+                    {...register("email", { required: true })}
                     placeholder="이메일 주소 입력"
                   ></S.Email>
                   <S.EmailButton
@@ -150,11 +164,12 @@ const SignUp = () => {
                 </S.EmailForm>
                 <S.FormTitle>비밀번호</S.FormTitle>
                 <S.Password
-                  name="password"
-                  isFocused={errors?.password}
-                  {...register("Password", { required: true })}
+                  {...register("password", { required: true })}
                   placeholder="비밀번호를 입력해 주세요(8자리 이상)"
                 ></S.Password>
+                {errors.password && (
+                  <S.ErrorMsg>비밀번호를 입력해주세요.</S.ErrorMsg>
+                )}
                 <S.Password placeholder="비밀번호를 다시 입력해 주세요 "></S.Password>
                 <S.NextButton onClick={handleNextArrow}>다음</S.NextButton>
               </S.Box>
@@ -168,47 +183,60 @@ const SignUp = () => {
                   회원 가입 (2/2)
                 </S.Title>
                 <S.FormTitle>직업</S.FormTitle>
-                <S.UserId placeholder="직업을 선택해 주세요"></S.UserId>
+                <S.UserId
+                  {...register("job")}
+                  placeholder="직업을 선택해 주세요"
+                ></S.UserId>
                 <S.FormTitle>휴대폰 번호</S.FormTitle>
                 <S.EmailForm>
-                  <S.Email placeholder="‘-’ 없이 숫자만"></S.Email>
-                  <S.EmailButton>인증번호</S.EmailButton>
+                  <S.Email
+                    {...register("phone", { required: true })}
+                    placeholder="‘-’ 없이 숫자만"
+                  ></S.Email>
+                  {errors.phone && (
+                    <S.ErrorMsg>전화번호를 입력해주세요.</S.ErrorMsg>
+                  )}
+                  {/* <S.EmailButton>인증번호</S.EmailButton> */}
                 </S.EmailForm>
-                <S.EmailForm>
+                {/* <S.EmailForm>
                   <S.Email placeholder="인증번호 입력"></S.Email>
                   <S.EmailButton>확인</S.EmailButton>
-                </S.EmailForm>
+                </S.EmailForm> */}
                 <S.FormTitle>가입경로 (선택)</S.FormTitle>
-                <S.UserId placeholder="가입경로를 선택해 주세요."></S.UserId>
+                <S.UserId
+                  {...register("path")}
+                  placeholder="가입경로를 선택해 주세요."
+                ></S.UserId>
                 <S.Agreement></S.Agreement>
                 <S.NextButton
-                  onClick={(data) => {
-                    axios({
-                      url: `${API_URL}${POST_SIGN_UP}`,
-                      method: "post",
-                      data: {
-                        user_id: data.user_id,
-                        password: data.password,
-                        user_name: data.user_name,
-                        phone: data.phone,
-                        email: data.email,
-                        birthday: data.birthday,
-                        gender: data.gender,
-                        job: data.job,
-                        path: data.path,
-                      },
-                    })
-                      .then((response) => {
-                        console.log("회원가입에 성공헀습니다.");
-                        console.log(response.data);
-                      })
-                      .catch((error) => {
-                        console.log("에러가 발생했습니다");
-                        console.log(error.response);
-                        console.log(error.response.data);
-                        alert(error.response.data.message);
-                      });
-                  }}
+                  type="submit"
+                  // onClick={(data) => {
+                  //   axios({
+                  //     url: `${API_URL}${POST_SIGN_UP}`,
+                  //     method: "post",
+                  //     data: {
+                  //       user_id: data.user_id,
+                  //       password: data.password,
+                  //       user_name: data.user_name,
+                  //       phone: data.phone,
+                  //       email: data.email,
+                  //       birthday: data.birthday,
+                  //       gender: data.gender,
+                  //       job: data.job,
+                  //       path: "내가 만든 사이트라서",
+                  //     },
+                  //   })
+                  //     .then((response) => {
+                  //       console.log("회원가입에 성공헀습니다.");
+                  //       console.log(response.data);
+                  //     })
+                  //     .catch((error) => {
+                  //       console.log("에러가 발생했습니다");
+                  //       console.log(error.response);
+                  //       console.log(error.response.data);
+                  //       alert(error.response.data.message);
+                  //     });
+                  // }}
                 >
                   가입 완료
                 </S.NextButton>

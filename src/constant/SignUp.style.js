@@ -17,6 +17,11 @@ export const SubWrapper = styled.div`
   padding: 47px 81px 60px;
 `;
 
+export const ErrorMsg = styled.span`
+  color: red;
+  margin-top: 4px;
+`;
+
 export const LeftContainer = styled.div``;
 
 export const TitleBox = styled.div`
