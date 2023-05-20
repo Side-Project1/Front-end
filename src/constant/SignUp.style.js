@@ -19,7 +19,8 @@ export const SubWrapper = styled.div`
 
 export const ErrorMsg = styled.span`
   color: red;
-  margin-top: 4px;
+  /* margin-top: 4px; */
+  font-size: xx-small;
 `;
 
 export const LeftContainer = styled.div``;
