@@ -68,6 +68,10 @@ export const SelectOptions = styled.div`
   padding: 4px 4px;
 `;
 
+export const SelectOptionsNone = styled.div`
+  display: none;
+`;
+
 export const Option = styled.div`
   font-weight: 500;
   font-size: 17px;

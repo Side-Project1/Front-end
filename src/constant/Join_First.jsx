@@ -15,6 +15,12 @@ const Join_First = () => {
     const { innerText } = e.target;
     setCurrentGenderValue(innerText);
     setValue("성별", innerText);
+    setShowGenderOptions(!showGenderOptions);
+  };
+
+  const handelSelectBoxClick = () => {
+    setShowGenderOptions(!showGenderOptions);
+    console.log(showGenderOptions);
   };
 
   const handleNextArrow = (e) => {
@@ -48,7 +54,6 @@ const Join_First = () => {
           </S.LeftContainer>
           <S.RightContainer>
             {/* 첫 번째 회원가입 폼 */}
-
             {nextPage === true ? (
               <S.Box>
                 <S.Title>
@@ -68,23 +73,28 @@ const Join_First = () => {
                     <S.FormTitle>성별</S.FormTitle>
                     <S.Gender
                       {...register("성별")}
-                      onClick={() => setShowGenderOptions((prev) => !prev)}
+                      placeholder="성별"
+                      // onClick={() => setShowGenderOptions((prev) => !prev)}
                     >
-                      <S.Header>
+                      <S.Header onClick={handelSelectBoxClick}>
                         <S.Label>{currentGenderValue}</S.Label>
                         <S.DropDown src="/image/Dropdown.svg" />
                       </S.Header>
-                      <S.SelectOptions show={showGenderOptions}>
-                        {GENDER_LIST.map((data) => (
-                          <S.Option
-                            key={data.gender}
-                            value={data.gender}
-                            onClick={handleOnChangeSelectGenderValue}
-                          >
-                            {data.gender}
-                          </S.Option>
-                        ))}
-                      </S.SelectOptions>
+                      {showGenderOptions === true ? (
+                        <S.SelectOptions>
+                          {GENDER_LIST.map((data) => (
+                            <S.Option
+                              key={data.gender}
+                              value={data.gender}
+                              onClick={handleOnChangeSelectGenderValue}
+                            >
+                              {data.gender}
+                            </S.Option>
+                          ))}
+                        </S.SelectOptions>
+                      ) : (
+                        <S.SelectOptionsNone></S.SelectOptionsNone>
+                      )}
                     </S.Gender>
                   </S.Form>
                 </S.TopSection>
