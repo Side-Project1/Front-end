@@ -1,4 +1,4 @@
-import * as S from "./Join_First.style";
+import * as S from "./SignUp";
 import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -6,7 +6,7 @@ import { POST_SIGN_UP, POST_SEND_EMAIL } from "../api/apiUrl";
 import { GENDER_LIST } from "./DropDownList";
 import { API_URL } from "../config/constant";
 
-const Join_First = () => {
+const SignUp = () => {
   const [nextPage, setNextPage] = useState(true);
   const [currentGenderValue, setCurrentGenderValue] = useState("성별");
   const [showGenderOptions, setShowGenderOptions] = useState(false);
@@ -33,7 +33,6 @@ const Join_First = () => {
   };
 
   const {
-    reset,
     setValue,
     register,
     formState: { errors },
@@ -64,6 +63,7 @@ const Join_First = () => {
                   <S.Form>
                     <S.FormTitle>이름</S.FormTitle>
                     <S.Name
+                      name="user_id"
                       isFocused={errors?.name}
                       {...register("Name", { required: true })}
                       placeholder="이름"
@@ -72,9 +72,9 @@ const Join_First = () => {
                   <S.Form>
                     <S.FormTitle>성별</S.FormTitle>
                     <S.Gender
+                      name="gender"
                       {...register("성별")}
                       placeholder="성별"
-                      // onClick={() => setShowGenderOptions((prev) => !prev)}
                     >
                       <S.Header onClick={handelSelectBoxClick}>
                         <S.Label>{currentGenderValue}</S.Label>
@@ -113,17 +113,18 @@ const Join_First = () => {
                 <S.FormTitle>이메일</S.FormTitle>
                 <S.EmailForm>
                   <S.Email
+                    name="receiver"
                     isFocused={errors?.email}
                     {...register("Email", { required: true })}
                     placeholder="이메일 주소 입력"
                   ></S.Email>
                   <S.EmailButton
-                    onClick={() => {
+                    onClick={(data) => {
                       axios({
                         url: `${API_URL}${POST_SEND_EMAIL}`,
                         method: "post",
                         data: {
-                          receiver: "commetoi_yeoni@naver.com",
+                          receiver: data.receiver,
                         },
                       })
                         .then((response) => {
@@ -149,6 +150,7 @@ const Join_First = () => {
                 </S.EmailForm>
                 <S.FormTitle>비밀번호</S.FormTitle>
                 <S.Password
+                  name="password"
                   isFocused={errors?.password}
                   {...register("Password", { required: true })}
                   placeholder="비밀번호를 입력해 주세요(8자리 이상)"
@@ -180,18 +182,20 @@ const Join_First = () => {
                 <S.UserId placeholder="가입경로를 선택해 주세요."></S.UserId>
                 <S.Agreement></S.Agreement>
                 <S.NextButton
-                  onClick={() => {
+                  onClick={(data) => {
                     axios({
                       url: `${API_URL}${POST_SIGN_UP}`,
                       method: "post",
                       data: {
-                        user_id: "tndustndus",
-                        password: "tndus123!",
-                        user_name: "웅123",
-                        phone: "010-8921-8709",
-                        email: "tndusdlqslek@naver.com",
-                        birthday: "98016",
-                        gender: "남자",
+                        user_id: data.user_id,
+                        password: data.password,
+                        user_name: data.user_name,
+                        phone: data.phone,
+                        email: data.email,
+                        birthday: data.birthday,
+                        gender: data.gender,
+                        job: data.job,
+                        path: data.path,
                       },
                     })
                       .then((response) => {
@@ -217,4 +221,4 @@ const Join_First = () => {
   );
 };
 
-export default Join_First;
+export default SignUp;
