@@ -19,7 +19,7 @@ export const SubWrapper = styled.div`
 
 export const ErrorMsg = styled.span`
   color: red;
-  /* margin-top: 4px; */
+  margin-top: -8px;
   font-size: xx-small;
 `;
 
@@ -75,6 +75,7 @@ export const SelectOptions = styled.div`
 `;
 
 export const JobSelectOptions = styled.div`
+  z-index: 50;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -280,8 +281,9 @@ export const NextButton = styled.button`
 `;
 
 export const Agreement = styled.div`
+  padding-left: 22px;
   width: 415px;
-  height: 186px;
+  height: 255x;
   background: #ffffff;
   border: 1px solid #d0d0d0;
   border-radius: 21px;

@@ -3,8 +3,15 @@ import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { POST_SIGN_UP, POST_SEND_EMAIL } from "../api/apiUrl";
-import { GENDER_LIST, JOB_LIST, PATH_LIST } from "./DropDownList";
+import {
+  AGREEMENT_LIST,
+  GENDER_LIST,
+  JOB_LIST,
+  PATH_LIST,
+} from "./DropDownList";
 import { API_URL } from "../config/constant";
+import { FormControlLabel, FormGroup, Checkbox } from "@mui/material";
+import { orange } from "@mui/material/colors";
 
 const SignUp = () => {
   const [nextPage, setNextPage] = useState(true);
@@ -63,6 +70,34 @@ const SignUp = () => {
 
   const handlePrevArrow = (e) => {
     setNextPage(true);
+  };
+
+  // checkbox 로직
+  const [checklist, setChecklist] = useState({
+    "만 14세 이상입니다.": false,
+    "서비스 이용약관에 동의합니다.": false,
+    "개인정보 수집/이용에 동의합니다.": false,
+    "개인정보 제 3자 제공에 동의합니다.": false,
+    "광고성 정보 수신에 동의합니다.": false,
+  });
+
+  const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    setChecklist((prevChecklist) => ({
+      ...prevChecklist,
+      [name]: checked,
+    }));
+  };
+
+  const handleAllChecked = () => {
+    const allChecked = Object.values(checklist).every((value) => value);
+    setChecklist((prevChecklist) => {
+      const updatedChecklist = {};
+      for (const key in prevChecklist) {
+        updatedChecklist[key] = !allChecked;
+      }
+      return updatedChecklist;
+    });
   };
 
   const {
@@ -243,21 +278,26 @@ const SignUp = () => {
                   </S.Job>
                   {errors.job && <S.ErrorMsg>직업을 선택해주세요.</S.ErrorMsg>}
                 </S.Form>
-                <S.FormTitle>휴대폰 번호</S.FormTitle>
-                <S.EmailForm>
-                  <S.Email
+                <S.Form>
+                  <S.FormTitle>휴대폰 번호</S.FormTitle>
+                  <S.UserId
                     {...register("phone", { required: true })}
                     placeholder="‘-’ 없이 숫자만"
+                  ></S.UserId>
+                  {/* <S.EmailForm>
+                  <S.Email
+                    
                   ></S.Email>
+                  <S.EmailButton>인증번호</S.EmailButton>
+                </S.EmailForm> */}
                   {errors.phone && (
                     <S.ErrorMsg>전화번호를 입력해주세요.</S.ErrorMsg>
                   )}
-                  <S.EmailButton>인증번호</S.EmailButton>
-                </S.EmailForm>
-                <S.EmailForm>
+                </S.Form>
+                {/* <S.EmailForm>
                   <S.Email placeholder="인증번호 입력"></S.Email>
                   <S.EmailButton>확인</S.EmailButton>
-                </S.EmailForm>
+                </S.EmailForm> */}
                 <S.Form>
                   <S.FormTitle>가입경로 (선택)</S.FormTitle>
                   <S.Job
@@ -286,7 +326,42 @@ const SignUp = () => {
                   </S.Job>
                   {errors.job && <S.ErrorMsg>직업을 선택해주세요.</S.ErrorMsg>}
                 </S.Form>
-                <S.Agreement></S.Agreement>
+                <S.Agreement>
+                  <FormGroup>
+                    {Object.entries(checklist).map(([key, value]) => (
+                      <FormControlLabel
+                        key={key}
+                        control={
+                          <Checkbox
+                            checked={value}
+                            onChange={handleCheckboxChange}
+                            name={key}
+                            color="success"
+                            required={key !== "광고성 정보 수신에 동의합니다."}
+                          />
+                        }
+                        label={
+                          key !== "광고성 정보 수신에 동의합니다."
+                            ? `(필수) ${key}`
+                            : key
+                        }
+                      />
+                    ))}
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={Object.values(checklist).every(
+                            (value) => value
+                          )}
+                          onChange={handleAllChecked}
+                          name="all"
+                          color="success"
+                        />
+                      }
+                      label="모두 동의합니다."
+                    />
+                  </FormGroup>
+                </S.Agreement>
                 <S.NextButton type="submit">가입 완료</S.NextButton>
               </S.Box>
             )}
