@@ -74,6 +74,34 @@ export const SelectOptions = styled.div`
   padding: 4px 4px;
 `;
 
+export const JobSelectOptions = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 11px;
+  margin: 26px 0px 0px -40px;
+  padding: 4px 4px;
+`;
+
+export const JobOption = styled.div`
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 160%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #262626;
+  width: 401px;
+  height: 25px;
+
+  &:hover {
+    background: #f58425;
+    color: #ffffff;
+    border-radius: 4px;
+  }
+`;
+
 export const SelectOptionsNone = styled.div`
   display: none;
 `;
@@ -165,6 +193,16 @@ export const Name = styled.input`
 
 export const Gender = styled.div`
   width: 157px;
+  height: 54px;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 21px;
+  padding-left: 44px;
+  cursor: pointer;
+`;
+
+export const Job = styled.div`
+  width: 371px;
   height: 54px;
   background: #ffffff;
   border: 1px solid #d0d0d0;

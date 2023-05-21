@@ -3,14 +3,23 @@ import { React, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { POST_SIGN_UP, POST_SEND_EMAIL } from "../api/apiUrl";
-import { GENDER_LIST } from "./DropDownList";
+import { GENDER_LIST, JOB_LIST, PATH_LIST } from "./DropDownList";
 import { API_URL } from "../config/constant";
 
 const SignUp = () => {
   const [nextPage, setNextPage] = useState(true);
+  // Gender
   const [currentGenderValue, setCurrentGenderValue] = useState("성별");
   const [showGenderOptions, setShowGenderOptions] = useState(false);
+  // Job
+  const [currentJobValue, setCurrentJobValue] = useState("직업을 선택해주세요");
+  const [showJobOptions, setShowJobOptions] = useState(false);
+  //Path
+  const [currentPathValue, setCurrentPathValue] =
+    useState("가입 경로를 선택해주세요");
+  const [showPathOptions, setShowPathOptions] = useState(false);
 
+  // Gender
   const handleOnChangeSelectGenderValue = (e) => {
     const { innerText } = e.target;
     setCurrentGenderValue(innerText);
@@ -21,6 +30,30 @@ const SignUp = () => {
   const handelSelectBoxClick = () => {
     setShowGenderOptions(!showGenderOptions);
     console.log(showGenderOptions);
+  };
+
+  // Job
+  const handleOnChangeSelectJobValue = (e) => {
+    const { innerText } = e.target;
+    setCurrentJobValue(innerText);
+    setShowJobOptions(!showJobOptions);
+  };
+
+  const handelJobSelectBoxClick = () => {
+    setShowJobOptions(!showJobOptions);
+    console.log(showJobOptions);
+  };
+
+  // Path
+  const handleOnChangeSelectPathValue = (e) => {
+    const { innerText } = e.target;
+    setCurrentPathValue(innerText);
+    setShowPathOptions(!showPathOptions);
+  };
+
+  const handelPathSelectBoxClick = () => {
+    setShowPathOptions(!showPathOptions);
+    console.log(showPathOptions);
   };
 
   const handleNextArrow = (e) => {
@@ -85,9 +118,6 @@ const SignUp = () => {
                       {...register("gender", { required: true })}
                       placeholder="성별"
                     >
-                      {errors.user_name && (
-                        <S.ErrorMsg>성별을 선택해주세요.</S.ErrorMsg>
-                      )}
                       <S.Header onClick={handelSelectBoxClick}>
                         <S.Label>{currentGenderValue}</S.Label>
                         <S.DropDown src="/image/Dropdown.svg" />
@@ -108,6 +138,9 @@ const SignUp = () => {
                         <S.SelectOptionsNone></S.SelectOptionsNone>
                       )}
                     </S.Gender>
+                    {errors.user_name && (
+                      <S.ErrorMsg>성별을 선택해주세요.</S.ErrorMsg>
+                    )}
                   </S.Form>
                 </S.TopSection>
                 <S.FormTitle>닉네임</S.FormTitle>
@@ -182,11 +215,34 @@ const SignUp = () => {
                   />
                   회원 가입 (2/2)
                 </S.Title>
-                <S.FormTitle>직업</S.FormTitle>
-                <S.UserId
-                  {...register("job")}
-                  placeholder="직업을 선택해 주세요"
-                ></S.UserId>
+                <S.Form>
+                  <S.FormTitle>직업</S.FormTitle>
+                  <S.Job
+                    {...register("job", { required: true })}
+                    placeholder="직업을 선택해주세요"
+                  >
+                    <S.Header onClick={handelJobSelectBoxClick}>
+                      <S.Label>{currentJobValue}</S.Label>
+                      <S.DropDown src="/image/Dropdown.svg" />
+                    </S.Header>
+                    {showJobOptions === true ? (
+                      <S.JobSelectOptions>
+                        {JOB_LIST.map((data) => (
+                          <S.JobOption
+                            key={data.title}
+                            value={data.title}
+                            onClick={handleOnChangeSelectJobValue}
+                          >
+                            {data.title}
+                          </S.JobOption>
+                        ))}
+                      </S.JobSelectOptions>
+                    ) : (
+                      <S.SelectOptionsNone></S.SelectOptionsNone>
+                    )}
+                  </S.Job>
+                  {errors.job && <S.ErrorMsg>직업을 선택해주세요.</S.ErrorMsg>}
+                </S.Form>
                 <S.FormTitle>휴대폰 번호</S.FormTitle>
                 <S.EmailForm>
                   <S.Email
@@ -196,50 +252,42 @@ const SignUp = () => {
                   {errors.phone && (
                     <S.ErrorMsg>전화번호를 입력해주세요.</S.ErrorMsg>
                   )}
-                  {/* <S.EmailButton>인증번호</S.EmailButton> */}
+                  <S.EmailButton>인증번호</S.EmailButton>
                 </S.EmailForm>
-                {/* <S.EmailForm>
+                <S.EmailForm>
                   <S.Email placeholder="인증번호 입력"></S.Email>
                   <S.EmailButton>확인</S.EmailButton>
-                </S.EmailForm> */}
-                <S.FormTitle>가입경로 (선택)</S.FormTitle>
-                <S.UserId
-                  {...register("path")}
-                  placeholder="가입경로를 선택해 주세요."
-                ></S.UserId>
+                </S.EmailForm>
+                <S.Form>
+                  <S.FormTitle>가입경로 (선택)</S.FormTitle>
+                  <S.Job
+                    {...register("path")}
+                    placeholder="가입경로를 선택해 주세요."
+                  >
+                    <S.Header onClick={handelPathSelectBoxClick}>
+                      <S.Label>{currentPathValue}</S.Label>
+                      <S.DropDown src="/image/Dropdown.svg" />
+                    </S.Header>
+                    {showPathOptions === true ? (
+                      <S.JobSelectOptions>
+                        {PATH_LIST.map((data) => (
+                          <S.JobOption
+                            key={data.title}
+                            value={data.title}
+                            onClick={handleOnChangeSelectPathValue}
+                          >
+                            {data.title}
+                          </S.JobOption>
+                        ))}
+                      </S.JobSelectOptions>
+                    ) : (
+                      <S.SelectOptionsNone></S.SelectOptionsNone>
+                    )}
+                  </S.Job>
+                  {errors.job && <S.ErrorMsg>직업을 선택해주세요.</S.ErrorMsg>}
+                </S.Form>
                 <S.Agreement></S.Agreement>
-                <S.NextButton
-                  type="submit"
-                  // onClick={(data) => {
-                  //   axios({
-                  //     url: `${API_URL}${POST_SIGN_UP}`,
-                  //     method: "post",
-                  //     data: {
-                  //       user_id: data.user_id,
-                  //       password: data.password,
-                  //       user_name: data.user_name,
-                  //       phone: data.phone,
-                  //       email: data.email,
-                  //       birthday: data.birthday,
-                  //       gender: data.gender,
-                  //       job: data.job,
-                  //       path: "내가 만든 사이트라서",
-                  //     },
-                  //   })
-                  //     .then((response) => {
-                  //       console.log("회원가입에 성공헀습니다.");
-                  //       console.log(response.data);
-                  //     })
-                  //     .catch((error) => {
-                  //       console.log("에러가 발생했습니다");
-                  //       console.log(error.response);
-                  //       console.log(error.response.data);
-                  //       alert(error.response.data.message);
-                  //     });
-                  // }}
-                >
-                  가입 완료
-                </S.NextButton>
+                <S.NextButton type="submit">가입 완료</S.NextButton>
               </S.Box>
             )}
           </S.RightContainer>
