@@ -18,7 +18,10 @@
     "react-router-dom": "^6.8.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.9",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@craco/craco": "^7.1.0",
+    "@mui/joy": "^5.0.0-alpha.76",
+    "prettier": "^2.8.8"
   },
   "scripts": {
     "start": "craco start",
