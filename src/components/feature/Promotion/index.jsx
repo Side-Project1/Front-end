@@ -1,4 +1,4 @@
-import { SearchingBar, SearchingBarWrap } from "../../../styles/jobstyle"
+import { SearchingBar, SearchingBarWrap } from "../../common/totalstyle"
 import CategoryDropDownUI from "../../common/CategoryDropdown"
 import PromotionClickCategory from "./PromotionCategory"
 import { PromotionRegisterWrap, RegisterFlexWrap, RegiststerCursor, SemiWrapper, WriteTextButton } from "./style"

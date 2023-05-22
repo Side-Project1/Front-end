@@ -33,6 +33,24 @@ export const CircleWrap = styled.div`
     margin: 14px 11px;
   }
 `;
+
+export const PromotionCategoryWrapper = styled.div`
+  width: 1176px;
+  margin: 0 auto;
+  padding: 39px 23px 12px 12px;
+`;
+
+
+
+export const CardContainerPromotion = styled.div`
+  margin: 17px 0;
+  display: flex;
+  column-gap: 34px;
+  row-gap: 70px;
+  flex-wrap: wrap;
+`;
+
+
 export const PromotionProfilewrap = styled.div`
   margin: 0 auto;
   gap: 3px;

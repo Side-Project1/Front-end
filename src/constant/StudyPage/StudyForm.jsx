@@ -8,12 +8,12 @@ import {
   StudyFormFont,
   StudyFormRadio,
   StudyFormWrapper,
+  StudyRegisterButton,
   StudyRegisterWrap,
   StudyTextForm,
   StudyTextFormWrap,
   StudyTitleTextWrap,
-} from "../styles/StudyFormStyle";
-import { RegisterButton } from "../styles/formSrtyle";
+} from "./StudyFormStyle";
 
 const StudyForm = () => {
   return (
@@ -76,8 +76,8 @@ const StudyForm = () => {
             />
           </div>
           <StudyRegisterWrap>
-            <RegisterButton>등록</RegisterButton>
-            <RegisterButton>미리보기</RegisterButton>
+            <StudyRegisterButton>등록</StudyRegisterButton>
+            <StudyRegisterButton>미리보기</StudyRegisterButton>
           </StudyRegisterWrap>
         </StudyTextFormWrap>
       </StudyFormWrapper>

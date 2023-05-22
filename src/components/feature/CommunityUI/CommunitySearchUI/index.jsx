@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CommunitySearch, DataDiv, GapWrapper, GreenRegisterBtn, SearchCommunityWrap, SearchUIWrapper } from "./styles";
-import TriangleIcon from "../../../../styles/TriangleIcon";
+import TriangleIcon from "../../../../assets/images/TriangleIcon";
 
 const CommunitySearchUI = () =>{
   const [sortByNewest, setSortByNewest] = useState(false);

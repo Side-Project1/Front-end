@@ -1,23 +1,15 @@
 
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  CardContainer,
-  CategoryWrapper,
-} from "../styles/jobstyle";
-import PromotionCard from "../components/PromotionCard";
-import PromotionUI from "../components/feature/Promotion";
+import PromotionCard from "../../components/PromotionCard";
+import PromotionUI from "../../components/feature/Promotion";
 import axios from "axios";
+import { CardContainerPromotion, PromotionCategoryWrapper } from "./Promotionstyle";
 
 
 const Promotion = () => {
 
   const [data, setData] = useState([]);
-  const [textTitle, setTextTitle] = useState("")
-  const [contents, setContents] = useState("")
-  const [userId, setUserId] = useState("")
-
-  console.log(data)
 
   useEffect(() => {
     axios.get(`http://13.209.81.190:8080/api/v1/prom`)
@@ -48,7 +40,7 @@ const Promotion = () => {
   };
 
   return (
-    <CategoryWrapper>
+    <PromotionCategoryWrapper>
       <PromotionUI
         categoryContents={categoryContents}
         onCategoryClick={onCategoryClick}
@@ -58,12 +50,12 @@ const Promotion = () => {
         views={views}
         navigate={navigate}
       />
-      <CardContainer>
+      <CardContainerPromotion>
         {data.map((v, i) => (
           < PromotionCard data={v} key={i} />
         ))}
-      </CardContainer>
-    </CategoryWrapper>
+      </CardContainerPromotion>
+    </PromotionCategoryWrapper>
   );
 };
 

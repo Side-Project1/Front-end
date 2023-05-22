@@ -1,6 +1,6 @@
 import React from "react";
-import { CommunityWrapper } from "../styles/CommunityStyle";
-import CommunityUI from "../components/feature/CommunityUI";
+import { CommunityWrapper } from "./CommunityStyle";
+import CommunityUI from "../../components/feature/CommunityUI";
 
 function Community() {
   return (

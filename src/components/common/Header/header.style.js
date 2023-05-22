@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import moreIcon from "../assets/images/more.png";
-import cancelIcon from "../assets/images/close.png";
+import moreIcon from "../../../assets/images/more.png";
+import cancelIcon from "../../../assets/images/close.png";
 
 export const HeaderWrap = styled.header`
   height: 90px;
@@ -45,9 +45,9 @@ export const Nav = styled.nav`
     padding: 20px;
 
     ${({ isMenuOpen }) =>
-      isMenuOpen && {
-        transform: "translateY(100%)",
-      }}
+    isMenuOpen && {
+      transform: "translateY(100%)",
+    }}
   }
 `;
 
@@ -58,11 +58,11 @@ export const NavLi = styled.div`
 
   @media screen and (min-width: 768px) {
     ${({ join }) =>
-      join && {
-        backgroundColor: "#ffc742",
-        padding: "5px 25px",
-        borderRadius: "5px",
-      }}
+    join && {
+      backgroundColor: "#ffc742",
+      padding: "5px 25px",
+      borderRadius: "5px",
+    }}
   }
 `;
 

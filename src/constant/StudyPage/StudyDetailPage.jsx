@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import StudyTextCard from "../components/TextCard";
-import ProfileIcon from "@/assets/images/ProfileStateicon.png";
-import {
-  StudyDetailCommentWrap2,
-  StudyDetailPageWrap,
-  StudyDetailWrapper,
 
-} from "@/styles/StudyDetailPageStyle";
+import ProfileIcon from "@/assets/images/ProfileStateicon.png";
+
 import CommentWrite from "@/components/feature/CommentWrite";
 import { useParams } from "react-router-dom";
-import CommentItem from "../components/feature/CommentItem";
+
 import axios from "axios";
+
+import StudyTextCard from "../../components/TextCard";
+import CommentItem from "../../components/feature/CommentItem";
+import { StudyDetailCommentWrap2, StudyDetailPageWrap, StudyDetailWrapper } from "./StudyDetailPageStyle";
 
 const data = {
   category: "영상",

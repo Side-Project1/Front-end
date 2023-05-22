@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { DetailFormWrap, H2Title, PromotionDetailWrapper, TitleProfileWrap } from "../styles/promotionDetailstyle";
+import { DetailFormWrap} from "./promotionDetailstyle";
 import { useParams } from "react-router-dom";
-import PromotionDetailTextForm from "../components/feature/PromotionDetailUI";
+import PromotionDetailTextForm from "../../components/feature/PromotionDetailUI";
 import axios from "axios";
 
 

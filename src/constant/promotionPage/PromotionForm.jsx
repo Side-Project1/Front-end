@@ -13,13 +13,10 @@ import {
   PromotionInputWrapper,
   PromotionProfileWrap,
   PromotionTextWrap,
-} from "../styles/promotionFormstyle";
+} from "./promotionFormstyle";
 
-import {
-  PromotionRegisterButton,
-  PromotionRegisterButtonWrap,
-} from "../styles/Promotionstyle";
-import axios from "axios";
+
+import { PromotionRegisterButton, PromotionRegisterButtonWrap } from "./Promotionstyle";
 
 
 const PromotionForm = () => {

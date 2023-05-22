@@ -1,4 +1,4 @@
-import TriangleIcon from "../../../styles/TriangleIcon";
+import TriangleIcon from "../../../assets/images/TriangleIcon";
 import Dropdown from "./Dropdown";
 import EasyDropDownUI from "./MUIDropDown";
 import RegionDropDown from "./RegionDropDown";

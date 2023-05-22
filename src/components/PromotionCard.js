@@ -5,9 +5,9 @@ import {
   CategoryBox,
   CategoryWrap,
   CompanyText,
-} from "../styles/jobstyle";
+} from "./common/totalstyle";
 import Profile from "../assets/images/profileicon.png";
-import { ProfileCardImg } from "../styles/Promotionstyle";
+import { ProfileCardImg } from "../constant/promotionPage/Promotionstyle";
 import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const PromotionCard = (props) => {

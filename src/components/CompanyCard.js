@@ -5,7 +5,7 @@ import {
   CategoryBox,
   CategoryWrap,
   CompanyText,
-} from "../styles/jobstyle";
+} from "./common/totalstyle";
 const CompanyCard = (props) => {
   const { data, ...restProps } = props;
 

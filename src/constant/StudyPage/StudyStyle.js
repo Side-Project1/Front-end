@@ -11,7 +11,27 @@ export const StudyTitle = styled.h2`
   font-size: 68px;
   color: #ffc742;
 `;
+export const RegisterWraper = styled.div`
+  display: flex;
+  align-items: center;
+  white-space: no;
+`;
+export const StudySearchingBarWrap = styled.div`
+  margin-left: 349px;
+  border: 2.5px solid rgba(0, 0, 0, 0.2);
+  border-radius: 13px;
+  width: 359px;
+  display: flex;
+  height: 50px;
+  align-items: center;
+`;
 
+
+export const StudySearchingBar = styled.input`
+  width: 100%;
+  border: 1px none black;
+  padding-right: 132px;
+`;
 export const StudyWrapper = styled.div`
   width: 1176px;
 

@@ -9,8 +9,8 @@ import {
   StudyProfileNameWrap,
   StudyStateWrap,
   StudyTextContentsWrapper,
-} from "../styles/StudyDetailPageStyle";
-import { StudyRecruit } from "../styles/StudyStyle";
+} from "../constant/StudyPage/StudyDetailPageStyle";
+import { StudyRecruit } from "../constant/StudyPage/StudyStyle";
 
 const StudyTextCard = (props) => {
   const { data, ...restProps } = props;

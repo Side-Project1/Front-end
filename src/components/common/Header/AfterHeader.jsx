@@ -1,5 +1,5 @@
 import React from "react";
-import companyLogo from "../assets/images/폰포튼 1.png";
+import companyLogo from "../../../assets/images/폰포튼 1.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -8,7 +8,7 @@ import {
   HeaderWrap,
   Nav,
   NavLi,
-} from "../styles/header.style";
+} from "./header.style";
 
 function AfterHeader(props) {
   const navigate = useNavigate();

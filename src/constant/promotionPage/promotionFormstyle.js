@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backgroundImgComputer from "../assets/images/backgroundImgComputer.png";
+import backgroundImgComputer from "../../assets/images/backgroundImgComputer.png";
 import { Textarea } from "@mui/joy";
 import Button from "@mui/material/Button";
 

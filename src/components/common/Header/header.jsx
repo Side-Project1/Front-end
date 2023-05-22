@@ -4,8 +4,8 @@ import {
   HeaderWrap,
   Nav,
   NavLi,
-} from "../styles/header.style";
-import companyLogo from "../assets/images/폰포튼 1.png";
+} from "./header.style";
+import companyLogo from "../../../assets/images/폰포튼 1.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

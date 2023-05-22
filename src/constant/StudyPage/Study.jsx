@@ -1,9 +1,4 @@
 import React, { useState } from "react";
-import {
-  RegisterWrap,
-  SearchingBar,
-  SearchingBarWrap,
-} from "../styles/jobstyle";
 import { useNavigate } from "react-router-dom";
 import {
   StudyContents,
@@ -25,13 +20,16 @@ import {
   StudyLogoImg,
   StudyTitle,
   StudyTitleWrapper,
-} from "../styles/StudyStyle";
-import People from "../assets/images/people.png";
-import eyeIcon from "../assets/images/eyeIcon.png";
-import chatBubble from "../assets/images/chatBubble.png";
-import moreSee from "../assets/images/moreSee.png";
-import boy from "../assets/images/artnjobboy.png";
-import { ScrapUIWrapper, Scrapbutton } from "../styles/StudyDetailPageStyle";
+  RegisterWraper,
+  StudySearchingBar,
+  StudySearchingBarWrap,
+} from "./StudyStyle";
+import People from "../../assets/images/people.png";
+import eyeIcon from "../../assets/images/eyeIcon.png";
+import chatBubble from "../../assets/images/chatBubble.png";
+import moreSee from "../../assets/images/moreSee.png";
+import boy from "../../assets/images/artnjobboy.png";
+import { ScrapUIWrapper, Scrapbutton } from "./StudyDetailPageStyle";
 const Study = () => {
   const [sortByNewest, setSortByNewest] = useState(false);
   const navigate = useNavigate();
@@ -68,7 +66,7 @@ const Study = () => {
             </StudyContentsElement>
           ))}
         </StudyContents>
-        <RegisterWrap>
+        <RegisterWraper>
           <RegisterStudyWrapper>
             <RegiststerDataDiv
               onClick={() => {
@@ -79,9 +77,9 @@ const Study = () => {
             </RegiststerDataDiv>
             <RegiststerDataDiv>지역</RegiststerDataDiv>
             <SemiWrapper2>
-              <SearchingBarWrap>
-                <SearchingBar placeholder="제목 + 본문검색" />
-              </SearchingBarWrap>
+              <StudySearchingBarWrap>
+                <StudySearchingBar placeholder="제목 + 본문검색" />
+              </StudySearchingBarWrap>
               <RegisterTextButton
                 onClick={() => {
                   navigate("/StudyForm");
@@ -91,7 +89,7 @@ const Study = () => {
               </RegisterTextButton>
             </SemiWrapper2>
           </RegisterStudyWrapper>
-        </RegisterWrap>
+        </RegisterWraper>
         <StudyContentsUI>
           <StudyRecruitIcon
             onClick={() => {

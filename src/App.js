@@ -1,20 +1,21 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
-import GlobalStyle from "./styles/globalstyle";
-import Community from "./pages/Community";
-import Job from "./pages/Job";
+import GlobalStyle from "./components/common/globalstyle";
+import Community from "./constant/commuintyPage/Community";
 import Login from "./pages/Login";
-import Study from "./pages/Study";
+
 import Membership from "./pages/Membership";
-import MainHeader from "./components/header";
+import MainHeader from "./components/common/Header/header";
 import { useState } from "react";
-import AfterHeader from "./components/AfterHeader";
-import Form from "./pages/Form";
-import StudyForm from "./pages/StudyForm";
-import Promotion from "./pages/Promotion";
-import PromotionForm from "./pages/PromotionForm";
-import StudyDetailPage from "./pages/StudyDetailPage";
-import PromotionDetailPage from "./pages/PromotionDetailPage";
+import AfterHeader from "./components/common/Header/AfterHeader";
+
+
+import PromotionDetailPage from "./constant/promotionPage/PromotionDetailPage";
+import Study from "./constant/StudyPage/Study";
+import StudyDetailPage from "./constant/StudyPage/StudyDetailPage";
+import StudyForm from "./constant/StudyPage/StudyForm";
+import Promotion from "./constant/promotionPage/Promotion";
+import PromotionForm from "./constant/promotionPage/PromotionForm";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

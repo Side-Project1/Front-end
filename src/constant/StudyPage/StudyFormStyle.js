@@ -5,7 +5,19 @@ export const StudyFormWholeWrap = styled.div`
   width: 100%;
   background: #f6f6f6;
 `;
-
+export const StudyRegisterButton = styled.button`
+  margin-top: 20px;
+  padding: 9px 19px;
+  background: #ee6e03;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  border-style: none;
+  margin-right: 10px;
+  width: 148px;
+`;
 export const StudyFormWrapper = styled.div`
   width: 100%;
   max-width: 1062px;
