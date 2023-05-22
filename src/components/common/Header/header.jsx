@@ -57,7 +57,13 @@ const MainHeader = (props) => {
         >
           커뮤니티
         </NavLi>
-        <NavLi onClick={handleLogout}>로그인</NavLi>
+        <NavLi
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          로그인
+        </NavLi>
         <NavLi
           join
           onClick={() => {
