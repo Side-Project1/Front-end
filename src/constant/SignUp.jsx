@@ -11,7 +11,6 @@ import {
 } from "./DropDownList";
 import { API_URL } from "../config/constant";
 import { FormControlLabel, FormGroup, Checkbox } from "@mui/material";
-import { orange } from "@mui/material/colors";
 
 const SignUp = () => {
   const [nextPage, setNextPage] = useState(true);
@@ -285,9 +284,7 @@ const SignUp = () => {
                     placeholder="‘-’ 없이 숫자만"
                   ></S.UserId>
                   {/* <S.EmailForm>
-                  <S.Email
-                    
-                  ></S.Email>
+                  <S.Email></S.Email>
                   <S.EmailButton>인증번호</S.EmailButton>
                 </S.EmailForm> */}
                   {errors.phone && (

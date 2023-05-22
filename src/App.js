@@ -14,6 +14,7 @@ import Promotion from "./constant/promotionPage/Promotion";
 import PromotionForm from "./constant/promotionPage/PromotionForm";
 import Login from "./constant/Login";
 import SignUp from "./constant/SignUp";
+import MainPage from "./constant/MainPage/MainPage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,18 +33,17 @@ function App() {
       <Router>
         <div style={{ zIndex: 1, position: "relative" }}>
           {isLoggedIn ? (
-            <MainHeader onLogout={handleLogout} />
-          ) : (
             <AfterHeader onLogin={handleLogin} />
+          ) : (
+            <MainHeader onLogout={handleLogout} />
           )}
         </div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MainPage />} />
           <Route path="/community" element={<Community />} />
           {/* <Route path="/job" element={<Job />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
-          <Route path="/Membership" element={<Membership />} />
           {/* <Route path="/form" element={<Form />} /> */}
           <Route path="/Study" element={<Study />} />
           <Route path="/Studyform" element={<StudyForm />} />

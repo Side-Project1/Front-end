@@ -61,7 +61,7 @@ const MainHeader = (props) => {
         <NavLi
           join
           onClick={() => {
-            navigate("/Membership");
+            navigate("/SignUp");
           }}
         >
           회원가입
