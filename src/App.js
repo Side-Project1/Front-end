@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import GlobalStyle from "./components/common/globalstyle";
 import Community from "./constant/commuintyPage/Community";
-import Login from "./pages/Login";
-
 import Membership from "./pages/Membership";
 import MainHeader from "./components/common/Header/header";
 import { useState } from "react";
@@ -17,6 +15,8 @@ import StudyDetailPage from "./constant/StudyPage/StudyDetailPage";
 import StudyForm from "./constant/StudyPage/StudyForm";
 import Promotion from "./constant/promotionPage/Promotion";
 import PromotionForm from "./constant/promotionPage/PromotionForm";
+import Login from "./constant/Login";
+import Join_First from "./constant/Join_First";
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Router>
         <div style={{ zIndex: 1, position: "relative" }}>
           {isLoggedIn ? (
@@ -46,6 +46,7 @@ function App() {
           <Route path="/community" element={<Community />} />
           {/* <Route path="/job" element={<Job />} /> */}
           <Route path="/login" element={<Login />} />
+          <Route path="/Join" element={<Join_First />} />
           <Route path="/Membership" element={<Membership />} />
           {/* <Route path="/form" element={<Form />} /> */}
           <Route path="/Study" element={<Study />} />
