@@ -17,6 +17,12 @@ export const SubWrapper = styled.div`
   padding: 47px 81px 60px;
 `;
 
+export const ErrorMsg = styled.span`
+  color: red;
+  margin-top: -8px;
+  font-size: xx-small;
+`;
+
 export const LeftContainer = styled.div``;
 
 export const TitleBox = styled.div`
@@ -66,6 +72,39 @@ export const SelectOptions = styled.div`
   border-radius: 11px;
   margin: 26px 0px 0px -40px;
   padding: 4px 4px;
+`;
+
+export const JobSelectOptions = styled.div`
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 11px;
+  margin: 26px 0px 0px -40px;
+  padding: 4px 4px;
+`;
+
+export const JobOption = styled.div`
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 160%;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #262626;
+  width: 401px;
+  height: 25px;
+
+  &:hover {
+    background: #f58425;
+    color: #ffffff;
+    border-radius: 4px;
+  }
+`;
+
+export const SelectOptionsNone = styled.div`
+  display: none;
 `;
 
 export const Option = styled.div`
@@ -163,6 +202,16 @@ export const Gender = styled.div`
   cursor: pointer;
 `;
 
+export const Job = styled.div`
+  width: 371px;
+  height: 54px;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 21px;
+  padding-left: 44px;
+  cursor: pointer;
+`;
+
 export const UserId = styled.input`
   width: 371px;
   height: 54px;
@@ -232,8 +281,9 @@ export const NextButton = styled.button`
 `;
 
 export const Agreement = styled.div`
+  padding-left: 22px;
   width: 415px;
-  height: 186px;
+  height: 255x;
   background: #ffffff;
   border: 1px solid #d0d0d0;
   border-radius: 21px;
