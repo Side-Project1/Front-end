@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import GlobalStyle from "./components/common/globalstyle";
@@ -16,6 +17,7 @@ import StudyDetailPage from "./constant/StudyPage/StudyDetailPage";
 import StudyForm from "./constant/StudyPage/StudyForm";
 import Promotion from "./constant/promotionPage/Promotion";
 import PromotionForm from "./constant/promotionPage/PromotionForm";
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
