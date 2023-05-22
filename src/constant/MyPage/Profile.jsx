@@ -21,6 +21,7 @@ const Profile = () => {
               <S.Text>사진</S.Text>
             </S.TextBox>
             <S.ImageBox>
+              <S.ImageIcon src="/image/ProfileImage.png" />
               <S.ImageDelete>사진 삭제</S.ImageDelete>
               <S.ImageButton>사진 불러오기</S.ImageButton>
             </S.ImageBox>
