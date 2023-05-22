@@ -6,7 +6,6 @@ import Membership from "./pages/Membership";
 import MainHeader from "./components/common/Header/header";
 import { useState } from "react";
 import AfterHeader from "./components/common/Header/AfterHeader";
-
 import PromotionDetailPage from "./constant/promotionPage/PromotionDetailPage";
 import Study from "./constant/StudyPage/Study";
 import StudyDetailPage from "./constant/StudyPage/StudyDetailPage";
