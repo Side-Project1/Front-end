@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home";
 import GlobalStyle from "./components/common/globalstyle";
 import Community from "./constant/commuintyPage/Community";
-import Membership from "./pages/Membership";
 import MainHeader from "./components/common/Header/header";
 import { useState } from "react";
 import AfterHeader from "./components/common/Header/AfterHeader";
