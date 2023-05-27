@@ -1,6 +1,6 @@
 import * as S from "./Login.style";
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config/constant";
 import { POST_LOGIN } from "../api/apiUrl";
@@ -12,7 +12,7 @@ const Login = () => {
     password: "",
   });
   const [session, setSession] = useState(null);
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     setUserInfo({
@@ -30,7 +30,7 @@ const Login = () => {
       });
       console.log(res.data); // 세션정보나 사용자의 정보를 받아올 수 있음
       setSession(res.data);
-      // history.push("/"); // 메인 화면으로 이동
+      navigate("/");
     } catch (error) {
       console.log(error);
       console.log(error.response);
