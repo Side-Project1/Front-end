@@ -114,6 +114,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         console.error("회원가입 실패:", error);
+        console.log(error.message);
       });
   };
 
@@ -251,10 +252,7 @@ const SignUp = () => {
                 </S.Title>
                 <S.Form>
                   <S.FormTitle>직업</S.FormTitle>
-                  <S.Job
-                    {...register("job", { required: true })}
-                    placeholder="직업을 선택해주세요"
-                  >
+                  <S.Job {...register("job")} placeholder="직업을 선택해주세요">
                     <S.Header onClick={handelJobSelectBoxClick}>
                       <S.Label>{currentJobValue}</S.Label>
                       <S.DropDown src="/image/Dropdown.svg" />
@@ -291,10 +289,6 @@ const SignUp = () => {
                     <S.ErrorMsg>전화번호를 입력해주세요.</S.ErrorMsg>
                   )}
                 </S.Form>
-                {/* <S.EmailForm>
-                  <S.Email placeholder="인증번호 입력"></S.Email>
-                  <S.EmailButton>확인</S.EmailButton>
-                </S.EmailForm> */}
                 <S.Form>
                   <S.FormTitle>가입경로 (선택)</S.FormTitle>
                   <S.Job
@@ -321,7 +315,7 @@ const SignUp = () => {
                       <S.SelectOptionsNone></S.SelectOptionsNone>
                     )}
                   </S.Job>
-                  {errors.job && <S.ErrorMsg>직업을 선택해주세요.</S.ErrorMsg>}
+                  {/* {errors.job && <S.ErrorMsg>직업을 선택해주세요.</S.ErrorMsg>} */}
                 </S.Form>
                 <S.Agreement>
                   <FormGroup>
