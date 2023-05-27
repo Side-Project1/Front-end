@@ -66,31 +66,7 @@ const Login = () => {
                   value={userInfo.password}
                   onChange={onChange}
                 ></S.EmailBox>
-                <S.LoginButton
-                  type="submit"
-                  // onClick={() => {
-                  //   /*로그인*/
-                  //   axios({
-                  //     url: `${API_URL}${POST_LOGIN}`,
-                  //     method: "post",
-                  //     data: {
-                  //       user_id: "",
-                  //       password: "",
-                  //     },
-                  //   })
-                  //     .then((response) => {
-                  //       console.log("로그인에 성공했습니다.");
-                  //       console.log(response.data);
-                  //     })
-                  //     .catch((error) => {
-                  //       console.log("에러가 발생했습니다");
-                  //       console.log(error.response);
-                  //       console.log(error.response.data);
-                  //     });
-                  // }}
-                >
-                  로그인
-                </S.LoginButton>
+                <S.LoginButton type="submit">로그인</S.LoginButton>
               </S.TopBox>
               <S.Description>
                 {/* <S.CheckBoxContainer></S.CheckBoxContainer> */}
