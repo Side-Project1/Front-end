@@ -1,9 +1,11 @@
 import axios from "axios";
+import { API_URL } from "./constant";
 
 const axiosinstance = axios.create({
-  baseURL: "http://13.209.81.190:8080",
+  baseURL: { API_URL },
   headers: {
     "Content-Type": "application/json",
+    Authorization: `Bearer ${accessToken}`,
   },
   timeout: 10000,
 });
