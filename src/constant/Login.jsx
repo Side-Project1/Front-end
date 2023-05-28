@@ -32,7 +32,9 @@ const Login = () => {
       const accessToken = res.headers["authorization"];
       localStorage.setItem("accessToken", accessToken);
 
-      console.log(res.data.message); // 세션정보나 사용자의 정보를 받아올 수 있음
+      console.log(res.data.message);
+      // 세션정보나 사용자의 정보를 받아올 수 있음
+      // 일단 sesstion을 콘솔에 찍었을 땐 null 상태임(아마도 처음엔 null이어서 그런듯?)
       setSession(res.data);
       navigate("/");
     } catch (error) {
