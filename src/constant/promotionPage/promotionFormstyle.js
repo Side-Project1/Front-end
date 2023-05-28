@@ -69,6 +69,23 @@ export const PromotionInputWrapper = styled.div`
   }
 `;
 
+export const PromotionRegisterButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const PromotionRegisterButton = styled.button`
+  background: #ee6e03;
+  border-radius: 5px;
+  border: none;
+  padding: 9px 101px;
+  margin: 58px 25px 25px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+`;
+
 // export const PromotionInput1 = styled.input`
 //   background-color: #FCFBE9;
 //   border: 1px solid rgba(240, 180, 39, 0.5);

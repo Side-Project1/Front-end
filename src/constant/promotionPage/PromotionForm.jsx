@@ -1,26 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {
-  BorderKeyword,
-  InputWrapKeyword,
-  KeyWordInputflex,
-  ProfileTitle,
-  PromotioTextForm,
-  PromotionFormWrap,
-  PromotionInput1,
-  PromotionInput2,
-  PromotionInput3,
-  PromotionInput3Button,
-  PromotionInputWrapper,
-  PromotionProfileWrap,
-  PromotionTextWrap,
-} from "./promotionFormstyle";
-
-import {
-  PromotionRegisterButton,
-  PromotionRegisterButtonWrap,
-} from "./Promotionstyle";
+import * as S from "./promotionFormstyle";
 import { API_URL } from "../../config/constant";
 import { POST_PROMOTION_FORM } from "../../api/apiUrl";
 
@@ -66,27 +47,27 @@ const PromotionForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <PromotionFormWrap>
-        <PromotionProfileWrap>
-          <ProfileTitle>홍보게시판</ProfileTitle>
-        </PromotionProfileWrap>
-        <PromotionTextWrap>
-          <PromotioTextForm>
-            <PromotionInputWrapper>
+      <S.PromotionFormWrap>
+        <S.PromotionProfileWrap>
+          <S.ProfileTitle>홍보게시판</S.ProfileTitle>
+        </S.PromotionProfileWrap>
+        <S.PromotionTextWrap>
+          <S.PromotioTextForm>
+            <S.PromotionInputWrapper>
               <span>제목</span>
-              <PromotionInput1
+              <S.PromotionInput1
                 placeholder="제목을 입력해주세요"
                 type="text"
                 id="title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
-            </PromotionInputWrapper>
-            <PromotionInputWrapper>
+            </S.PromotionInputWrapper>
+            <S.PromotionInputWrapper>
               <span>키워드</span>
-              <InputWrapKeyword>
-                <KeyWordInputflex>
-                  <PromotionInput3
+              <S.InputWrapKeyword>
+                <S.KeyWordInputflex>
+                  <S.PromotionInput3
                     id="sub_category"
                     value={write}
                     onChange={(e) => {
@@ -94,7 +75,7 @@ const PromotionForm = () => {
                     }}
                     placeholder="키워드를 입력해주세요"
                   />
-                  <PromotionInput3Button
+                  <S.PromotionInput3Button
                     variant="outlined"
                     onClick={() => {
                       if (write.trim() !== "") {
@@ -104,15 +85,15 @@ const PromotionForm = () => {
                     }}
                   >
                     추가
-                  </PromotionInput3Button>
-                </KeyWordInputflex>
+                  </S.PromotionInput3Button>
+                </S.KeyWordInputflex>
                 <div>
                   {plus.map((e, i) => {
                     return (
                       <>
-                        <BorderKeyword key={i}>
+                        <S.BorderKeyword key={i}>
                           <span>{plus[i]}</span>
-                        </BorderKeyword>
+                        </S.BorderKeyword>
                         <button
                           onClick={() => {
                             let copy = [...plus];
@@ -126,11 +107,11 @@ const PromotionForm = () => {
                     );
                   })}
                 </div>
-              </InputWrapKeyword>
-            </PromotionInputWrapper>
-            <PromotionInputWrapper>
+              </S.InputWrapKeyword>
+            </S.PromotionInputWrapper>
+            <S.PromotionInputWrapper>
               <span>자기소개</span>
-              <PromotionInput2
+              <S.PromotionInput2
                 label="한줄 소개"
                 placeholder="자신을 어필 할 수 있는 소개를 해주세요!"
                 multiline="true"
@@ -138,16 +119,16 @@ const PromotionForm = () => {
                 value={contents}
                 onChange={(e) => setContents(e.target.value)}
               />
-            </PromotionInputWrapper>
-            <PromotionRegisterButtonWrap>
-              <PromotionRegisterButton type="submit">
+            </S.PromotionInputWrapper>
+            <S.PromotionRegisterButtonWrap>
+              <S.PromotionRegisterButton type="submit">
                 등록
-              </PromotionRegisterButton>
-              <PromotionRegisterButton>취소</PromotionRegisterButton>
-            </PromotionRegisterButtonWrap>
-          </PromotioTextForm>
-        </PromotionTextWrap>
-      </PromotionFormWrap>
+              </S.PromotionRegisterButton>
+              <S.PromotionRegisterButton>취소</S.PromotionRegisterButton>
+            </S.PromotionRegisterButtonWrap>
+          </S.PromotioTextForm>
+        </S.PromotionTextWrap>
+      </S.PromotionFormWrap>
     </form>
   );
 };

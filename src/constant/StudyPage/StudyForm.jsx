@@ -5,19 +5,7 @@ import Option from "@mui/joy/Option";
 import Checkbox from "@mui/joy/Checkbox";
 import Input from "@mui/joy/Input";
 import { useNavigate } from "react-router-dom";
-
-import {
-  LineStudy,
-  StudyContentsWrap,
-  StudyFormFont,
-  StudyFormRadio,
-  StudyFormWrapper,
-  StudyRegisterButton,
-  StudyRegisterWrap,
-  StudyTextForm,
-  StudyTextFormWrap,
-  StudyTitleTextWrap,
-} from "./StudyFormStyle";
+import * as S from "./StudyFormStyle";
 import { API_URL } from "../../config/constant";
 import { POST_STUDY_FORM } from "../../api/apiUrl";
 
@@ -66,10 +54,10 @@ const StudyForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <StudyFormWrapper>
-          <StudyTextFormWrap>
-            <StudyFormFont>스터디 글쓰기</StudyFormFont>
-            <StudyContentsWrap>
+        <S.StudyFormWrapper>
+          <S.StudyTextFormWrap>
+            <S.StudyFormFont>스터디 글쓰기</S.StudyFormFont>
+            <S.StudyContentsWrap>
               <div>카테고리</div>
               <Select
                 value={sub_category}
@@ -81,8 +69,8 @@ const StudyForm = () => {
                 <Option value="Art">미술</Option>
                 <Option value="KPOP">실용음악</Option>
               </Select>
-            </StudyContentsWrap>
-            <StudyContentsWrap>
+            </S.StudyContentsWrap>
+            <S.StudyContentsWrap>
               <div>지역</div>
               <Select
                 value={region}
@@ -108,10 +96,10 @@ const StudyForm = () => {
                 <Option value="Jeju">제주</Option>
                 <Option value="overSea">해외</Option>
               </Select>
-            </StudyContentsWrap>
-            <StudyContentsWrap>
+            </S.StudyContentsWrap>
+            <S.StudyContentsWrap>
               <div>모집인원</div>
-              <StudyFormRadio>
+              <S.StudyFormRadio>
                 <Input
                   placeholder="인원수"
                   variant="outlined"
@@ -122,10 +110,10 @@ const StudyForm = () => {
                   onChange={(e) => setRecruitment(e.target.value)}
                 />
                 <Checkbox label="제한없음" variant="outlined" defaultChecked />
-              </StudyFormRadio>
-            </StudyContentsWrap>
-            <LineStudy></LineStudy>
-            <StudyTitleTextWrap>
+              </S.StudyFormRadio>
+            </S.StudyContentsWrap>
+            <S.LineStudy></S.LineStudy>
+            <S.StudyTitleTextWrap>
               <div>스터디 모집 제목</div>
               <Input
                 variant="outlined"
@@ -135,9 +123,9 @@ const StudyForm = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
-            </StudyTitleTextWrap>
+            </S.StudyTitleTextWrap>
             <div>
-              <StudyTextForm
+              <S.StudyTextForm
                 placeholder="내용을 입력해 주세요. (시간, 장소 등등 필요한 정보 입력)"
                 minRows={2}
                 type="text"
@@ -146,12 +134,12 @@ const StudyForm = () => {
                 onChange={(e) => setContents(e.target.value)}
               />
             </div>
-            <StudyRegisterWrap>
-              <StudyRegisterButton type="submit">등록</StudyRegisterButton>
-              <StudyRegisterButton>미리보기</StudyRegisterButton>
-            </StudyRegisterWrap>
-          </StudyTextFormWrap>
-        </StudyFormWrapper>
+            <S.StudyRegisterWrap>
+              <S.StudyRegisterButton type="submit">등록</S.StudyRegisterButton>
+              <S.StudyRegisterButton>미리보기</S.StudyRegisterButton>
+            </S.StudyRegisterWrap>
+          </S.StudyTextFormWrap>
+        </S.StudyFormWrapper>
       </div>
     </form>
   );
