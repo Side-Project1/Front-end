@@ -12,14 +12,47 @@ import {
   StudyTextFormWrap,
   StudyTitleTextWrap,
 } from "../StudyPage/StudyFormStyle";
+import { API_URL } from "../../config/constant";
 
 const CommunityForm = () => {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // 여기서 로컬 스토리지에 저장되어 있는 토큰을 가져오는데....
+    const token = localStorage.getItem("accessToken");
+    try {
+      const response = await axios.post(
+        `${API_URL}${POST_}`,
+        {
+          title,
+          contents,
+          sub_category,
+        },
+        // headers에도 보내고 있음
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("게시글이 등록되었습니다.");
+      console.log(response.data);
+      setTitle("");
+      setContents("");
+      navigate("/Community");
+    } catch (error) {
+      console.log("게시글 등록 실패");
+      console.error(error.response.data.data);
+      console.error(error.response.data.message);
+    }
+  };
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <StudyFormWrapper>
           <StudyTextFormWrap>
             <StudyFormFont>커뮤니티 글쓰기</StudyFormFont>
