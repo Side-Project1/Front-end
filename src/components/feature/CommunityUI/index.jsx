@@ -1,13 +1,12 @@
-import CommunitySearchUI from "./CommunitySearchUI"
-import CommunityTitleUI from "./CommunityTitleUI"
-const CommunityUI = () =>{
-
-  return(
+import CommunitySearchUI from "./CommunitySearchUI";
+import CommunityTitleUI from "./CommunityTitleUI";
+const CommunityUI = () => {
+  return (
     <>
-  <CommunityTitleUI/>
-  <CommunitySearchUI/>
+      <CommunityTitleUI />
+      <CommunitySearchUI />
     </>
-  )
-}
+  );
+};
 
-export default CommunityUI
+export default CommunityUI;
