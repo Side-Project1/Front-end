@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import {
   BorderKeyword,
   InputWrapKeyword,
@@ -29,6 +30,7 @@ const PromotionForm = () => {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
   const [sub_category, setSubCategory] = useState([]);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,6 +56,7 @@ const PromotionForm = () => {
       setTitle("");
       setContents("");
       setSubCategory([]);
+      navigate("/Promotion");
     } catch (error) {
       console.log("게시글 등록 실패");
       console.error(error.response.data.data);
