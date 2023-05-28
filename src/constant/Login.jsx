@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../config/constant";
 import { POST_LOGIN } from "../api/apiUrl";
-// import { Checkbox, FormControlLabel } from "@mui/material";
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -28,7 +27,12 @@ const Login = () => {
         user_id: userInfo.user_id,
         password: userInfo.password,
       });
-      console.log(res.data); // 세션정보나 사용자의 정보를 받아올 수 있음
+
+      // accessToken을 발급 받아 localStorage에 저장
+      const accessToken = res.headers["authorization"];
+      localStorage.setItem("accessToken", accessToken);
+
+      console.log(res.data.message); // 세션정보나 사용자의 정보를 받아올 수 있음
       setSession(res.data);
       navigate("/");
     } catch (error) {
