@@ -7,12 +7,20 @@ import {
   CardContainerPromotion,
   PromotionCategoryWrapper,
 } from "./Promotionstyle";
+import {
+  CardDetailText,
+  CardTitle,
+  CardWrap,
+  CategoryBox,
+  CategoryWrap,
+  CompanyText,
+} from "../../components/common/totalstyle";
+
 import { API_URL } from "../../config/constant";
 import { GET_ALL_PROMOTION_FORM } from "../../api/apiUrl";
+import { useQuery } from "react-query";
 
 const Promotion = () => {
-  const [data, setData] = useState([]);
-
   const navigate = useNavigate();
   const [views, setViews] = useState({
     view1: false,
@@ -31,20 +39,16 @@ const Promotion = () => {
     setSelectedCategory(category);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${API_URL}${GET_ALL_PROMOTION_FORM}`);
-        console.log(response.data);
-        setData(response.data.params); // params를 사용하도록 변경
-      } catch (error) {
-        console.error("게시글을 가져오는데 실패했습니다.");
-        console.error(error);
-      }
-    };
+  const { data: promotionData, isLoading } = useQuery(
+    "promotionForm",
+    async () => {
+      const response = await axios.get(`${API_URL}${GET_ALL_PROMOTION_FORM}`);
+      console.log(response.data);
+      console.log(promotionData);
 
-    fetchData();
-  }, []);
+      return response.data.data;
+    }
+  );
 
   return (
     <PromotionCategoryWrapper>
@@ -58,7 +62,19 @@ const Promotion = () => {
         navigate={navigate}
       />
       <CardContainerPromotion>
-        {data && data.map((v, i) => <PromotionCard data={v} key={i} />)}
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          promotionData.map((data, index) => (
+            <CardWrap key={index}>
+              <CompanyText>{data?.sub_category}</CompanyText>
+              <CardTitle>{data?.title}</CardTitle>
+              <CategoryWrap>
+                <CategoryBox>{data?.contents}</CategoryBox>
+              </CategoryWrap>
+            </CardWrap>
+          ))
+        )}
       </CardContainerPromotion>
     </PromotionCategoryWrapper>
   );
