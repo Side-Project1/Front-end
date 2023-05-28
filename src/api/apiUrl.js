@@ -9,8 +9,20 @@ export const POST_FIND_EMAIL = "/api/v1/email/findId";
 export const POST_SEND_EMAIL = "/api/v1/email/send";
 
 /*Promotion*/
-export const GET_PROMOTION_FORM = "/api/v1/prom/1";
-export const GET_ALL_PROMOTION_FORM = "/api/v1/prom?page=0&size=0";
+export const GET_ALL_PROMOTION_FORM = "/api/v1/prom";
+export const GET_PROMOTION_FORM = "/api/v1/prom/{promotionId}";
 export const POST_PROMOTION_FORM = "/api/v1/prom";
-export const PUT_PROMOTION_FORM = "/api/v1/prom/1";
-export const DELETE_PROMOTION_FORM = "/api/v1/prom/1";
+export const PUT_PROMOTION_FORM = "/api/v1/prom/{promotionId}";
+export const DELETE_PROMOTION_FORM = "/api/v1/prom/{promotionId}";
+
+/*Study*/
+export const GET_ALL_STUDY_FORM = "/api/v1/study";
+export const GET_STUDY_FORM = "/api/v1/prom/{promotionId}";
+export const POST_STUDY_FORM = "/api/v1/study";
+export const POST_STUDY_FORM_COMMENT = "/api/v1/study/comment";
+export const POST_STUDY_FORM_DEADLINE = "/api/v1/study/{studyId}/dead";
+
+/*Study Scrap*/
+export const GET_STUDY_FORM_SCRAP = "/api/v1/study/scrap";
+export const POST_STUDY_FORM_SCRAP = "/api/v1/study/scrap/{scrapId}";
+export const DELETE_STUDY_FORM_SCRAP = "/api/v1/study/scrap/{scrapId}";
