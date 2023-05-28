@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import * as S from "./StudyFormStyle";
 import { API_URL } from "../../config/constant";
 import { POST_STUDY_FORM } from "../../api/apiUrl";
+import { STUDY_CATEGORY_LIST, STUDY_REGION_LIST } from "./StudyList";
 
 const StudyForm = () => {
   const [title, setTitle] = useState("");
@@ -19,22 +20,22 @@ const StudyForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // 여기서 로컬 스토리지에 저장되어 있는 토큰을 가져오는데....
     const token = localStorage.getItem("accessToken");
     try {
+      const formData = new FormData();
+      formData.append("sub_category", sub_category);
+      formData.append("region", region);
+      formData.append("recruitment", recruitment);
+      formData.append("title", title);
+      formData.append("contents", contents);
+
       const response = await axios.post(
         `${API_URL}${POST_STUDY_FORM}`,
-        {
-          sub_category,
-          region,
-          recruitment,
-          title,
-          contents,
-        },
-        // headers에도 보내고 있음
+        formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -42,12 +43,13 @@ const StudyForm = () => {
       console.log(response.data);
       setTitle("");
       setContents("");
-      setSubCategory([]);
-      navigate("/Promotion");
+      setSubCategory("");
+      navigate("/Study");
     } catch (error) {
       console.log("게시글 등록 실패");
+      console.log(error);
       console.error(error.response.data.data);
-      console.error(error.response.data.message);
+      console.error(error.message);
     }
   };
 
@@ -61,40 +63,28 @@ const StudyForm = () => {
               <div>카테고리</div>
               <Select
                 value={sub_category}
-                onChange={(e) => e && setSubCategory(e.target.value)}
+                onChange={(e) => setSubCategory(e.target.value)}
                 style={{ width: "538px" }}
               >
-                <Option value="Music">음악</Option>
-                <Option value="design">디자인</Option>
-                <Option value="Art">미술</Option>
-                <Option value="KPOP">실용음악</Option>
+                {STUDY_CATEGORY_LIST.map((data) => (
+                  <Option key={data.category} value={data.category}>
+                    {data.category}
+                  </Option>
+                ))}
               </Select>
             </S.StudyContentsWrap>
             <S.StudyContentsWrap>
               <div>지역</div>
               <Select
                 value={region}
-                onChange={(e) => e && setRegion(e.target.value)}
+                onChange={(e) => setRegion(e.target.value)}
                 style={{ width: "538px" }}
               >
-                <Option value="Seoul">서울</Option>
-                <Option value="Kyunggi">경기</Option>
-                <Option value="Incheon">인천</Option>
-                <Option value="busan">부산</Option>
-                <Option value="Daegu">대구</Option>
-                <Option value="Daejeon">대전</Option>
-                <Option value="Gwangju">광주</Option>
-                <Option value="Gangwon">강원</Option>
-                <Option value="kyungbook">경북</Option>
-                <Option value="Jeonbook">전북</Option>
-                <Option value="chungbook">충북</Option>
-                <Option value="sejong">세종</Option>
-                <Option value="ulsan">울산</Option>
-                <Option value="kyungnam">경남</Option>
-                <Option value="Jeonnam">전남</Option>
-                <Option value="chungNam">충남</Option>
-                <Option value="Jeju">제주</Option>
-                <Option value="overSea">해외</Option>
+                {STUDY_REGION_LIST.map((data) => (
+                  <Option key={data.data} value={data.data}>
+                    {data.data}
+                  </Option>
+                ))}
               </Select>
             </S.StudyContentsWrap>
             <S.StudyContentsWrap>
