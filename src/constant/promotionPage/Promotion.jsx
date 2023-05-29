@@ -17,7 +17,7 @@ import {
 } from "../../components/common/totalstyle";
 
 import { API_URL } from "../../config/constant";
-import { GET_ALL_PROMOTION_FORM } from "../../api/apiUrl";
+import { GET_ALL_PROMOTION_FORM, GET_PROMOTION_FORM } from "../../api/apiUrl";
 import { useQuery } from "react-query";
 
 const Promotion = () => {
@@ -50,6 +50,18 @@ const Promotion = () => {
     }
   );
 
+  const handleCardClick = async (id) => {
+    try {
+      const response = await axios.get(`${API_URL}${GET_PROMOTION_FORM}${id}`);
+      const data = response.data.data;
+      console.log("카드 내용 조회 성공~~");
+      console.log(data);
+    } catch (error) {
+      console.log("카드 내용 불러오기 실패");
+      console.log(error);
+    }
+  };
+
   return (
     <PromotionCategoryWrapper>
       <PromotionUI
@@ -61,12 +73,12 @@ const Promotion = () => {
         views={views}
         navigate={navigate}
       />
-      <CardContainerPromotion>
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          promotionData &&
-          promotionData.map((data, index) => (
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        promotionData &&
+        promotionData.map((data, index) => (
+          <CardContainerPromotion onClick={() => handleCardClick(data.id)}>
             <CardWrap key={index}>
               <CompanyText>{data?.sub_category}</CompanyText>
               <CardTitle>{data?.title}</CardTitle>
@@ -74,9 +86,9 @@ const Promotion = () => {
                 <CategoryBox>{data?.contents}</CategoryBox>
               </CategoryWrap>
             </CardWrap>
-          ))
-        )}
-      </CardContainerPromotion>
+          </CardContainerPromotion>
+        ))
+      )}
     </PromotionCategoryWrapper>
   );
 };
