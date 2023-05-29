@@ -10,7 +10,7 @@ export const POST_SEND_EMAIL = "/api/v1/email/send";
 
 /*Promotion*/
 export const GET_ALL_PROMOTION_FORM = "/api/v1/prom";
-export const GET_PROMOTION_FORM = "/api/v1/prom/{promotionId}";
+export const GET_PROMOTION_FORM = "/api/v1/prom/";
 export const POST_PROMOTION_FORM = "/api/v1/prom";
 export const PUT_PROMOTION_FORM = "/api/v1/prom/{promotionId}";
 export const DELETE_PROMOTION_FORM = "/api/v1/prom/{promotionId}";
