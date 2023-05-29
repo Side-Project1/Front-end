@@ -29,6 +29,7 @@ const Login = () => {
       });
 
       // accessToken을 발급 받아 localStorage에 저장
+      // 나중엔 JWT를 이용해서 수정해보기
       const accessToken = res.headers["authorization"];
       localStorage.setItem("accessToken", accessToken);
 
