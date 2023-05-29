@@ -20,8 +20,8 @@ export const STUDY_REGION_LIST = [
 ];
 
 export const STUDY_CATEGORY_LIST = [
-  { category: "음악" },
-  { category: "디자인" },
-  { category: "미술" },
-  { category: "실용음악" },
+  { category: "음악", id: 1 },
+  { category: "디자인", id: 2 },
+  { category: "미술", id: 3 },
+  { category: "실용음악", id: 4 },
 ];
