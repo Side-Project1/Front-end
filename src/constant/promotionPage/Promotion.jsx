@@ -65,6 +65,7 @@ const Promotion = () => {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
+          promotionData &&
           promotionData.map((data, index) => (
             <CardWrap key={index}>
               <CompanyText>{data?.sub_category}</CompanyText>
