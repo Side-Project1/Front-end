@@ -5,7 +5,7 @@ import axios from "axios";
 import { API_URL } from "../config/constant";
 import { POST_LOGIN } from "../api/apiUrl";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [userInfo, setUserInfo] = useState({
     user_id: "",
     password: "",
@@ -36,6 +36,7 @@ const Login = () => {
       // 세션정보나 사용자의 정보를 받아올 수 있음
       // 일단 sesstion을 콘솔에 찍었을 땐 null 상태임(아마도 처음엔 null이어서 그런듯?)
       setSession(res.data);
+      onLogin(accessToken); //성현 추가
       navigate("/");
     } catch (error) {
       console.log(error);

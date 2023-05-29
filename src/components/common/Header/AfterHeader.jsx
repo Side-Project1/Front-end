@@ -10,13 +10,13 @@ import {
   NavLi,
 } from "./header.style";
 
-function AfterHeader(props) {
+function AfterHeader({onLogout}) {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleLogout() {
     setIsMenuOpen(false);
-    props.onLogin();
+    onLogout();
   }
 
   return (
