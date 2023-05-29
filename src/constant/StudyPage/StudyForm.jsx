@@ -13,25 +13,42 @@ import { STUDY_CATEGORY_LIST, STUDY_REGION_LIST } from "./StudyList";
 const StudyForm = () => {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
-  const [sub_category, setSubCategory] = useState("음악");
-  const [recruitment, setRecruitment] = useState("");
+  const [file, setFile] = useState("");
+  const [max, setMax] = useState("");
+
+  const [sub_category, setSubCategory] = useState([1]);
   const [region, setRegion] = useState("서울");
   const navigate = useNavigate();
+
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0]);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("accessToken");
     try {
-      const formData = new FormData();
-      formData.append("sub_category", sub_category);
-      formData.append("region", region);
-      formData.append("recruitment", recruitment);
-      formData.append("title", title);
-      formData.append("contents", contents);
+      const studyRequest = new FormData();
+      const data = {
+        sub_category: sub_category,
+        region: region,
+        title: title,
+        contents: contents,
+        max: max,
+      };
+
+      studyRequest.append(
+        "studyRequest",
+        new Blob([JSON.stringify(data)], {
+          type: "application/json",
+        })
+      );
+
+      studyRequest.append("file", file);
 
       const response = await axios.post(
         `${API_URL}${POST_STUDY_FORM}`,
-        formData,
+        studyRequest,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -63,7 +80,7 @@ const StudyForm = () => {
               <div>카테고리</div>
               <Select
                 value={sub_category}
-                onChange={(e) => setSubCategory(e.target.value)}
+                onClick={(e) => setSubCategory(e.target.value)}
                 style={{ width: "538px" }}
               >
                 {STUDY_CATEGORY_LIST.map((data) => (
@@ -77,7 +94,7 @@ const StudyForm = () => {
               <div>지역</div>
               <Select
                 value={region}
-                onChange={(e) => setRegion(e.target.value)}
+                onClick={(e) => setRegion(e.target.value)}
                 style={{ width: "538px" }}
               >
                 {STUDY_REGION_LIST.map((data) => (
@@ -95,9 +112,9 @@ const StudyForm = () => {
                   variant="outlined"
                   style={{ width: "538px" }}
                   type="text"
-                  id="recruitment"
-                  value={recruitment}
-                  onChange={(e) => setRecruitment(e.target.value)}
+                  id="max"
+                  value={max}
+                  onChange={(e) => setMax(e.target.value)}
                 />
                 <Checkbox label="제한없음" variant="outlined" defaultChecked />
               </S.StudyFormRadio>
@@ -124,6 +141,10 @@ const StudyForm = () => {
                 onChange={(e) => setContents(e.target.value)}
               />
             </div>
+            <S.StudyContentsWrap>
+              <div>파일 업로드</div>
+              <Input type="file" id="file" onChange={handleFileChange} />
+            </S.StudyContentsWrap>
             <S.StudyRegisterWrap>
               <S.StudyRegisterButton type="submit">등록</S.StudyRegisterButton>
               <S.StudyRegisterButton>미리보기</S.StudyRegisterButton>
