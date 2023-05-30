@@ -11,6 +11,7 @@ import StudyTextCard from "../../components/TextCard";
 import CommentItem from "../../components/feature/CommentItem";
 import { StudyDetailCommentWrap2, StudyDetailPageWrap, StudyDetailWrapper } from "./StudyDetailPageStyle";
 import { API_URL } from "../../config/constant";
+import { GET_COMMENT_DETAILPAGE } from "../../api/apiUrl";
 
 const data = {
   category: "영상",
@@ -46,18 +47,23 @@ const StudyDetailPage = () => {
   const [detailData, setDetailData] = useState([])
   const [content, setContent] = useState("");
   
-  useEffect(() => {
-    axios.get(`${API_URL}/api/v1/study/${id}`)
-      .then(response => {
-        const responseData = response.data
-        setDetailData(responseData)
-        console.log('성공했습니다')
-      })
-      .catch(error => {
-        console.log(error, '실패하였습니다.')
-      })
-  }, [id])
-
+  
+  const DataAxios = useEffect(() => {
+     const fetchData = async () => {
+      try {
+        const response = await axios.get(`${API_URL}${GET_COMMENT_DETAILPAGE}`);
+        const responseData = response.data;
+        setDetailData(responseData);
+        console.log('성공했습니다');
+      } catch (error) {
+        console.log(error, '실패하였습니다');
+      }
+    };
+    fetchData();
+  }, [])
+  
+  console.log(DataAxios)
+  
   return (
     <StudyDetailPageWrap>
       <StudyDetailWrapper>
@@ -70,6 +76,7 @@ const StudyDetailPage = () => {
         {comments?.map((el, i) => (
           <StudyDetailCommentWrap2 key={i}>
             <CommentItem
+            data={DataAxios}
               el={el}
               setReplyBtn={setReplyBtn}
               replyBtn={replyBtn}

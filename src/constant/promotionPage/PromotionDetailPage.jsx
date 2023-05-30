@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import PromotionDetailTextForm from "../../components/feature/PromotionDetailUI";
 import axios from "axios";
 import { API_URL } from "../../config/constant";
-import { GET_PROMOTION_FORM } from "../../api/apiUrl";
+import { GET_COMMENT_DETAILPAGE, GET_PROMOTION_FORM } from "../../api/apiUrl";
 import CommentWrite from "../../components/feature/CommentWrite";
 import { StudyDetailCommentWrap2 } from "../StudyPage/StudyDetailPageStyle";
 import CommentItem from "../../components/feature/CommentItem";
@@ -25,17 +25,19 @@ const PromotionDetailPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}${GET_PROMOTION_FORM}`);
+        const response = await axios.get(`${API_URL}${GET_COMMENT_DETAILPAGE}`);
         const responseData = response.data;
         setDetailData(responseData);
-        console.log('성공했습니다');
+        console.log(responseData,'성공했습니다');
       } catch (error) {
         console.log(error, '실패하였습니다');
       }
     };
     fetchData();
-  }, [id]);
+  }, []);
   
+  console.log(detailData.data)
+
   return (
     <DetailFormWrap>
       <PromotionDetailTextForm

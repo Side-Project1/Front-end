@@ -33,9 +33,11 @@ const CommentItem = ({
   setTextWrite,
   textWrite,
   setReComments,
-  reComments}) => {
+  reComments,
+  data
+}) => {
 
-  
+  console.log(data.data.comment_id)
   return (
     <div>
     <Flexcolumn>

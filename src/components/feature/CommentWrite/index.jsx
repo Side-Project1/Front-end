@@ -14,7 +14,7 @@ import ProfileIcon from "@/assets/images/ProfileStateicon.png";
 import { useState } from "react";
 import { API_URL } from "../../../config/constant";
 import axios from "axios";
-import { POST_COMMENT_DETAILPAGE } from "../../../api/apiUrl";
+import { GET_COMMENT_DETAILPAGE, POST_COMMENT_DETAILPAGE } from "../../../api/apiUrl";
 
 const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
   const [textWrite, setTextWrite] = useState("");
@@ -22,7 +22,7 @@ const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
 
   const handleComment = async () => {
     const token = localStorage.getItem("accessToken");
-    console.log(token);
+
     const commentData = {
       comment_id: 1, // 댓글 작성자 번호
       comments: textWrite, // 댓글 내용
@@ -31,7 +31,7 @@ const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
     };
 
     try {
-      await axios.post(`${API_URL}${POST_COMMENT_DETAILPAGE}`, commentData, {
+      await axios.post(`${API_URL}${GET_COMMENT_DETAILPAGE}`, commentData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
