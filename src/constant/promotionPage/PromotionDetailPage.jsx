@@ -5,12 +5,20 @@ import PromotionDetailTextForm from "../../components/feature/PromotionDetailUI"
 import axios from "axios";
 import { API_URL } from "../../config/constant";
 import { GET_PROMOTION_FORM } from "../../api/apiUrl";
+import CommentWrite from "../../components/feature/CommentWrite";
+import { StudyDetailCommentWrap2 } from "../StudyPage/StudyDetailPageStyle";
+import CommentItem from "../../components/feature/CommentItem";
 
 const PromotionDetailPage = () => {
 
   const { id } = useParams();
   const [plus, setPlus] = useState([]);
   const [detailData, setDetailData] = useState([]);
+  const [recruitType, setRecruitType] = useState(true);
+  const [textWrite, setTextWrite] = useState(" ");
+  const [comments, setComments] = useState([]);
+  const [replyBtn, setReplyBtn] = useState(Array(comments.length).fill(false));
+  const [reComments, setReComments] = useState([]);
 
 
 
@@ -36,6 +44,27 @@ const PromotionDetailPage = () => {
         setPlus={setPlus}
         data={detailData}
         setDetailData={setDetailData} />
+         {comments?.map((el, i) => (
+          <StudyDetailCommentWrap2 key={i}>
+            <CommentItem
+              el={el}
+              setReplyBtn={setReplyBtn}
+              replyBtn={replyBtn}
+              i={i}
+              setTextWrite={setTextWrite}
+              textWrite={textWrite}
+              reComments={reComments}
+              setReComments={setReComments}
+            /> 
+          </StudyDetailCommentWrap2>
+        ))}
+         <CommentWrite
+          comments={comments}
+          onComments={setComments}
+          replyBtn={replyBtn}
+          setReplyBtn={setReplyBtn}
+          textWrite={textWrite}
+        />
     </DetailFormWrap>
   );
 };

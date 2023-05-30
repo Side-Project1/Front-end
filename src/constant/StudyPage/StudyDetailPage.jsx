@@ -10,6 +10,7 @@ import axios from "axios";
 import StudyTextCard from "../../components/TextCard";
 import CommentItem from "../../components/feature/CommentItem";
 import { StudyDetailCommentWrap2, StudyDetailPageWrap, StudyDetailWrapper } from "./StudyDetailPageStyle";
+import { API_URL } from "../../config/constant";
 
 const data = {
   category: "영상",
@@ -43,9 +44,10 @@ const StudyDetailPage = () => {
   const [reComments, setReComments] = useState([]);
   const { id } = useParams();
   const [detailData, setDetailData] = useState([])
-
+  const [content, setContent] = useState("");
+  
   useEffect(() => {
-    axios.get(`http://13.209.81.190:8080/api/v1/study/${id}`)
+    axios.get(`${API_URL}/api/v1/study/${id}`)
       .then(response => {
         const responseData = response.data
         setDetailData(responseData)
@@ -76,7 +78,7 @@ const StudyDetailPage = () => {
               textWrite={textWrite}
               reComments={reComments}
               setReComments={setReComments}
-            />
+            /> 
           </StudyDetailCommentWrap2>
         ))}
         <CommentWrite

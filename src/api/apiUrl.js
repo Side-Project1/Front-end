@@ -27,3 +27,6 @@ export const GET_STUDY_FORM_SCRAP = "/api/v1/study/scrap";
 export const POST_STUDY_FORM_SCRAP = "/api/v1/study/scrap/{scrapId}";
 export const DELETE_STUDY_FORM_SCRAP = "/api/v1/study/scrap/{scrapId}";
 
+/*Comment*/
+export const POST_COMMENT_DETAILPAGE = "/api/v1/comment"
+export const GET_COMMENT_DETAILPAGE = "/api/v1/comment/1"

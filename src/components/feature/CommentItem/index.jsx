@@ -31,9 +31,9 @@ const CommentItem = ({
   replyBtn,
   i,
   setTextWrite,
-   textWrite,
-   setReComments,
-   reComments}) => {
+  textWrite,
+  setReComments,
+  reComments}) => {
 
   
   return (
@@ -42,7 +42,7 @@ const CommentItem = ({
       <ProfileFlexWrapper>
         <StudyProfileIcon src={ProfileIcon} />
         <Flexcolumn>
-          <span>글쓴이</span>
+          <span>작성자</span>
           <span>8:20</span>
         </Flexcolumn>
       </ProfileFlexWrapper>
