@@ -34,22 +34,24 @@ const CommentItem = ({
   textWrite,
   setReComments,
   reComments,
-  data
+  dataTest
 }) => {
 
-  console.log(data.data.comment_id)
+  
+console.log(el)
+
   return (
     <div>
     <Flexcolumn>
       <ProfileFlexWrapper>
         <StudyProfileIcon src={ProfileIcon} />
         <Flexcolumn>
-          <span>작성자</span>
-          <span>8:20</span>
+          <span>{el?.user_id}</span>
+          <span>{el?.created_date}</span>
         </Flexcolumn>
       </ProfileFlexWrapper>
     </Flexcolumn>
-    <TextReplyWrapper>{el}</TextReplyWrapper>
+    <TextReplyWrapper>{el?.comments}</TextReplyWrapper>
     <ReplyButton
       onClick={() => {
         setReplyBtn(copyStateChange(replyBtn, i));
@@ -63,7 +65,7 @@ const CommentItem = ({
           <StudyProfileTextWapper>
             <StudyReplyIconStyle src={ProfileIcon} />
             <StudyProfileNameWrap>
-              <span>닉네임</span>
+              <span>{el?.user_id}</span>
             </StudyProfileNameWrap>
           </StudyProfileTextWapper>
           <StudyTextAreaWrapper>

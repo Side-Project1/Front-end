@@ -14,6 +14,7 @@ const PromotionDetailPage = () => {
   const { id } = useParams();
   const [plus, setPlus] = useState([]);
   const [detailData, setDetailData] = useState([]);
+  const [commentData, setCommentData] = useState([]);
   const [recruitType, setRecruitType] = useState(true);
   const [textWrite, setTextWrite] = useState(" ");
   const [comments, setComments] = useState([]);
@@ -26,7 +27,7 @@ const PromotionDetailPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URL}${GET_COMMENT_DETAILPAGE}`);
-        const responseData = response.data;
+        const responseData = response.data.data;
         setDetailData(responseData);
         console.log(responseData,'성공했습니다');
       } catch (error) {
@@ -36,7 +37,7 @@ const PromotionDetailPage = () => {
     fetchData();
   }, []);
   
-  console.log(detailData.data)
+ 
 
   return (
     <DetailFormWrap>
@@ -46,7 +47,7 @@ const PromotionDetailPage = () => {
         setPlus={setPlus}
         data={detailData}
         setDetailData={setDetailData} />
-         {comments?.map((el, i) => (
+         {detailData?.map((el, i) => (
           <StudyDetailCommentWrap2 key={i}>
             <CommentItem
               el={el}
