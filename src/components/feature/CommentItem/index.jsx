@@ -34,7 +34,6 @@ const CommentItem = ({
   textWrite,
   setReComments,
   reComments,
-  dataTest
 }) => {
 
   
