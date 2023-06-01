@@ -22,27 +22,29 @@ const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
 
   const handleComment = async () => {
     const token = localStorage.getItem("accessToken");
-
+  
     const commentData = {
       comment_id: 1, // 댓글 작성자 번호
       comments: textWrite, // 댓글 내용
       is_privated: isPrivate ? "Y" : "N", // 비밀 댓글 여부
-      promotion_id: 2, // 게시글 번호
+      promotion_id: 1, // 게시글 번호
     };
+    
+    
 
-  try {
-      await axios.post(`${API_URL}${POST_COMMENT_DETAILPAGE}`, commentData, {
+    try {
+      const response = await axios.post(`${API_URL}${POST_COMMENT_DETAILPAGE}`, commentData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log('댓글 입력을 성공하였습니다');
+      console.log("API 요청 성공:", response.data);
+      console.log(commentData);
     } catch (error) {
-      console.log("댓글 작성 실패:", error);
+      console.error("API 요청 실패:", error);
     }
   };
 
-    
   const handleSubmit = () => {
     if (textWrite.trim()) {
       onComments([...comments, textWrite.trim()]);
@@ -50,7 +52,6 @@ const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
     setTextWrite("");
     handleComment();
   };
-
   
   return (
     <StudyDetailCommentWriteWrap>

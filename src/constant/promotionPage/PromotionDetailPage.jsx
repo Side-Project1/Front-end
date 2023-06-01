@@ -22,7 +22,8 @@ const PromotionDetailPage = () => {
   const [reComments, setReComments] = useState([]);
 
 
-
+  
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +38,7 @@ const PromotionDetailPage = () => {
     fetchData();
   }, []);
   
- 
+
 
   return (
     <DetailFormWrap>
@@ -47,7 +48,7 @@ const PromotionDetailPage = () => {
         setPlus={setPlus}
         data={detailData}
         setDetailData={setDetailData} />
-         {detailData?.map((el, i) => (
+        {detailData?.map((el, i) => (
           <StudyDetailCommentWrap2 key={i}>
             <CommentItem
               el={el}
@@ -61,7 +62,7 @@ const PromotionDetailPage = () => {
             /> 
           </StudyDetailCommentWrap2>
         ))}
-         <CommentWrite
+        <CommentWrite
           comments={comments}
           onComments={setComments}
           replyBtn={replyBtn}

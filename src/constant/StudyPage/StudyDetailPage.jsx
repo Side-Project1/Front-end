@@ -49,7 +49,7 @@ const StudyDetailPage = () => {
   
   
   const DataAxios = useEffect(() => {
-     const fetchData = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(`${API_URL}${GET_COMMENT_DETAILPAGE}`);
         const responseData = response.data;
