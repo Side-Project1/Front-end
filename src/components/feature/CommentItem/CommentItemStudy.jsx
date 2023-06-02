@@ -26,7 +26,7 @@ const copyStateChange = (list , i) => {
   return copy;
 }
 
-const CommentItem = ({
+const CommentItemStudy = ({
   el,
   setReplyBtn,
   replyBtn,
@@ -38,7 +38,7 @@ const CommentItem = ({
 }) => {
 
   
-console.log(el)
+console.log(el,"스터디페이지입니다")
 
   return (
     <div>
@@ -106,4 +106,4 @@ console.log(el)
   )
 }
 
-export default CommentItem;
+export default CommentItemStudy;

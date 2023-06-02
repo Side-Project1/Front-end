@@ -8,10 +8,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import StudyTextCard from "../../components/TextCard";
-import CommentItem from "../../components/feature/CommentItem";
 import { StudyDetailCommentWrap2, StudyDetailPageWrap, StudyDetailWrapper } from "./StudyDetailPageStyle";
 import { API_URL } from "../../config/constant";
-import { GET_COMMENT_DETAILPAGE } from "../../api/apiUrl";
+import {GET_COMMENT_STUDYDETAILPAGE } from "../../api/apiUrl";
+import CommentItemStudy from "../../components/feature/CommentItem/CommentItemStudy";
 
 const data = {
   category: "영상",
@@ -45,16 +45,15 @@ const StudyDetailPage = () => {
   const [reComments, setReComments] = useState([]);
   const { id } = useParams();
   const [detailData, setDetailData] = useState([])
-  const [content, setContent] = useState("");
   
   
-  const DataAxios = useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}${GET_COMMENT_DETAILPAGE}`);
-        const responseData = response.data;
+        const response = await axios.get(`${API_URL}${GET_COMMENT_STUDYDETAILPAGE}`);
+        const responseData = response.data.data;
         setDetailData(responseData);
-        console.log('성공했습니다');
+        console.log(responseData,'성공했습니다');
       } catch (error) {
         console.log(error, '실패하였습니다');
       }
@@ -62,7 +61,7 @@ const StudyDetailPage = () => {
     fetchData();
   }, [])
   
-  console.log(DataAxios)
+
   
   return (
     <StudyDetailPageWrap>
@@ -73,10 +72,9 @@ const StudyDetailPage = () => {
           ProfileIcon={ProfileIcon}
           id={id}
         />
-        {comments?.map((el, i) => (
+        {detailData?.map((el, i) => (
           <StudyDetailCommentWrap2 key={i}>
-            <CommentItem
-            data={DataAxios}
+            <CommentItemStudy
               el={el}
               setReplyBtn={setReplyBtn}
               replyBtn={replyBtn}

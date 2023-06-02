@@ -14,7 +14,7 @@ import ProfileIcon from "@/assets/images/ProfileStateicon.png";
 import { useState } from "react";
 import { API_URL } from "../../../config/constant";
 import axios from "axios";
-import { POST_COMMENT_DETAILPAGE } from "../../../api/apiUrl";
+import {POST_STUDY_FORM_COMMENT } from "../../../api/apiUrl";
 
 const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
   const [textWrite, setTextWrite] = useState("");
@@ -27,22 +27,19 @@ const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
       comment_id: 1, // 댓글 작성자 번호
       comments: textWrite, // 댓글 내용
       is_privated: isPrivate ? "Y" : "N", // 비밀 댓글 여부
-      promotion_id: 1, // 게시글 번호
+      study_id: 1, // 게시글 번호
     };
     
     
 
     try {
-      const response = await axios.post(`${API_URL}${POST_COMMENT_DETAILPAGE}`, commentData, {
+      const response = await axios.post(`${API_URL}${POST_STUDY_FORM_COMMENT}`, commentData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       console.log("API 요청 성공:", response.data);
       console.log(commentData);
-
-      console.log("comment token")
-      console.log(token);
 
     } catch (error) {
       console.error("API 요청 실패:", error);

@@ -32,6 +32,8 @@ function App() {
   function handleLogin(token) {
     // 로그인 성공 시 로컬 스토리지에 토큰을 저장하고, 로그인 상태를 업데이트
     localStorage.setItem("accessToken", token);
+    console.log("token")
+    console.log(token)
     setIsLoggedIn(true);
   }
 
