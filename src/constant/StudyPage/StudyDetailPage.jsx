@@ -12,6 +12,7 @@ import { StudyDetailCommentWrap2, StudyDetailPageWrap, StudyDetailWrapper } from
 import { API_URL } from "../../config/constant";
 import {GET_COMMENT_STUDYDETAILPAGE } from "../../api/apiUrl";
 import CommentItemStudy from "../../components/feature/CommentItem/CommentItemStudy";
+import CommentWriteStudy from "../../components/feature/CommentWrite/CommentWriteStudy";
 
 const data = {
   category: "영상",
@@ -48,9 +49,16 @@ const StudyDetailPage = () => {
   
   
   useEffect(() => {
+    const token = localStorage.getItem("accessToken");
+
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${API_URL}${GET_COMMENT_STUDYDETAILPAGE}`);
+        const response = await axios.get(`${API_URL}${GET_COMMENT_STUDYDETAILPAGE}${id}`,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        console.log(response)
         const responseData = response.data.data;
         setDetailData(responseData);
         console.log(responseData,'성공했습니다');
@@ -59,9 +67,9 @@ const StudyDetailPage = () => {
       }
     };
     fetchData();
-  }, [])
+  }, [id])
   
-
+  console.log(detailData)
   
   return (
     <StudyDetailPageWrap>
@@ -86,7 +94,7 @@ const StudyDetailPage = () => {
             /> 
           </StudyDetailCommentWrap2>
         ))}
-        <CommentWrite
+        <CommentWriteStudy
           comments={comments}
           onComments={setComments}
           replyBtn={replyBtn}

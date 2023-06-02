@@ -16,7 +16,7 @@ import { API_URL } from "../../../config/constant";
 import axios from "axios";
 import {POST_STUDY_FORM_COMMENT } from "../../../api/apiUrl";
 
-const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
+const CommentWriteStudy = ({ comments, onComments, replyBtn,setReplyBtn}) => {
   const [textWrite, setTextWrite] = useState("");
   const [isPrivate, setIsPrivate] = useState(false);
 
@@ -93,4 +93,4 @@ const CommentWrite = ({ comments, onComments, replyBtn,setReplyBtn}) => {
   );
 };
 
-export default CommentWrite;
+export default CommentWriteStudy;
