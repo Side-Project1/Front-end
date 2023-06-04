@@ -1,29 +1,36 @@
-import { SearchingBar, SearchingBarWrap } from "../../common/totalstyle"
-import CategoryDropDownUI from "../../common/CategoryDropdown"
-import PromotionClickCategory from "./PromotionCategory"
-import { PromotionRegisterWrap, RegisterFlexWrap, RegiststerCursor, SemiWrapper, WriteTextButton } from "./style"
+import { SearchingBar, SearchingBarWrap } from "../../common/totalstyle";
+import CategoryDropDownUI from "../../common/CategoryDropdown";
+import PromotionClickCategory from "./PromotionCategory";
+import {
+  PromotionRegisterWrap,
+  RegisterFlexWrap,
+  RegiststerCursor,
+  SemiWrapper,
+  WriteTextButton,
+} from "./style";
 
-const PromotionUI = (
-  {categoryContents,
-    onCategoryClick,
-    selectedCategory,
-    toggleView,
-    setViews,
-    views ,
-    navigate
-  }
-  ) =>{
-
-return(
-  <>
-  <PromotionClickCategory
+const PromotionUI = ({
+  categoryContents,
+  onCategoryClick,
+  selectedCategory,
+  toggleView,
+  setViews,
+  views,
+  navigate,
+}) => {
+  return (
+    <>
+      <PromotionClickCategory
         categoryContents={categoryContents}
         onCategoryClick={onCategoryClick}
         selectedCategory={selectedCategory}
       />
       <SemiWrapper>
-      
-        <CategoryDropDownUI toggleView={toggleView} setViews={setViews} views={views} />
+        <CategoryDropDownUI
+          toggleView={toggleView}
+          setViews={setViews}
+          views={views}
+        />
         <SearchingBarWrap>
           <SearchingBar placeholder="제목 + 본문검색" />
         </SearchingBarWrap>
@@ -41,7 +48,7 @@ return(
           </WriteTextButton>
         </PromotionRegisterWrap>
       </RegisterFlexWrap>
-</>
-)
-}
-export default PromotionUI
+    </>
+  );
+};
+export default PromotionUI;
