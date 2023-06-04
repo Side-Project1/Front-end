@@ -67,9 +67,7 @@ export const ReplyWrapper = styled.div`
   border: 1px solid #d0d0d0;
   border-radius: 9px;
 `;
-export const StudyProfileIcon = styled.img`
-
-`;
+export const StudyProfileIcon = styled.img``;
 export const StudyTextContentsWrapper3 = styled.div`
   display: flex;
   gap: 8px;
@@ -96,8 +94,6 @@ export const StudyReplyIconStyle = styled.img`
   display: flex;
   height: 56px;
 `;
-
-
 
 export const StudyProfileNameWrap = styled.div`
   display: flex;
